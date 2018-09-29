@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".activity.IndexActivity">
+
+
+
+    <TextView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="223dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        android:text="@string/guidanceword"
+        />
+
+    <Button
+        android:id="@+id/button_creat_index"
+        android:layout_width="210dp"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="160dp"
+        android:text="创建身份"
+        android:textSize="15dp"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/btn_selector_white_index"
+        />
+
+    <Button
+        android:id="@+id/button_input_index"
+        android:layout_width="210dp"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="102dp"
+        android:text="导入身份"
+        android:textSize="15dp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/btn_selector_transparent_index"
+        />
+
+
+    <!--<Button android:id="@+id/creat_user"-->
+        <!--android:layout_height=""/>-->
+
+</RelativeLayout>
