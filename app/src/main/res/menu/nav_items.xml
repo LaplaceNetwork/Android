@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home_id"
+        android:icon="@drawable/baseline_perm_identity_black_24dp"
+        android:title="@string/nav_homeid" />
+    <item
+        android:id="@+id/nav_pay"
+        android:icon="@drawable/baseline_payment_black_24dp"
+        android:title="@string/nav_pay" />
+    <item
+        android:id="@+id/nav_google_verity"
+        android:icon="@drawable/baseline_fingerprint_black_24dp"
+        android:title="@string/googleverity" />
+    <item
+        android:id="@+id/nav_current_time"
+        android:icon="@drawable/baseline_timeline_black_24dp"
+        android:title="@string/currenttime" />
+    <item
+        android:id="@+id/nav_monitoring_center"
+        android:icon="@drawable/baseline_alarm_on_black_24dp"
+        android:title="@string/monitoringcenter" />
+</menu>

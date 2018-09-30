@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.orangechain.laplace">
+
+    <application
+        android:name=".base.basehelper.MyApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".luncher.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".luncher.ADLuncherActivity" />
+        <activity android:name=".activity.IndexActivity" />
+        <activity
+            android:name=".activity.CreatIdentityActivity"
+            android:label="@string/title_activity_creat_identity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.FingerprintOpenActivity" />
+        <activity android:name=".activity.LeadInIdentityActivity"></activity>
+    </application>
+
+</manifest>
