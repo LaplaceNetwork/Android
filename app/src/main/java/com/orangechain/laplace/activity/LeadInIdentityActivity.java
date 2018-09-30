@@ -16,6 +16,7 @@ public class LeadInIdentityActivity extends BaseActivity {
         bottomNavigationView.setVisibility(View.INVISIBLE);
 
 
+
     }
 
 
