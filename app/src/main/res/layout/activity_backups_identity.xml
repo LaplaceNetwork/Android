@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".activity.BackupsIdentityActivity">
+
+    <ImageView android:id="@+id/icon_imageview"
+        android:layout_width="66dp"
+        android:layout_height="59dp"
+        android:background="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"/>
+
+    <TextView android:id="@+id/icon_name_textview"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:text="备份身份"
+        android:textSize="@dimen/text_size_25"
+        android:textColor="@color/color022656"
+        android:layout_below="@id/icon_imageview"
+        android:layout_marginTop="18dp"/>
+
+
+    <RelativeLayout
+        android:id="@+id/des_relativelayout"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon_name_textview"
+        android:layout_marginTop="54dp"
+        android:paddingLeft="38dp"
+        android:paddingRight="38dp"
+        >
+
+        <TextView android:id="@+id/des_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color3F4D68"
+            android:textSize="@dimen/text_size_13"
+            android:text="在备份身份之前，我确认"
+            />
+
+        <CheckBox
+            android:id="@+id/des_checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/des_textview"
+            android:text="所在的网络环境安全"
+            android:textColor="@color/color3F4D68"
+            android:textSize="@dimen/text_size_13"
+            android:theme="@style/EditText_0"
+            android:layout_marginTop="17dp"
+        />
+
+        <CheckBox
+            android:id="@+id/des_checkBox0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/des_textview"
+            android:text="所在的网络环境安全"
+            android:textColor="@color/color3F4D68"
+            android:textSize="@dimen/text_size_13"
+            android:theme="@style/EditText_0"
+            android:layout_marginTop="17dp"
+            />
+
+        <CheckBox
+            android:id="@+id/des_checkBox1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/des_checkBox0"
+            android:text="四周无人"
+            android:textColor="@color/color3F4D68"
+            android:textSize="@dimen/text_size_13"
+            android:theme="@style/EditText_0"
+            android:layout_marginTop="14dp"
+            />
+
+        <CheckBox
+            android:id="@+id/des_checkBox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/des_checkBox1"
+            android:text="无摄像头"
+            android:textColor="@color/color3F4D68"
+            android:textSize="@dimen/text_size_13"
+            android:theme="@style/EditText_0"
+            android:layout_marginTop="14dp"
+            />
+
+        <CheckBox
+            android:id="@+id/des_checkBox3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/des_checkBox2"
+            android:text="不讲keystore截图或者拍照储存，不通过互联网进行 发送"
+            android:textColor="@color/color3F4D68"
+            android:textSize="@dimen/text_size_13"
+            android:theme="@style/EditText_0"
+            android:layout_marginTop="14dp"
+            />
+
+    </RelativeLayout>
+
+
+    <Button android:id="@+id/backups_button"
+        android:layout_width="320dp"
+        android:layout_height="44dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:text="立即备份"
+        android:textColor="@color/colorWhite"
+        android:textSize="13dp"
+        android:background="@drawable/btn_selector_fingerprint"
+        />
+
+
+</RelativeLayout>

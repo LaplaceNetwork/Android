@@ -18,5 +18,9 @@
 
 
 
+    <!--尺寸-->
+    <dimen name="line_size_common">1dp</dimen>
+
+
 
 </resources>

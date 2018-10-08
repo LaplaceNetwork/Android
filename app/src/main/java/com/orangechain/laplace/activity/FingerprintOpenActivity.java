@@ -20,8 +20,12 @@ public class FingerprintOpenActivity extends BaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(FingerprintOpenActivity.this,
-                        R.string.development_specification,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(FingerprintOpenActivity.this,
+//                        R.string.development_specification,Toast.LENGTH_SHORT).show();
+
+                BackupsIdentityActivity backupsIdentityActivity = new BackupsIdentityActivity();
+                backupsIdentityActivity.pushActivity(FingerprintOpenActivity.this);
+
             }
         });
     }
