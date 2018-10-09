@@ -6,15 +6,22 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 import android.support.design.bottomnavigation.LabelVisibilityMode;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -22,6 +29,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.base.laplaceBaseView.laplaceToolbar;
+import com.orangechain.laplace.interfac.BottomNavigationViewInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,14 +37,16 @@ import java.util.List;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private ViewGroup viewGroup;
-    public laplaceToolbar toolbar;
+    private laplaceToolbar toolbar;
     private FrameLayout mFrameLayout;
     public BottomNavigationView bottomNavigationView;
+    private int mLayoutResID;
 
     /**
      * 此变量用于启动activity时的标识，用于判断activity结束时是否覆盖原有动画，以保持启动退出动画一致性
      */
     private static boolean isFromActivityStart = false;
+
     /**
      * 结束动画
      */
@@ -55,6 +65,11 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 获取要布置的UI ID
      */
     public abstract int getLayoutId();
+
+    /**
+     * 创建跳转方法
+     */
+    public abstract void pushActivity(Context context);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +95,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         toolbar.setLeftTitleClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(BaseActivity.this, "点击了左侧Title", Toast.LENGTH_SHORT).show();
+                leftAction();
             }
         });
 
@@ -97,14 +112,43 @@ public abstract class BaseActivity extends AppCompatActivity {
         //设置bottomNavigation
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                switch (menuItem.getItemId()) {
+                    case R.id.nav_home_id:
+                        BottomNavigationViewEvent.clickItemAction(R.id.nav_home_id);
+                        return true;
+                    case R.id.nav_pay:
+                        BottomNavigationViewEvent.clickItemAction(R.id.nav_pay);
+                        return true;
+                    case R.id.nav_google_verity:
+                        BottomNavigationViewEvent.clickItemAction(R.id.nav_google_verity);
+                        return true;
+                    case R.id.nav_current_time:
+                        BottomNavigationViewEvent.clickItemAction(R.id.nav_current_time);
+                        return true;
+                    case R.id.nav_monitoring_center:
+                        BottomNavigationViewEvent.clickItemAction(R.id.nav_monitoring_center);
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
 
 
+        mLayoutResID = layoutResID;
 
-        if (layoutResID != -1) {
+        //将布局文件放在父容器内
+        if (mLayoutResID != -1) {
+
             //拿到主界面
-            viewGroup = findViewById(R.id.fl_root1);
+            viewGroup = findViewById(R.id.main_frame);
+
             //将子类的界面放上去
-            getLayoutInflater().inflate(layoutResID,viewGroup);
+            getLayoutInflater().inflate(mLayoutResID,viewGroup);
         }
 
         //设置界面的主要方向 纵向
@@ -118,6 +162,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         //保证app字号在控制范围内进行修改
         Resources resource = this.getResources();
         Configuration configuration = resource.getConfiguration();
@@ -134,6 +179,46 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
+     * 设置toolbar是否显示
+     */
+    public void setToolbarVisible(int visible) {
+        toolbar.setVisibility(visible);
+    }
+
+    /**
+     * 设置ToolBar的颜色
+     */
+
+    public void setToolBarBackColor(int color) {
+        toolbar.setBackgroundColor(getResources().getColor(color));
+    }
+
+    /**
+     * 设置ToolBar字体颜色
+     */
+    public void setToolBarTextColor(int color) {
+        toolbar.setMainTitleColor(getResources().getColor(color));
+    }
+
+    /**
+     * 设置返回键图片
+     */
+    public void setToolBarLeftImage(int res) {
+        toolbar.setLeftTitleDrawable(res);
+    }
+
+    /**
+     * 设置返回按钮图片颜色
+     * @param colorId
+     */
+    public void setToolBarLeftColor(@ColorRes int colorId) {
+        Drawable upArrow = ContextCompat.getDrawable(this, R.drawable.baseline_navigate_before_black_24dp);
+        upArrow.setColorFilter(getResources().getColor(colorId), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+
+    }
+
+    /**
      * 是否显示返回按钮 默认是显示
      */
     public void setToolBarLeftShow(boolean isShow) {
@@ -147,13 +232,49 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
+     * 设置BottomNavigationView是否显示
+     */
+    public void setBottomNavigationViewVisible(int visible) {
+        bottomNavigationView.setVisibility(visible);
+    }
+
+
+    /**
+     * 创建一个关于BottomNavigationView接口的内部类
+     */
+    public static class BottomNavigationViewEvent {
+
+        private static BottomNavigationViewInterface mBottomNavigationViewInterface;
+
+
+        public static void setBottomNavigationVInterface(BottomNavigationViewInterface BNVInterface) {
+
+            mBottomNavigationViewInterface = BNVInterface;
+
+        }
+
+        public static void clickItemAction(int actionId) {
+            mBottomNavigationViewInterface.clickNavigationItemListener(actionId);
+        }
+
+    }
+
+    /**
      * 返回事件
      *
      */
     public void leftAction(){
         this.finish();
+        BaseActivityCollector.removeActivity(this);
     }
 
+
+    /**
+     * 重写系统返回事件
+     * @param keyCode
+     * @param event
+     * @return
+     */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
@@ -164,6 +285,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * ******************************此处管理活动之间跳转的动画
+     */
 
     /**
      * 获取启动intent
@@ -266,12 +390,17 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        BaseActivityCollector.removeActivity(this);
+        if (this != null) {
+            BaseActivityCollector.removeActivity(this);
+        }
     }
 
+    /**
+     * ******************************此处管理屏幕的一些内容
+     */
 
     /**
-     * ******************************************************************
+     * 获取屏幕的高度和宽度
      */
     public int[] getScreenProperty() {
         WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);

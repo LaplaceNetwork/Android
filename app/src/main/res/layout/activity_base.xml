@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/color022656"
+        android:background="@color/colorWhite"
         android:layout_alignParentTop="true"
         android:fitsSystemWindows="true"
         app:contentInsetLeft="0dp"

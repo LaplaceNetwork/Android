@@ -25,7 +25,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".activity.FingerprintOpenActivity" />
         <activity android:name=".activity.LeadInIdentityActivity" />
-        <activity android:name=".activity.BackupsIdentityActivity"></activity>
+        <activity android:name=".activity.BackupsIdentityActivity" />
+        <activity android:name=".activity.BackupsIdentityActionActivity"></activity>
     </application>
 
 </manifest>

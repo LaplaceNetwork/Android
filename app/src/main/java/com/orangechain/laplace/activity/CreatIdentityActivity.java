@@ -13,8 +13,8 @@ public class CreatIdentityActivity extends BaseActivity {
     @Override
     public void initWithView() {
 
-        bottomNavigationView.setVisibility(View.INVISIBLE);
-        toolbar.setVisibility(View.INVISIBLE);
+        setBottomNavigationViewVisible(View.GONE);
+        setToolbarVisible(View.GONE);
 
         Button button = findViewById(R.id.button_creat_identity);
         button.setOnClickListener(new View.OnClickListener() {
@@ -32,6 +32,7 @@ public class CreatIdentityActivity extends BaseActivity {
         return R.layout.activity_creat_identity;
     }
 
+    @Override
     public void pushActivity(Context context) {
         Intent intent = getLaunchIntent(context, CreatIdentityActivity.class);
         startWithNewAnimation(context,intent);

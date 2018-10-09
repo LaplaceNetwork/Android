@@ -13,8 +13,8 @@ public class FingerprintOpenActivity extends BaseActivity {
 
     @Override
     public void initWithView() {
-        toolbar.setVisibility(View.INVISIBLE);
-        bottomNavigationView.setVisibility(View.INVISIBLE);
+        setToolbarVisible(View.GONE);
+        setBottomNavigationViewVisible(View.GONE);
 
         Button button = findViewById(R.id.open_fingerprint_button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +35,7 @@ public class FingerprintOpenActivity extends BaseActivity {
         return R.layout.activity_fingerprint_open;
     }
 
+    @Override
     public void pushActivity(Context context) {
         Intent intent = getLaunchIntent(context,FingerprintOpenActivity.class);
         startWithNewAnimation(context,intent);

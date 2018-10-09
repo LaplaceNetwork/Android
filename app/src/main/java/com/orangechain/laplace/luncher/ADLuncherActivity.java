@@ -1,5 +1,7 @@
 package com.orangechain.laplace.luncher;
 
+import android.content.Context;
+
 import com.orangechain.laplace.base.BaseActivity;
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.logUtil.NavigationUtil;
@@ -20,4 +22,9 @@ public class ADLuncherActivity extends BaseActivity {
         return R.layout.activity_adluncher;
     }
 
+
+    @Override
+    public void pushActivity(Context context) {
+
+    }
 }

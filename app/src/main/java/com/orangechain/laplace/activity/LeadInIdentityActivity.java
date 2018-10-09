@@ -13,8 +13,8 @@ public class LeadInIdentityActivity extends BaseActivity {
 
     @Override
     public void initWithView() {
-        toolbar.setVisibility(View.INVISIBLE);
-        bottomNavigationView.setVisibility(View.INVISIBLE);
+        setToolbarVisible(View.GONE);
+        setBottomNavigationViewVisible(View.GONE);
 
         Button button = findViewById(R.id.button_creat_identity);
         button.setOnClickListener(new View.OnClickListener() {
@@ -37,14 +37,10 @@ public class LeadInIdentityActivity extends BaseActivity {
         return R.layout.activity_lead_in_identity;
     }
 
-    /**
-     * 进入此活动
-     * @param context
-     */
+
+    @Override
     public void pushActivity(Context context) {
         Intent intent = getLaunchIntent(context,LeadInIdentityActivity.class);
         startWithNewAnimation(context,intent);
     }
-
-
 }

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
-        android:background="@color/colorWhite">
+        >
 
         <TextView
             android:id="@+id/txt_left_title"
@@ -19,8 +19,8 @@
             android:layout_gravity="left"
             android:layout_marginLeft="10dp"
             android:singleLine="true"
-        android:drawableLeft="@drawable/baseline_arrow_back_black_24dp"
-            android:text="返回"
+            android:drawableLeft="@drawable/baseline_navigate_before_black_24dp"
+            android:text=""
             android:textColor="@color/color333333"
             android:textSize="@dimen/topnavigation_font"
             android:visibility="visible"/>

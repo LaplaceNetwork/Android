@@ -4,6 +4,8 @@ package com.orangechain.laplace.luncher;
  * 项目主入口 进行一些初始化的设计
  */
 
+import android.content.Context;
+
 import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.base.BaseActivity;
 import com.orangechain.laplace.R;
@@ -18,7 +20,13 @@ public class MainActivity extends BaseActivity {
         initSystem();
 
         //初始化 进入分发界面
-        IndexActivity.pushActivity(MainActivity.this);
+        IndexActivity indexActivity = new IndexActivity();
+        indexActivity.pushActivity(MainActivity.this);
+    }
+
+    @Override
+    public void pushActivity(Context context) {
+        //不做任何事情
     }
 
     /**
