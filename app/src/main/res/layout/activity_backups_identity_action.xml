@@ -43,4 +43,28 @@
         android:textColor="@color/color333333"
         android:text="kuehkjngjnjw93hhtl239utksdga1934lrnergjlsdfkuehkjngjnjw93hhtl239utksdga1934lrnergjlsdfkuehkjngjnjw93hhtl239utksdga1934lrnergjlsdfkuehkjngjnjw93hhtl239utksdga1934lrnergjlsdfkuehkjngjnjw93hhtl239utksdga1934lrnergjlsdfkuehkjngjnjw93hhtl239utksdga1934lrnergjlsdfkuehkjngjnjw93hhtl239utksdga1934lrnergjlsdfkuehkjngjnjw93hhtl239utksdga193"/>
 
+    <Button android:id="@+id/export_keystory_botton"
+        android:layout_width="320dp"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/btn_bg_normal_backups_export_action"
+        android:text="导出Keystore文本"
+        android:textSize="@dimen/text_size_13"
+        android:textColor="@color/colorWhite"
+        />
+
+    <Button android:id="@+id/watch_keystory_botton"
+        android:layout_width="320dp"
+        android:layout_height="44dp"
+       android:layout_above="@+id/export_keystory_botton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/btn_bg_normal_backups_watch_action"
+        android:text="查看Keystore二维码"
+        android:textSize="@dimen/text_size_13"
+        android:textColor="@color/color2C467B"
+        />
+
 </RelativeLayout>

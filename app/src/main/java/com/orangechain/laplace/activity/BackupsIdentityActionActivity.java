@@ -7,7 +7,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.base.BaseActivity;
@@ -29,6 +29,31 @@ public class BackupsIdentityActionActivity extends BaseActivity {
         Drawable imageViewDraw = ContextCompat.getDrawable(this, R.drawable.baseline_report_black_24dp);
         imageViewDraw.setColorFilter(getResources().getColor(R.color.colorGray), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(imageViewDraw);
+
+
+        Button exportButton = findViewById(R.id.export_keystory_botton);
+        exportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //进入首页
+
+            }
+        });
+
+        Button watchButton = findViewById(R.id.watch_keystory_botton);
+        watchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //查看二维码
+                BackupsQRCodeActivity backupsQRCodeActivity = new BackupsQRCodeActivity();
+                backupsQRCodeActivity.pushActivity(BackupsIdentityActionActivity.this);
+
+            }
+        });
+
+
     }
 
     @Override

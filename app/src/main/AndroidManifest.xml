@@ -26,7 +26,8 @@
         <activity android:name=".activity.FingerprintOpenActivity" />
         <activity android:name=".activity.LeadInIdentityActivity" />
         <activity android:name=".activity.BackupsIdentityActivity" />
-        <activity android:name=".activity.BackupsIdentityActionActivity"></activity>
+        <activity android:name=".activity.BackupsIdentityActionActivity" />
+        <activity android:name=".activity.BackupsQRCodeActivity"></activity>
     </application>
 
 </manifest>
