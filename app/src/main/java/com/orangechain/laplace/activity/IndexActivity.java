@@ -1,17 +1,23 @@
 package com.orangechain.laplace.activity;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.RestrictionEntry;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.activity.currenttime.CurrentTimeFragment;
@@ -22,6 +28,7 @@ import com.orangechain.laplace.activity.pay.PayFragment;
 import com.orangechain.laplace.base.BaseActivity;
 import com.orangechain.laplace.base.BaseActivityCollector;
 import com.orangechain.laplace.interfac.BottomNavigationViewInterface;
+
 
 
 public class IndexActivity extends BaseActivity implements BottomNavigationViewInterface {
@@ -36,31 +43,37 @@ public class IndexActivity extends BaseActivity implements BottomNavigationViewI
     private MonitoringCenterFragment monitoringCenterFragment;
     private PayFragment payFragment;
 
+    //通知
+    private IntentFilter intentFilter;
+    private LocalBroadcastManager localBroadcastManager;
+    private LocalReceiver localReceiver;
+
+
     @Override
     public void pushActivity(Context context) {
-        Intent intent = new Intent(context,IndexActivity.class);
+        Intent intent = new Intent(context, IndexActivity.class);
         context.startActivity(intent);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //注册本地通知
+        localBroadcastManager = LocalBroadcastManager.getInstance(this);
+        intentFilter = new IntentFilter();
+        intentFilter.addAction("com.orangechain.laplace.IndexActivity.LOCAL_BROADCAST");
+        localReceiver = new LocalReceiver();
+        localBroadcastManager.registerReceiver(localReceiver,intentFilter);
+
     }
 
     @Override
     public void initWithView() {
 
-        //创建主要的活动界面
-        currentTimeFragment = new CurrentTimeFragment();
-        googleVerityFragment = new GoogleVerityFragment();
-        identityFragment = new IdentityFragment();
-        monitoringCenterFragment = new MonitoringCenterFragment();
-        payFragment = new PayFragment();
-
-        setMainFragment(identityFragment);
-
-        //设置代理
-        BottomNavigationViewEvent.setBottomNavigationVInterface(this);
-
-        //隐藏返回按钮
-        setToolBarLeftShow(false);
-
+        //第一次进入的时候 需要展示引导页
         if (isFirstInit) {
+            //隐藏导航栏
             setToolbarVisible(View.GONE);
             setBottomNavigationViewVisible(View.GONE);
 
@@ -83,14 +96,54 @@ public class IndexActivity extends BaseActivity implements BottomNavigationViewI
                     creatIdentityActivity.pushActivity(IndexActivity.this);
                 }
             });
-            }
+
+        } else {
+
+            //创建主界面
+            initMainUI();
         }
+    }
+
+    /**
+     * 正式创建首页
+     */
+    public void initMainUI() {
+
+        //移除其他view
+        ViewGroup viewGroup = findViewById(R.id.main_frame);
+        viewGroup.removeAllViewsInLayout();
+
+        //显示导航栏
+        setToolbarVisible(View.VISIBLE);
+        setBottomNavigationViewVisible(View.VISIBLE);
+
+        //设置代理
+        BottomNavigationViewEvent.setBottomNavigationVInterface(this);
+
+        //主界面 隐藏返回按钮
+        setToolBarLeftShow(false);
+
+        //创建主要的活动界面
+        currentTimeFragment = new CurrentTimeFragment();
+        googleVerityFragment = new GoogleVerityFragment();
+        identityFragment = new IdentityFragment();
+        monitoringCenterFragment = new MonitoringCenterFragment();
+        payFragment = new PayFragment();
+
+        //设置主界面内容
+        setMainFragment(identityFragment);
+
+    }
+
 
     @Override
     public void clickNavigationItemListener(int itemId) {
         switch (itemId) {
             case R.id.nav_home_id:
                 setMainFragment(identityFragment);
+                //修改toolbar的内容
+
+
                 return;
             case R.id.nav_pay:
                 setMainFragment(payFragment);
@@ -116,10 +169,9 @@ public class IndexActivity extends BaseActivity implements BottomNavigationViewI
     private void setMainFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_frame,fragment);
-        fragmentTransaction.commit();
+        fragmentTransaction.replace(R.id.main_frame, fragment);
+        fragmentTransaction.commitAllowingStateLoss();
     }
-
 
     @Override
     protected void onStart() {
@@ -147,4 +199,22 @@ public class IndexActivity extends BaseActivity implements BottomNavigationViewI
         }
         return -1;
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        localBroadcastManager.unregisterReceiver(localReceiver);
+    }
+
+    //接受本地通知
+    class LocalReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            initMainUI();
+
+        }
+    }
+
 }

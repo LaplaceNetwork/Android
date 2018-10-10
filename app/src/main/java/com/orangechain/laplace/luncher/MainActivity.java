@@ -22,6 +22,7 @@ public class MainActivity extends BaseActivity {
         //初始化 进入分发界面
         IndexActivity indexActivity = new IndexActivity();
         indexActivity.pushActivity(MainActivity.this);
+
     }
 
     @Override

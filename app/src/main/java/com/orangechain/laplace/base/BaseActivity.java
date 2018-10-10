@@ -30,6 +30,7 @@ import android.widget.Toast;
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.base.laplaceBaseView.laplaceToolbar;
 import com.orangechain.laplace.interfac.BottomNavigationViewInterface;
+import com.orangechain.laplace.logUtil.logUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,10 +75,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //记录活动
         BaseActivityCollector.addActivity(this);
 
         //打印进入活动的名称
-//        logUtil.d("BaseActivity",getClass().getSimpleName());
+        logUtil.d("BaseActivity",getClass().getSimpleName());
 
         setContentView(getLayoutId());
 
@@ -149,6 +151,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
             //将子类的界面放上去
             getLayoutInflater().inflate(mLayoutResID,viewGroup);
+
         }
 
         //设置界面的主要方向 纵向
@@ -245,7 +248,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     public static class BottomNavigationViewEvent {
 
         private static BottomNavigationViewInterface mBottomNavigationViewInterface;
-
 
         public static void setBottomNavigationVInterface(BottomNavigationViewInterface BNVInterface) {
 
