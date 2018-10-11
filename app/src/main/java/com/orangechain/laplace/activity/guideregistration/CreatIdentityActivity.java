@@ -1,4 +1,4 @@
-package com.orangechain.laplace.activity;
+package com.orangechain.laplace.activity.guideregistration;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,6 @@ public class CreatIdentityActivity extends BaseActivity {
     @Override
     public void initWithView() {
 
-        setBottomNavigationViewVisible(View.GONE);
         setToolbarVisible(View.GONE);
 
         Button button = findViewById(R.id.button_creat_identity);

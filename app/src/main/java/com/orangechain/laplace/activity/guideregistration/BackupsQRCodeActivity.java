@@ -1,4 +1,4 @@
-package com.orangechain.laplace.activity;
+package com.orangechain.laplace.activity.guideregistration;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,12 +6,11 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.base.BaseActivity;
 import com.orangechain.laplace.base.BaseActivityCollector;
 
@@ -28,10 +27,7 @@ public class BackupsQRCodeActivity extends BaseActivity {
         setToolBarTextColor(R.color.colorWhite);
         setToolBarLeftColor(R.color.colorWhite);
 
-        setBottomNavigationViewVisible(View.GONE);
-
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
-
 
         //修改图片的填充颜色
         Drawable imageViewDraw = ContextCompat.getDrawable(this, R.drawable.baseline_report_black_24dp);

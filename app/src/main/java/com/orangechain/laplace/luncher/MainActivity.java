@@ -9,7 +9,7 @@ import android.content.Context;
 import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.base.BaseActivity;
 import com.orangechain.laplace.R;
-import com.orangechain.laplace.logUtil.NavigationUtil;
+import com.orangechain.laplace.ToolUtil.NavigationUtil;
 
 public class MainActivity extends BaseActivity {
 

@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.orangechain.laplace.base.BaseActivity;
 import com.orangechain.laplace.R;
-import com.orangechain.laplace.logUtil.NavigationUtil;
+import com.orangechain.laplace.ToolUtil.NavigationUtil;
 
 public class ADLuncherActivity extends BaseActivity {
 

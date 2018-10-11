@@ -8,39 +8,35 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.design.bottomnavigation.LabelVisibilityMode;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.IndexActivity;
+import com.orangechain.laplace.base.basehelper.MyApplication;
 import com.orangechain.laplace.base.laplaceBaseView.laplaceToolbar;
-import com.orangechain.laplace.interfac.BottomNavigationViewInterface;
-import com.orangechain.laplace.logUtil.logUtil;
+import com.orangechain.laplace.ToolUtil.logUtil;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
     private ViewGroup viewGroup;
     private laplaceToolbar toolbar;
     private FrameLayout mFrameLayout;
-    public BottomNavigationView bottomNavigationView;
     private int mLayoutResID;
 
     /**
@@ -108,38 +104,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
         });
 
-        //设置主要的framelayput
+        //设置主要的framelayput  useless
         mFrameLayout = findViewById(R.id.main_frame);
-
-        //设置bottomNavigation
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-                switch (menuItem.getItemId()) {
-                    case R.id.nav_home_id:
-                        BottomNavigationViewEvent.clickItemAction(R.id.nav_home_id);
-                        return true;
-                    case R.id.nav_pay:
-                        BottomNavigationViewEvent.clickItemAction(R.id.nav_pay);
-                        return true;
-                    case R.id.nav_google_verity:
-                        BottomNavigationViewEvent.clickItemAction(R.id.nav_google_verity);
-                        return true;
-                    case R.id.nav_current_time:
-                        BottomNavigationViewEvent.clickItemAction(R.id.nav_current_time);
-                        return true;
-                    case R.id.nav_monitoring_center:
-                        BottomNavigationViewEvent.clickItemAction(R.id.nav_monitoring_center);
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
-
 
         mLayoutResID = layoutResID;
 
@@ -204,6 +170,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
+     * 获取tooBar
+     */
+    public laplaceToolbar getToolBar() {
+
+        return toolbar;
+    }
+
+    /**
      * 设置返回键图片
      */
     public void setToolBarLeftImage(int res) {
@@ -235,41 +209,18 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置BottomNavigationView是否显示
-     */
-    public void setBottomNavigationViewVisible(int visible) {
-        bottomNavigationView.setVisibility(visible);
-    }
-
-
-    /**
-     * 创建一个关于BottomNavigationView接口的内部类
-     */
-    public static class BottomNavigationViewEvent {
-
-        private static BottomNavigationViewInterface mBottomNavigationViewInterface;
-
-        public static void setBottomNavigationVInterface(BottomNavigationViewInterface BNVInterface) {
-
-            mBottomNavigationViewInterface = BNVInterface;
-
-        }
-
-        public static void clickItemAction(int actionId) {
-            mBottomNavigationViewInterface.clickNavigationItemListener(actionId);
-        }
-
-    }
-
-    /**
      * 返回事件
      *
      */
     public void leftAction(){
+
+        if (this.getClass() == IndexActivity.class) {
+            return;
+        }
+
         this.finish();
         BaseActivityCollector.removeActivity(this);
     }
-
 
     /**
      * 重写系统返回事件
@@ -425,6 +376,27 @@ public abstract class BaseActivity extends AppCompatActivity {
         Log.d("h_bl", "屏幕高度（dp）：" + screenHeight);
 
         return new int[]{screenWidth, screenHeight};
+    }
+
+
+    private static final AtomicInteger sNextGeneratedId = new AtomicInteger(1);
+
+    public static int generateViewId() {
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            for (; ; ) {
+                final int result = sNextGeneratedId.get();
+//             aapt-generated IDs have the high byte nonzero; clamp to the range under that.
+                int newValue = result + 1;
+                if (newValue > 0x00FFFFFF) newValue = 1;
+//             Roll over to 1, not 0.
+                if (sNextGeneratedId.compareAndSet(result, newValue)) {
+                    return result;
+                }
+            }
+        } else {
+            return View.generateViewId();
+        }
     }
 
 

@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -53,6 +54,7 @@ public class laplaceToolbar extends Toolbar {
 //        super.onFinishInflate();
 //    }
 
+    /***********************中间*************************/
     //设置中间title的内容
     public void setMainTitle(String text) {
         this.setTitle(" ");
@@ -65,6 +67,8 @@ public class laplaceToolbar extends Toolbar {
         mTxtMiddleTitle.setTextColor(color);
     }
 
+
+    /***********************左边*************************/
     //设置title左边文字
     public void setLeftTitleText(String text) {
         mTxtLeftTitle.setVisibility(View.VISIBLE);
@@ -76,6 +80,20 @@ public class laplaceToolbar extends Toolbar {
         mTxtLeftTitle.setTextColor(color);
     }
 
+    //设置title左边文字尺寸
+    public void setLeftTitleSize(float sp_size) {
+        mTxtLeftTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX,sp_size);
+    }
+
+    //隐藏左边图片
+    public void setLeftTitleDrawableHidden() {
+        mTxtLeftTitle.setCompoundDrawables(null,null,null,null);
+    }
+
+    //设置内边距
+    public void setLeftTitlePadding(int left, int top, int right, int bottom){
+        mTxtLeftTitle.setPadding(left,top,right,bottom);
+    }
 
     //设置title左边图标
     public void setLeftTitleDrawable(int res) {
@@ -97,10 +115,17 @@ public class laplaceToolbar extends Toolbar {
         }
     }
 
+    /***********************右边*************************/
+
     //设置title右边文字
     public void setRightTitleText(String text) {
         mTxtRightTitle.setVisibility(View.VISIBLE);
         mTxtRightTitle.setText(text);
+    }
+
+    //隐藏右边
+    public void setRightVisible(int visible ) {
+        mTxtRightTitle.setVisibility(visible);
     }
 
     //设置title右边文字颜色
@@ -110,9 +135,20 @@ public class laplaceToolbar extends Toolbar {
 
     //设置title右边图标
     public void setRightTitleDrawable(int res) {
+        mTxtRightTitle.setVisibility(View.VISIBLE);
         Drawable dwRight = ContextCompat.getDrawable(getContext(), res);
         dwRight.setBounds(0, 0, dwRight.getMinimumWidth(), dwRight.getMinimumHeight());
         mTxtRightTitle.setCompoundDrawables(null, null, dwRight, null);
+    }
+
+    //隐藏左边图片
+    public void setRightTitleDrawableHidden() {
+        mTxtRightTitle.setCompoundDrawables(null,null,null,null);
+    }
+
+    //设置内边距
+    public void setRightTitlePadding(int left, int top, int right, int bottom){
+        mTxtRightTitle.setPadding(left,top,right,bottom);
     }
 
     //设置title右边点击事件

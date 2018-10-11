@@ -4,37 +4,38 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.RestrictionEntry;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.activity.currenttime.CurrentTimeFragment;
 import com.orangechain.laplace.activity.googleverify.GoogleVerityFragment;
+import com.orangechain.laplace.activity.guideregistration.CreatIdentityActivity;
+import com.orangechain.laplace.activity.guideregistration.LeadInIdentityActivity;
 import com.orangechain.laplace.activity.identity.IdentityFragment;
 import com.orangechain.laplace.activity.monitoringcenter.MonitoringCenterFragment;
 import com.orangechain.laplace.activity.pay.PayFragment;
-import com.orangechain.laplace.base.BaseActivity;
 import com.orangechain.laplace.base.BaseActivityCollector;
+import com.orangechain.laplace.base.BaseBottomNavigationActivity;
+import com.orangechain.laplace.base.laplaceBaseView.laplaceToolbar;
 import com.orangechain.laplace.interfac.BottomNavigationViewInterface;
 
 
 
-public class IndexActivity extends BaseActivity implements BottomNavigationViewInterface {
+public class IndexActivity extends BaseBottomNavigationActivity implements BottomNavigationViewInterface {
 
     //初次初始化
-    private boolean isFirstInit = true;
+    private boolean isFirstInit = false;
 
     //几个主要的home界面
     private CurrentTimeFragment currentTimeFragment;
@@ -70,6 +71,8 @@ public class IndexActivity extends BaseActivity implements BottomNavigationViewI
 
     @Override
     public void initWithView() {
+
+        super.initWithView();
 
         //第一次进入的时候 需要展示引导页
         if (isFirstInit) {
@@ -132,30 +135,133 @@ public class IndexActivity extends BaseActivity implements BottomNavigationViewI
 
         //设置主界面内容
         setMainFragment(identityFragment);
+        changeToolBarContent(R.id.nav_home_id);
 
     }
 
+    //修改顶部导航栏样式
+    public void changeToolBarContent(int page){
+
+        android.support.v7.widget.Toolbar toolbar = getToolBar();
+        switch (page) {
+            case R.id.nav_home_id:
+                ((laplaceToolbar) toolbar).setMainTitle("");
+                ((laplaceToolbar) toolbar).setLeftTitleText("Laplace-ID");
+                ((laplaceToolbar) toolbar).setLeftTitleColor(getResources().getColor(R.color.color022656));
+                ((laplaceToolbar) toolbar).setLeftTitleSize(getResources().getDimensionPixelSize(R.dimen.text_size_25));
+                ((laplaceToolbar) toolbar).setLeftTitleDrawableHidden();
+                ((laplaceToolbar) toolbar).setLeftTitlePadding(21,0,0,0);
+                ((laplaceToolbar) toolbar).setRightTitleDrawable(R.drawable.baseline_settings_black_24dp);
+                ((laplaceToolbar) toolbar).setRightTitlePadding(0,0,21,0);
+
+                toolbar.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+                changePictureColor(R.drawable.baseline_settings_black_24dp,R.color.color2C467B);
+
+                ((laplaceToolbar) toolbar).setRightVisible(View.VISIBLE);
+                ((laplaceToolbar) toolbar).setRightTitleText("");
+
+                return;
+            case R.id.nav_pay:
+                ((laplaceToolbar) toolbar).setMainTitle("");
+                ((laplaceToolbar) toolbar).setLeftTitleText("Laplace-ID");
+                ((laplaceToolbar) toolbar).setLeftTitleColor(getResources().getColor(R.color.color022656));
+                ((laplaceToolbar) toolbar).setLeftTitleSize(getResources().getDimensionPixelSize(R.dimen.text_size_25));
+                ((laplaceToolbar) toolbar).setLeftTitleDrawableHidden();
+                ((laplaceToolbar) toolbar).setLeftTitlePadding(21,0,0,0);
+                ((laplaceToolbar) toolbar).setRightTitleDrawable(R.drawable.baseline_add_black_24dp);
+                ((laplaceToolbar) toolbar).setRightTitlePadding(0,0,21,0);
+
+                toolbar.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+                changePictureColor(R.drawable.baseline_add_black_24dp,R.color.color2C467B);
+
+                ((laplaceToolbar) toolbar).setRightVisible(View.VISIBLE);
+                ((laplaceToolbar) toolbar).setRightTitleText("");
+
+                return;
+            case R.id.nav_google_verity:
+                ((laplaceToolbar) toolbar).setMainTitle("");
+                ((laplaceToolbar) toolbar).setLeftTitleText("谷歌验证器");
+                ((laplaceToolbar) toolbar).setLeftTitleColor(getResources().getColor(R.color.colorWhite));
+                ((laplaceToolbar) toolbar).setLeftTitleSize(getResources().getDimensionPixelSize(R.dimen.text_size_25));
+                ((laplaceToolbar) toolbar).setLeftTitleDrawableHidden();
+                ((laplaceToolbar) toolbar).setLeftTitlePadding(21,0,0,0);
+                ((laplaceToolbar) toolbar).setRightTitleDrawable(R.drawable.baseline_add_black_24dp);
+                ((laplaceToolbar) toolbar).setRightTitlePadding(0,0,21,0);
+
+                toolbar.setBackgroundColor(getResources().getColor(R.color.color022656));
+                changePictureColor(R.drawable.baseline_add_black_24dp,R.color.colorWhite);
+
+                ((laplaceToolbar) toolbar).setRightVisible(View.VISIBLE);
+                ((laplaceToolbar) toolbar).setRightTitleText("");
+
+                return;
+            case R.id.nav_current_time:
+                ((laplaceToolbar) toolbar).setMainTitle("");
+                ((laplaceToolbar) toolbar).setLeftTitleText("实时动态");
+                ((laplaceToolbar) toolbar).setLeftTitleColor(getResources().getColor(R.color.colorWhite));
+                ((laplaceToolbar) toolbar).setLeftTitleSize(getResources().getDimensionPixelSize(R.dimen.text_size_25));
+                ((laplaceToolbar) toolbar).setLeftTitleDrawableHidden();
+                ((laplaceToolbar) toolbar).setLeftTitlePadding(21,0,0,0);
+
+                toolbar.setBackgroundColor(getResources().getColor(R.color.color022656));
+
+                ((laplaceToolbar) toolbar).setRightVisible(View.VISIBLE);
+
+                //隐藏右边图片
+                ((laplaceToolbar) toolbar).setRightTitleDrawableHidden();
+                ((laplaceToolbar) toolbar).setRightTitleText("动态列表");
+                ((laplaceToolbar) toolbar).setRightTitleColor(getResources().getColor(R.color.colorWhite));
+
+                return;
+            case R.id.nav_monitoring_center:
+                ((laplaceToolbar) toolbar).setMainTitle("");
+                ((laplaceToolbar) toolbar).setLeftTitleText("Laplace控制台");
+                ((laplaceToolbar) toolbar).setLeftTitleColor(getResources().getColor(R.color.color022656));
+                ((laplaceToolbar) toolbar).setLeftTitleSize(getResources().getDimensionPixelSize(R.dimen.text_size_25));
+                ((laplaceToolbar) toolbar).setLeftTitleDrawableHidden();
+                ((laplaceToolbar) toolbar).setLeftTitlePadding(21,0,0,0);
+
+                toolbar.setBackgroundColor(getResources().getColor(R.color.colorWhite));
+
+                ((laplaceToolbar) toolbar).setRightVisible(View.INVISIBLE);
+                ((laplaceToolbar) toolbar).setRightTitleText("");
+
+                return;
+            default:
+                return;
+        }
+
+    }
+
+    //修改资源图片颜色
+    public void changePictureColor(int imageRes,int color) {
+        Drawable imageViewDraw = ContextCompat.getDrawable(this, imageRes);
+        imageViewDraw.setColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_ATOP);
+        getSupportActionBar().setHomeAsUpIndicator(imageViewDraw);
+    }
 
     @Override
     public void clickNavigationItemListener(int itemId) {
         switch (itemId) {
             case R.id.nav_home_id:
                 setMainFragment(identityFragment);
-                //修改toolbar的内容
-
-
+                changeToolBarContent(R.id.nav_home_id);
                 return;
             case R.id.nav_pay:
                 setMainFragment(payFragment);
+                changeToolBarContent(R.id.nav_pay);
                 return;
             case R.id.nav_google_verity:
                 setMainFragment(googleVerityFragment);
+                changeToolBarContent(R.id.nav_google_verity);
                 return;
             case R.id.nav_current_time:
                 setMainFragment(currentTimeFragment);
+                changeToolBarContent(R.id.nav_current_time);
                 return;
             case R.id.nav_monitoring_center:
                 setMainFragment(monitoringCenterFragment);
+                changeToolBarContent(R.id.nav_monitoring_center);
                 return;
             default:
                 return;

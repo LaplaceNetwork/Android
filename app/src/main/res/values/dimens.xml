@@ -1,7 +1,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="title_font">17dp</dimen>
-    <dimen name="topnavigation_font">13dp</dimen>
+    <dimen name="title_font">17sp</dimen>
+    <dimen name="topnavigation_font">13sp</dimen>
 
 
     <dimen name="botton_0">15dp</dimen>
@@ -10,10 +10,10 @@
 
 
     <!--字号-->
-    <dimen name="text_size_25">25dp</dimen>
-    <dimen name="text_size_17">17dp</dimen>
-    <dimen name="text_size_13">13dp</dimen>
-    <dimen name="text_size_11">11dp</dimen>
+    <dimen name="text_size_25">25sp</dimen>
+    <dimen name="text_size_17">17sp</dimen>
+    <dimen name="text_size_13">13sp</dimen>
+    <dimen name="text_size_11">11sp</dimen>
 
 
 

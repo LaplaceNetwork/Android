@@ -20,14 +20,15 @@
         <activity android:name=".luncher.ADLuncherActivity" />
         <activity android:name=".activity.IndexActivity" />
         <activity
-            android:name=".activity.CreatIdentityActivity"
+            android:name=".activity.guideregistration.CreatIdentityActivity"
             android:label="@string/title_activity_creat_identity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activity.FingerprintOpenActivity" />
-        <activity android:name=".activity.LeadInIdentityActivity" />
-        <activity android:name=".activity.BackupsIdentityActivity" />
-        <activity android:name=".activity.BackupsIdentityActionActivity" />
-        <activity android:name=".activity.BackupsQRCodeActivity"></activity>
+        <activity android:name=".activity.guideregistration.FingerprintOpenActivity" />
+        <activity android:name=".activity.guideregistration.LeadInIdentityActivity" />
+        <activity android:name=".activity.guideregistration.BackupsIdentityActivity" />
+        <activity android:name=".activity.guideregistration.BackupsIdentityActionActivity" />
+        <activity android:name=".activity.guideregistration.BackupsQRCodeActivity" />
+        <activity android:name=".base.BaseBottomNavigationActivity"></activity>
     </application>
 
 </manifest>

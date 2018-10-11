@@ -1,4 +1,4 @@
-package com.orangechain.laplace.activity;
+package com.orangechain.laplace.activity.guideregistration;
 
 
 import android.content.Context;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.base.BaseActivity;
 import com.orangechain.laplace.base.BaseActivityCollector;
 
@@ -22,8 +23,6 @@ public class BackupsIdentityActionActivity extends BaseActivity {
     public void initWithView() {
 
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
-
-        setBottomNavigationViewVisible(View.GONE);
 
         setToolBarText("立即备份");
 
@@ -61,13 +60,11 @@ public class BackupsIdentityActionActivity extends BaseActivity {
             }
         });
 
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
     @Override
