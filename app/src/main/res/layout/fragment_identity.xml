@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".activity.identity.IdentityFragment">
 
 
@@ -60,11 +61,8 @@
     <ListView android:id="@+id/idcard_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorGray"
+        android:divider="#00000000"
         android:layout_below="@id/idcard_center_backview"
-
-
-
         />
 
 </RelativeLayout>

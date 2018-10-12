@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView android:id="@+id/identity_item_image_imageview"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"
+        android:background="@color/colorGray" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@id/identity_item_image_imageview"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/identity_item_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color2C467B"
+            android:textSize="@dimen/text_size_13" />
+
+        <TextView
+            android:id="@+id/identity_item_timeliness_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:textColor="@color/color2087FF"
+            android:textSize="@dimen/text_size_11" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/identity_item_time_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="15dp"
+        android:paddingBottom="9dp"
+        android:text="sssssssssssssss"
+        android:textColor="@color/colorB8BEC9"
+        android:textSize="@dimen/text_size_11"
+        />
+
+    <TextView
+        android:id="@+id/identity_item_line_textview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size_common"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/colorE1E0E0" />
+
+</RelativeLayout>
