@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.orangechain.laplace.R;
@@ -26,6 +27,12 @@ public class laplaceToolbar extends Toolbar {
      * 右侧Title
      */
     private TextView mTxtRightTitle;
+
+    /**
+     * switch 按钮
+     */
+    private Switch mSwitchBUtton;
+
 
     //构造函数
     public laplaceToolbar(Context context) {
@@ -47,6 +54,8 @@ public class laplaceToolbar extends Toolbar {
         mTxtLeftTitle = (TextView) findViewById(R.id.txt_left_title);
         mTxtMiddleTitle = (TextView) findViewById(R.id.txt_main_title);
         mTxtRightTitle = (TextView) findViewById(R.id.txt_right_title);
+        mSwitchBUtton = (Switch) findViewById(R.id.switch_navigation_botton);
+
     }
 
 //    @Override
@@ -155,5 +164,16 @@ public class laplaceToolbar extends Toolbar {
     public void setRightTitleClickListener(OnClickListener onClickListener){
         mTxtRightTitle.setOnClickListener(onClickListener);
     }
+
+    /***********************switch 按钮*************************/
+    /**
+     * 设置按钮是否显示
+     */
+    public void setSwitchVisible(int visible) {
+
+        mSwitchBUtton.setVisibility(visible);
+
+    }
+
 
 }

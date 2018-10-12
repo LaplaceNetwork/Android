@@ -31,9 +31,8 @@ public abstract class BaseFragment extends Fragment {
             mContext = getContext();
             mActivity = getActivity();
 
-            //初始化
+            //创建内容
             initWithView(view);
-
 
         }catch (Exception e){
             e.printStackTrace();

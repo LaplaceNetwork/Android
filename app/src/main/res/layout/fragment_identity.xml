@@ -1,24 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.identity.IdentityFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <RelativeLayout android:id="@+id/idcard_simple_RelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="159dp"
+        android:background="@color/colorC3CEE1"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        >
+
+    </RelativeLayout>
+
+    <TextView android:id="@+id/idcard_change_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="切换当前身份"
+        android:textSize="@dimen/text_size_11"
+        android:textColor="@color/colorB8BEC9"
+        android:layout_below="@id/idcard_simple_RelativeLayout"
+        android:layout_marginTop="6dp"
+        android:layout_alignRight="@id/idcard_simple_RelativeLayout"
+        />
+
+    <RelativeLayout android:id="@+id/idcard_center_backview"
+        android:layout_height="55dp"
+        android:layout_width="match_parent"
+        android:background="@color/colorF7F7F7"
+        android:layout_below="@id/idcard_change_textview"
+        android:layout_marginTop="12dp">
+
+        <TextView android:id="@+id/idcard_list_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的授权"
+            android:textSize="@dimen/text_size_13"
+            android:textColor="@color/colorB8BEC9"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="17dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <ImageView
+            android:layout_height="14dp"
+            android:layout_width="14dp"
+            android:src="@drawable/baseline_report_black_24dp"
+            android:layout_toRightOf="@id/idcard_list_textview"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="11dp"
+            />
+
+    </RelativeLayout>
+
+    <ListView android:id="@+id/idcard_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="we2121222121212122212121212221212121222121212122
-2121212122212121212221212212122121222121212122212121212221212121222121212122
-2121212122212121212221212121222121212doaishdpuhaissssuhdiuahspdiouhaioudhiopuadioa
-doihiodaiosiodhaioshd
-hdaioshdiohaiosdhioashdaioshoaishdpuhaissssuhdiuahspdiouhaioudhiopuadioa
-doihiodaiosiodhaioshd12121212122121212122212121212221212121222121212122212121212221212121222121212122
-2121212122212121212221212121222121212122212121212221212121222121212122
-2121212122212121212221212121222121212122
-2121212122212121212221212666666777766666677776666667777666666777766666677776666667777
-66666677776666667777666666777777we"
-        android:gravity="bottom"/>
+        android:background="@color/colorGray"
+        android:layout_below="@id/idcard_center_backview"
 
-</FrameLayout>
+
+
+        />
+
+</RelativeLayout>

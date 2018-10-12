@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.bottomnavigation.LabelVisibilityMode;
 import android.support.design.widget.BottomNavigationView;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -20,17 +21,19 @@ public class BaseBottomNavigationActivity extends BaseActivity {
     @Override
     public void initWithView() {
 
+        LayoutInflater layoutInflater = getLayoutInflater();
         //将bottom_navigation放到布局上
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.fl_root1);
-        getLayoutInflater().inflate(R.layout.activity_base_bottom_navigation,relativeLayout);
+        layoutInflater.inflate(R.layout.activity_base_bottom_navigation,relativeLayout);
         //设置bottomNavigation
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView = relativeLayout.findViewById(R.id.bottom_navigation);
 
         //修改main_frame的布局规则
-        FrameLayout main_frame = findViewById(R.id.main_frame);
+        FrameLayout main_frame = relativeLayout.findViewById(R.id.main_frame);
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) main_frame.getLayoutParams();
-        params.bottomMargin = SizeConvertUtil.dip2px(53);
-        params.addRule(RelativeLayout.ABOVE,bottomNavigationView.getId());//这句不起作用 是个问题
+        //params.bottomMargin = SizeConvertUtil.dip2px(53);
+        //params.addRule(RelativeLayout.ABOVE,R.id.bottom_navigation);//这句不起作用 是个问题
+        params.bottomMargin = getResources().getDimensionPixelSize(R.dimen.botttom_navigation_height);
         main_frame.setLayoutParams(params);
 
         bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);

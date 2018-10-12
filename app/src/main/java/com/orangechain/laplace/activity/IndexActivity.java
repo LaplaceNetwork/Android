@@ -74,6 +74,8 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
 
         super.initWithView();
 
+        setStatusBarColor(this,getResources().getColor(R.color.color022656));
+
         //第一次进入的时候 需要展示引导页
         if (isFirstInit) {
             //隐藏导航栏
@@ -160,6 +162,9 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 ((laplaceToolbar) toolbar).setRightVisible(View.VISIBLE);
                 ((laplaceToolbar) toolbar).setRightTitleText("");
 
+                //显示switch按钮
+                ((laplaceToolbar) toolbar).setSwitchVisible(View.GONE);
+
                 return;
             case R.id.nav_pay:
                 ((laplaceToolbar) toolbar).setMainTitle("");
@@ -177,6 +182,9 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 ((laplaceToolbar) toolbar).setRightVisible(View.VISIBLE);
                 ((laplaceToolbar) toolbar).setRightTitleText("");
 
+                //显示switch按钮
+                ((laplaceToolbar) toolbar).setSwitchVisible(View.GONE);
+
                 return;
             case R.id.nav_google_verity:
                 ((laplaceToolbar) toolbar).setMainTitle("");
@@ -193,6 +201,9 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
 
                 ((laplaceToolbar) toolbar).setRightVisible(View.VISIBLE);
                 ((laplaceToolbar) toolbar).setRightTitleText("");
+
+                //显示switch按钮
+                ((laplaceToolbar) toolbar).setSwitchVisible(View.GONE);
 
                 return;
             case R.id.nav_current_time:
@@ -212,6 +223,9 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 ((laplaceToolbar) toolbar).setRightTitleText("动态列表");
                 ((laplaceToolbar) toolbar).setRightTitleColor(getResources().getColor(R.color.colorWhite));
 
+                //显示switch按钮
+                ((laplaceToolbar) toolbar).setSwitchVisible(View.VISIBLE);
+
                 return;
             case R.id.nav_monitoring_center:
                 ((laplaceToolbar) toolbar).setMainTitle("");
@@ -225,6 +239,9 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
 
                 ((laplaceToolbar) toolbar).setRightVisible(View.INVISIBLE);
                 ((laplaceToolbar) toolbar).setRightTitleText("");
+
+                //显示switch按钮
+                ((laplaceToolbar) toolbar).setSwitchVisible(View.GONE);
 
                 return;
             default:

@@ -14,15 +14,20 @@ import android.support.annotation.ColorRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.activity.IndexActivity;
@@ -86,6 +91,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void setContentView(int layoutResID) {
         //设置界面的一些主要的样式
         super.setContentView(R.layout.activity_base);
+
         //设置toolbar
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -157,7 +163,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 设置ToolBar的颜色
      */
-
     public void setToolBarBackColor(int color) {
         toolbar.setBackgroundColor(getResources().getColor(color));
     }
@@ -400,5 +405,40 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * 设置状态栏的颜色
+     * 后面需要设置 5.0 之前的
+     * @param activity
+     * @param statusColor
+     */
+    public void setStatusBarColor(Activity activity, int statusColor) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+
+            Window window = activity.getWindow();
+            //取消状态栏透明
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //添加Flag把状态栏设为可绘制模式
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            //设置状态栏颜色
+            window.setStatusBarColor(statusColor);
+            //设置系统状态栏处于可见状态
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+            //让view不根据系统窗口来调整自己的布局
+            ViewGroup mContentView = (ViewGroup) window.findViewById(Window.ID_ANDROID_CONTENT);
+            View mChildView = mContentView.getChildAt(0);
+            if (mChildView != null) {
+                ViewCompat.setFitsSystemWindows(mChildView, false);
+                ViewCompat.requestApplyInsets(mChildView);
+            }
+
+        } else {
+
+
+
+
+        }
+
+    }
 
 }
