@@ -15,6 +15,81 @@
         android:layout_marginLeft="30dp"
         >
 
+        <ImageView android:id="@+id/identity_usericon_imageview"
+            android:layout_height="51dp"
+            android:layout_width="51dp"
+            android:background="@drawable/image_circular_bg"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="23dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/identity_usericon_imageview"
+            android:layout_alignTop="@id/identity_usericon_imageview"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <TextView android:id="@+id/identity_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="身份名称"
+                android:textColor="@color/color022656"
+                android:textSize="@dimen/text_size_13"
+                android:layout_marginTop="6dp"
+                />
+
+            <TextView android:id="@+id/identity_userid"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="ID：9o93jlnd0nvnwnglirnynliudfihhlk"
+                android:textColor="@color/color022656"
+                android:textSize="@dimen/text_size_12"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/identity_usericon_imageview"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageView android:id="@+id/identity_user_protect_imageview"
+                android:layout_height="12dp"
+                android:layout_width="12dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/baseline_protect_black_24dp"/>
+
+            <TextView android:id="@+id/identity_user_des_maintain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="个人信息数据维护中"
+                android:layout_toRightOf="@id/identity_user_protect_imageview"
+                android:layout_marginLeft="2dp"
+                android:textColor="@color/colorF3F3F3"
+                android:textSize="@dimen/text_size_11"
+                android:layout_centerVertical="true"
+                />
+
+           <Button android:id="@+id/identity_usericon_copyinformation_button"
+               android:layout_width="wrap_content"
+               android:layout_height="26dp"
+               android:text="备份身份"
+               android:textColor="@color/color022656"
+               android:layout_alignParentRight="true"
+               android:layout_marginRight="21dp"
+               android:background="@drawable/btn_selector_identity_copyinformation_index"
+               />
+
+        </RelativeLayout>
+
+
+
+
     </RelativeLayout>
 
     <TextView android:id="@+id/idcard_change_textview"

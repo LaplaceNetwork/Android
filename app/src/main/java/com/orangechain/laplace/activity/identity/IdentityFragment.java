@@ -6,9 +6,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.ToolUtil.ToolHelper;
 import com.orangechain.laplace.activity.IndexActivity;
@@ -29,6 +31,11 @@ public class IdentityFragment extends BaseFragment {
 
     @Override
     public void initWithView(View view) {
+
+        ImageView protectImageView = view.findViewById(R.id.identity_usericon_imageview);
+        Glide.with(this).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539608309718&di=b2379fa2bb33ffbc19a0507f54ea4f21&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201501%2F25%2F20150125094219_cWXuL.jpeg")
+                .into(protectImageView);
+
 
         //创建数据源
         beanlist.clear();
@@ -55,8 +62,10 @@ public class IdentityFragment extends BaseFragment {
         });
 
 
+
         //修改图片的填充颜色
         IndexActivity activity = (IndexActivity) getActivity();
+        activity.getSupportActionBar().setHomeAsUpIndicator(ToolHelper.changePictureColor(getActivity(),R.color.colorF3F3F3,R.drawable.baseline_protect_black_24dp));
         activity.getSupportActionBar().setHomeAsUpIndicator(ToolHelper.changePictureColor(getActivity(),R.color.colorGray,R.drawable.baseline_report_black_24dp));
 
     }
