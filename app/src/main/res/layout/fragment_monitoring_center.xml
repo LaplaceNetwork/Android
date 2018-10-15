@@ -1,14 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.monitoringcenter.MonitoringCenterFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="mon" />
+    <RelativeLayout android:id="@+id/MonitoringCenter_coin_unusual_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginRight="22dp"
+        android:background="@drawable/textview_monitoringcenter_home_bg">
 
-</FrameLayout>
+        <TextView android:id="@+id/MonitoringCenter_coin_unusual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="14dp"
+            android:text="币价异动"
+            android:textColor="@color/color022656"
+            android:textSize="@dimen/text_size_15"/>
+
+        <TextView android:id="@+id/MonitoringCenter_coin_unusual_des"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="对关注的代币转账记录进行实时监控"
+            android:textColor="@color/color022656"
+            android:textSize="@dimen/text_size_11"
+            android:layout_below="@id/MonitoringCenter_coin_unusual"
+            android:layout_alignLeft="@id/MonitoringCenter_coin_unusual"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="18dp"
+            />
+
+        <ImageView android:id="@+id/MonitoringCenter_coin_unusual_setting"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:src="@drawable/baseline_settings_black_24dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="33dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/MonitoringCenter_coin_highsandlows_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginRight="22dp"
+        android:layout_below="@id/MonitoringCenter_coin_unusual_layout"
+        android:background="@drawable/textview_monitoringcenter_home_bg">
+
+        <TextView android:id="@+id/MonitoringCenter_coin_highsandlows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="14dp"
+            android:text="币价涨跌"
+            android:textColor="@color/color022656"
+            android:textSize="@dimen/text_size_15"/>
+
+        <TextView android:id="@+id/MonitoringCenter_coin_highsandlows_des"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="监控关注的币种短时间内价格剧烈变化"
+            android:textColor="@color/color022656"
+            android:textSize="@dimen/text_size_11"
+            android:layout_below="@id/MonitoringCenter_coin_highsandlows"
+            android:layout_alignLeft="@id/MonitoringCenter_coin_highsandlows"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="18dp"
+            />
+
+        <ImageView android:id="@+id/MonitoringCenter_coin_highsandlows_setting"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:src="@drawable/baseline_settings_black_24dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="33dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/MonitoringCenter_coin_deal_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginRight="22dp"
+        android:layout_below="@id/MonitoringCenter_coin_highsandlows_layout"
+        android:background="@drawable/textview_monitoringcenter_home_bg">
+
+        <TextView android:id="@+id/MonitoringCenter_coin_deal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="14dp"
+            android:text="交易所成交"
+            android:textColor="@color/color022656"
+            android:textSize="@dimen/text_size_15"/>
+
+        <TextView android:id="@+id/MonitoringCenter_coin_deal_des"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="对关注币种的交易所成交情况进行监控跟踪"
+            android:textColor="@color/color022656"
+            android:textSize="@dimen/text_size_11"
+            android:layout_below="@id/MonitoringCenter_coin_deal"
+            android:layout_alignLeft="@id/MonitoringCenter_coin_deal"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="18dp"
+            />
+
+        <ImageView android:id="@+id/MonitoringCenter_coin_deal_setting"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:src="@drawable/baseline_settings_black_24dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="33dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <TextView android:id="@+id/MonitoringCenter_coin_individuation_push"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="个性化推送"
+        android:textColor="@color/colorB8BEC9"
+        android:textSize="@dimen/text_size_15"
+        android:layout_below="@id/MonitoringCenter_coin_deal_layout"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="36dp"/>
+
+    <RelativeLayout
+        android:id="@+id/MonitoringCenter_coin_warn_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginRight="22dp"
+        android:layout_below="@id/MonitoringCenter_coin_individuation_push"
+        android:background="@drawable/textview_monitoringcenter_home_bg">
+
+        <TextView android:id="@+id/MonitoringCenter_coin_warn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="14dp"
+            android:text="交易所成交"
+            android:textColor="@color/color022656"
+            android:textSize="@dimen/text_size_15"/>
+
+        <TextView android:id="@+id/MonitoringCenter_coin_warn_des"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="对关注币种的交易所成交情况进行监控跟踪"
+            android:textColor="@color/color022656"
+            android:textSize="@dimen/text_size_11"
+            android:layout_below="@id/MonitoringCenter_coin_warn"
+            android:layout_alignLeft="@id/MonitoringCenter_coin_warn"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="18dp"
+            />
+
+        <ImageView android:id="@+id/MonitoringCenter_coin_warn_setting"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:src="@drawable/baseline_settings_black_24dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="33dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

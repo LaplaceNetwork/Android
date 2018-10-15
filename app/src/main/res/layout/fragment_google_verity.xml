@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".activity.googleverify.GoogleVerityFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+    <ListView android:id="@+id/Google_verification_listview"
         android:layout_height="match_parent"
-        android:text="google" />
+        android:layout_width="match_parent"
+        android:divider="#00000000"/>
 
 </FrameLayout>

@@ -16,19 +16,6 @@ import com.orangechain.laplace.base.BaseFragment;
 public class CurrentTimeFragment extends BaseFragment {
 
 
-//    public CurrentTimeFragment() {
-//        // Required empty public constructor
-//    }
-//
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_current_time, container, false);
-//    }
-
-
     @Override
     public void initWithView(View view) {
 
