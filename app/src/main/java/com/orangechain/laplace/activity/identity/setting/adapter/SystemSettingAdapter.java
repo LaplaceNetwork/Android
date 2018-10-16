@@ -60,12 +60,25 @@ public class SystemSettingAdapter extends ArrayAdapter {
 
         viewHolder.nameTextView.setText(bean.getName());
         viewHolder.rightButton.setText(bean.getRightButtonContent());
-        viewHolder.rightButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mActivity.clickRightButton("language");
-            }
-        });
+
+
+        //设置相应的点击事件
+        if (position == 1) {
+            viewHolder.rightButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.clickRightButton("language");
+                }
+            });
+        } else if (position == 2) {
+            viewHolder.rightButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mActivity.clickRightButton("push");
+                }
+            });
+        }
+
 
 
         if (bean.isShowSwitch()) {

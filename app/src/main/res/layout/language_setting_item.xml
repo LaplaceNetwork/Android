@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView android:id="@+id/language_setting_item_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="测试"
+        android:textColor="@color/color2C467B"
+        android:textSize="@dimen/text_size_13"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:stateListAnimator="@null"
+        android:layout_marginLeft="17dp"/>
+
+    <CheckBox
+        android:id="@+id/language_setting_item_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="18dp"
+        android:background="@color/colorB8BEC9"
+        />
+
+</RelativeLayout>
