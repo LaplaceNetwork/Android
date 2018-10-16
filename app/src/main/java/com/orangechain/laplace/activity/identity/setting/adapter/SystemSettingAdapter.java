@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.activity.identity.setting.SystemSettingActivity;
 import com.orangechain.laplace.activity.identity.setting.bean.SystemSettingBean;
-import com.orangechain.laplace.interfac.SystemSettingInterface;
 
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class SystemSettingAdapter extends ArrayAdapter {
 
         if (convertView == null) {
 
-            view = LayoutInflater.from(getContext()).inflate(R.layout.system_setting_item,parent,false);
+            view = LayoutInflater.from(getContext()).inflate(R.layout.item_system_setting,parent,false);
 
             viewHolder = new viewHolder();
 

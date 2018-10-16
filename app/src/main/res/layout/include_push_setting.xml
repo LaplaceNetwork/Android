@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <TextView android:id="@+id/push_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="测试"
+        android:textColor="@color/color2C467B"
+        android:textSize="@dimen/text_size_13"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="23dp"/>
+
+
+    <TextView android:id="@+id/push_des"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="详细"
+        android:textColor="@color/colorGray"
+        android:textSize="@dimen/text_size_13"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/push_name"
+        android:layout_marginLeft="10dp"
+        android:visibility="gone"/>
+
+    <Switch android:id="@+id/push_setting_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"/>
+
+
+</RelativeLayout>

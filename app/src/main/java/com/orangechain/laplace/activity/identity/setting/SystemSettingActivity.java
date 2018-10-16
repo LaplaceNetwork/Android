@@ -2,19 +2,10 @@ package com.orangechain.laplace.activity.identity.setting;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.ToolUtil.ToolHelper;
-import com.orangechain.laplace.activity.IndexActivity;
-import com.orangechain.laplace.activity.identity.bean.IdentityFragmentBean;
 import com.orangechain.laplace.activity.identity.setting.adapter.SystemSettingAdapter;
 import com.orangechain.laplace.activity.identity.setting.bean.SystemSettingBean;
 import com.orangechain.laplace.base.BaseActivity;
@@ -45,7 +36,7 @@ public class SystemSettingActivity extends BaseActivity implements SystemSetting
         listArr.add(bean1);
         listArr.add(bean2);
 
-        SystemSettingAdapter adapter = new SystemSettingAdapter(this, R.layout.system_setting_item, listArr);
+        SystemSettingAdapter adapter = new SystemSettingAdapter(this, R.layout.item_system_setting, listArr);
         ListView listView = findViewById(R.id.system_setting_listview);
         listView.setAdapter(adapter);
 
@@ -71,6 +62,9 @@ public class SystemSettingActivity extends BaseActivity implements SystemSetting
         if (buttonMark == "language") {
             LanguageSettingActivity languageSettingActivity = new LanguageSettingActivity();
             languageSettingActivity.pushActivity(SystemSettingActivity.this);
+        } else if (buttonMark == "push") {
+            PushSettingActivity pushSettingActivity = new PushSettingActivity();
+            pushSettingActivity.pushActivity(SystemSettingActivity.this);
         }
 
     }

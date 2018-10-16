@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".activity.identity.setting.LanguageSettingActivity">
 
 
@@ -15,6 +16,7 @@
         android:layout_centerHorizontal="true"
         android:text="确定"
         android:textColor="@color/colorWhite"
+        android:stateListAnimator="@null"
         android:background="@drawable/btn_selector_fingerprint"
         />
 

@@ -32,7 +32,7 @@ public class GoogleVerityFragment extends BaseFragment {
         list.add(bean0);
         list.add(bean1);
 
-        GoogleVerityFragmentAdapter adapter = new GoogleVerityFragmentAdapter(getActivity(),R.layout.google_verification_fragment_item,list);
+        GoogleVerityFragmentAdapter adapter = new GoogleVerityFragmentAdapter(getActivity(),R.layout.item_google_verification_fragment,list);
         ListView listView = view.findViewById(R.id.Google_verification_listview);
         listView.setAdapter(adapter);
 

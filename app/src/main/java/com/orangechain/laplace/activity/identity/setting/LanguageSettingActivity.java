@@ -2,11 +2,8 @@ package com.orangechain.laplace.activity.identity.setting;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.ListView;
 
-import com.bumptech.glide.load.resource.bitmap.BitmapEncoder;
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.activity.identity.setting.adapter.LanguageSettingAdapter;
 import com.orangechain.laplace.activity.identity.setting.bean.LanguageSettingBean;
@@ -35,7 +32,7 @@ public class LanguageSettingActivity extends BaseActivity {
         listArr.add(bean2);
 
 
-        LanguageSettingAdapter adapter = new LanguageSettingAdapter(this,R.layout.language_setting_item,listArr);
+        LanguageSettingAdapter adapter = new LanguageSettingAdapter(this,R.layout.item_language_setting,listArr);
         ListView listView = findViewById(R.id.language_setting_listview);
         listView.setAdapter(adapter);
 

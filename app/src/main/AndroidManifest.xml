@@ -32,7 +32,8 @@
         <activity android:name=".activity.guideregistration.BackupsQRCodeActivity" />
         <activity android:name=".base.BaseBottomNavigationActivity" />
         <activity android:name=".activity.identity.setting.SystemSettingActivity" />
-        <activity android:name=".activity.identity.setting.LanguageSettingActivity"></activity>
+        <activity android:name=".activity.identity.setting.LanguageSettingActivity" />
+        <activity android:name=".activity.identity.setting.PushSettingActivity"></activity>
     </application>
 
 </manifest>
