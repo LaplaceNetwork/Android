@@ -23,6 +23,7 @@ import com.orangechain.laplace.activity.googleverify.GoogleVerityFragment;
 import com.orangechain.laplace.activity.guideregistration.CreatIdentityActivity;
 import com.orangechain.laplace.activity.guideregistration.LeadInIdentityActivity;
 import com.orangechain.laplace.activity.identity.IdentityFragment;
+import com.orangechain.laplace.activity.identity.setting.SystemSettingActivity;
 import com.orangechain.laplace.activity.monitoringcenter.MonitoringCenterFragment;
 import com.orangechain.laplace.activity.pay.PayFragment;
 import com.orangechain.laplace.base.BaseActivityCollector;
@@ -36,6 +37,7 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
 
     //初次初始化
     private boolean isFirstInit = false;
+    private int currentPage; //记录当前的主功能界面
 
     //几个主要的home界面
     private CurrentTimeFragment currentTimeFragment;
@@ -144,6 +146,9 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
     //修改顶部导航栏样式
     public void changeToolBarContent(int page){
 
+        //记录当前的主功能界面
+        currentPage = page;
+
         android.support.v7.widget.Toolbar toolbar = getToolBar();
         switch (page) {
             case R.id.nav_home_id:
@@ -156,6 +161,7 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 ((laplaceToolbar) toolbar).setRightTitleDrawable(R.drawable.baseline_settings_black_24dp);
                 ((laplaceToolbar) toolbar).setRightTitlePadding(0,0,21,0);
 
+                //修改toobar背景色
                 toolbar.setBackgroundColor(getResources().getColor(R.color.colorWhite));
                 changePictureColor(R.drawable.baseline_settings_black_24dp,R.color.color2C467B);
 
@@ -247,6 +253,28 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
             default:
                 return;
         }
+
+    }
+
+    /**
+     * 执行右边点击按钮 执行相关功能
+     */
+    @Override
+    public void rightFirstButtonAction() {
+
+        switch (currentPage) {
+
+            case R.id.nav_home_id:
+                //进入设置界面
+                SystemSettingActivity systemSettingActivity = new SystemSettingActivity();
+                systemSettingActivity.pushActivity(IndexActivity.this);
+
+                default:
+                    return;
+
+
+        }
+
 
     }
 

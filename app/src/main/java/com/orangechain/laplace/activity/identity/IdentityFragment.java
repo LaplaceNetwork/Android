@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.ToolUtil.ToolHelper;
 import com.orangechain.laplace.activity.IndexActivity;
@@ -20,6 +21,8 @@ import com.orangechain.laplace.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.bumptech.glide.request.RequestOptions.bitmapTransform;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,8 +36,10 @@ public class IdentityFragment extends BaseFragment {
     public void initWithView(View view) {
 
         ImageView protectImageView = view.findViewById(R.id.identity_usericon_imageview);
+
+        //这边需要对图片做一个剪裁 圆角剪裁
         Glide.with(this).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539608309718&di=b2379fa2bb33ffbc19a0507f54ea4f21&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201501%2F25%2F20150125094219_cWXuL.jpeg")
-                .into(protectImageView);
+                .apply(bitmapTransform(new CircleCrop())).into(protectImageView);
 
 
         //创建数据源

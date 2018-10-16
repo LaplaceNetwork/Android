@@ -84,6 +84,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         setContentView(getLayoutId());
 
+        //设置状态栏默认颜色
+        setStatusBarColor(this,getResources().getColor(R.color.color022656));
+
         initWithView();
     }
 
@@ -106,7 +109,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         toolbar.setRightTitleClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(BaseActivity.this, "点击了右侧Title", Toast.LENGTH_SHORT).show();
+                //执行toolbar右边点击按钮的事件
+                rightFirstButtonAction();
             }
         });
 
@@ -143,6 +147,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         Configuration configuration = resource.getConfiguration();
         configuration.fontScale = 1.0f;// 设置字体的缩放比例
         resource.updateConfiguration(configuration, resource.getDisplayMetrics());
+
     }
 
     /**
@@ -228,6 +233,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
+     * 右边按钮事件 firstbutton
+     */
+    public void rightFirstButtonAction() {
+
+        //子类去实现
+    }
+
+    /**
      * 重写系统返回事件
      * @param keyCode
      * @param event
@@ -244,7 +257,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * ******************************此处管理活动之间跳转的动画
+     * ******************************此处管理活动之间跳转的动画***********************
      */
 
     /**
@@ -354,7 +367,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * ******************************此处管理屏幕的一些内容
+     * ******************************此处管理屏幕的一些内容*************************
      */
 
     /**
@@ -383,6 +396,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         return new int[]{screenWidth, screenHeight};
     }
 
+    /**
+     * 处理布局文件 和 代码viewID不统一的问题
+     */
 
     private static final AtomicInteger sNextGeneratedId = new AtomicInteger(1);
 

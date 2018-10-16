@@ -10,11 +10,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.orangechain.laplace.R;
-import com.orangechain.laplace.activity.identity.IdentityFragment;
 import com.orangechain.laplace.activity.identity.bean.IdentityFragmentBean;
 
 import java.util.List;
+
+import static com.bumptech.glide.request.RequestOptions.bitmapTransform;
 
 public class IdetityFragmentAdapter extends ArrayAdapter {
 
@@ -59,7 +61,7 @@ public class IdetityFragmentAdapter extends ArrayAdapter {
         viewHolder.timeliness.setText(identityFragmentBean.getTimeliness());
         viewHolder.time.setText(identityFragmentBean.getDate());
 
-        Glide.with(superFragment).load(identityFragmentBean.getImgUrl()).into(viewHolder.image);
+        Glide.with(superFragment).load(identityFragmentBean.getImgUrl()).apply(bitmapTransform(new CircleCrop())).into(viewHolder.image);
 
         return view;
     }

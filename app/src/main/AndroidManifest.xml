@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.orangechain.laplace">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".base.basehelper.MyApplication"
@@ -30,7 +30,9 @@
         <activity android:name=".activity.guideregistration.BackupsIdentityActivity" />
         <activity android:name=".activity.guideregistration.BackupsIdentityActionActivity" />
         <activity android:name=".activity.guideregistration.BackupsQRCodeActivity" />
-        <activity android:name=".base.BaseBottomNavigationActivity"></activity>
+        <activity android:name=".base.BaseBottomNavigationActivity" />
+        <activity android:name=".activity.identity.setting.SystemSettingActivity" />
+        <activity android:name=".activity.identity.setting.LanguageSettingActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView android:id="@+id/system_setting_item_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="测试"
+        android:textColor="@color/color2C467B"
+        android:textSize="@dimen/text_size_13"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="17dp"/>
+
+    <Button android:id="@+id/system_setting_item_action"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:drawableRight="@drawable/baseline_keyboard_arrow_right_black_24dp"
+        android:textColor="@color/colorB8BEC9"
+        android:textSize="@dimen/text_size_13"
+        android:background="@drawable/btn_selector_only_transparent"
+        android:stateListAnimator="@null"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="3dp"
+        />
+
+    <Switch android:id="@+id/system_setting_item_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/system_setting_item_action"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        />
+
+    <TextView android:id="@+id/system_setting_item_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size_common"
+        android:background="@color/colorE1E0E0"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="20dp"/>
+
+</RelativeLayout>
