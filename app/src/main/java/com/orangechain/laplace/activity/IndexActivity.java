@@ -7,12 +7,14 @@ import android.content.IntentFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.constraint.Group;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -76,13 +78,15 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
 
         super.initWithView();
 
-        setStatusBarColor(this,getResources().getColor(R.color.color022656));
-
         //第一次进入的时候 需要展示引导页
         if (isFirstInit) {
+
+            //获取父view 其上加载引导界面
+            getLayoutInflater().inflate(R.layout.activity_index,getBaseViewGroup());
+
             //隐藏导航栏
             setToolbarVisible(View.GONE);
-            setBottomNavigationViewVisible(View.GONE);
+//            setBottomNavigationViewVisible(View.GONE);
 
             //导入用户
             Button button_input = findViewById(R.id.button_input_index);
@@ -119,10 +123,15 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
         //移除其他view
         ViewGroup viewGroup = findViewById(R.id.main_frame);
         viewGroup.removeAllViewsInLayout();
+        //移除引导页
+        ViewGroup guidanceGroup = (ViewGroup) getBaseViewGroup().findViewById(R.id.guidance_index);
+        if (guidanceGroup != null) {
+            getBaseViewGroup().removeView(guidanceGroup);
+        }
 
         //显示导航栏
         setToolbarVisible(View.VISIBLE);
-        setBottomNavigationViewVisible(View.VISIBLE);
+//        setBottomNavigationViewVisible(View.VISIBLE);
 
         //设置代理
         BottomNavigationViewEvent.setBottomNavigationVInterface(this);
@@ -275,7 +284,6 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
 
         }
 
-
     }
 
     //修改资源图片颜色
@@ -345,9 +353,11 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
 
     @Override
     public int getLayoutId() {
-        if (isFirstInit) {
-            return R.layout.activity_index;
-        }
+//        if (isFirstInit) {
+//            return R.layout.activity_index;
+//        }
+
+        //不加载引导界面 由代码动态加载
         return -1;
     }
 

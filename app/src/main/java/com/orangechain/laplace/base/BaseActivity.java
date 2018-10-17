@@ -39,6 +39,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
+    private ViewGroup baseView;
     private ViewGroup viewGroup;
     private laplaceToolbar toolbar;
     private FrameLayout mFrameLayout;
@@ -95,6 +96,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         //设置界面的一些主要的样式
         super.setContentView(R.layout.activity_base);
 
+        baseView = findViewById(R.id.fl_root1);
+
         //设置toolbar
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -149,6 +152,44 @@ public abstract class BaseActivity extends AppCompatActivity {
         resource.updateConfiguration(configuration, resource.getDisplayMetrics());
 
     }
+
+    /**
+     * 处理点击系统返回按钮
+     */
+    @Override
+    public void finish() {
+        super.finish();
+        if (isFromActivityStart)
+            overridePendingTransition(0, exitAnimation == 0 ? R.anim.slide_out : exitAnimation);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (this != null) {
+            BaseActivityCollector.removeActivity(this);
+        }
+    }
+
+    /**
+     * 重写系统返回事件
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            leftAction();
+            return true;
+        }
+        return false;
+    }
+
+
+
+    /*****************************设置相关的基类方法****************************/
 
     /**
      * 设置标题
@@ -241,19 +282,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * 重写系统返回事件
-     * @param keyCode
-     * @param event
-     * @return
+     * 获取 viewGroup
      */
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            leftAction();
-            return true;
-        }
-        return false;
+    public ViewGroup getBaseViewGroup() {
+        return baseView;
     }
 
     /**
@@ -348,23 +380,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * 处理点击系统返回按钮
-     */
-    @Override
-    public void finish() {
-        super.finish();
-        if (isFromActivityStart)
-            overridePendingTransition(0, exitAnimation == 0 ? R.anim.slide_out : exitAnimation);
-    }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (this != null) {
-            BaseActivityCollector.removeActivity(this);
-        }
-    }
 
     /**
      * ******************************此处管理屏幕的一些内容*************************

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:id="@+id/guidance_index"
     tools:context=".activity.IndexActivity">
 
 
@@ -41,9 +42,5 @@
         android:textColor="@color/colorWhite"
         android:background="@drawable/btn_selector_transparent_index"
         />
-
-
-    <!--<Button android:id="@+id/creat_user"-->
-        <!--android:layout_height=""/>-->
 
 </RelativeLayout>

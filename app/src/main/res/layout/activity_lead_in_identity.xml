@@ -21,7 +21,7 @@
     <EditText
         android:id="@+id/lead_in_textView"
         android:layout_width="294dp"
-        android:layout_height="269dp"
+        android:layout_height="180dp"
         android:paddingTop="10dp"
         android:paddingLeft="10dp"
         android:gravity="top|left"
@@ -79,8 +79,8 @@
         android:textColor="@color/colorPrimary"
         android:background="@drawable/btn_selector_white_index"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="57dp"
+        android:layout_below="@id/lead_in_checkBox"
+        android:layout_marginTop="84dp"
         />
 
 
