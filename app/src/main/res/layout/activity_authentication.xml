@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.identity.setting.AuthenticationActivity">
+
+    <TextView android:id="@+id/auth_top_textview"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@color/color4A90E2"
+        android:text="E8game"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_13"
+        android:gravity="center_vertical"
+        android:paddingLeft="23dp"/>
+
+
+    <ImageView android:id="@+id/auth_change"
+        android:layout_height="10dp"
+        android:layout_width="34dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/auth_top_textview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        />
+
+    <ImageView android:id="@+id/auth_logo"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/auth_top_textview"
+        android:layout_marginTop="29dp"
+        android:layout_marginRight="18dp"
+        android:layout_toLeftOf="@id/auth_change"/>
+
+
+    <TextView android:id="@+id/auth_name"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:text="E8game"
+        android:textColor="@color/color4A4A4A"
+        android:textSize="@dimen/text_size_17"
+        android:layout_below="@id/auth_top_textview"
+        android:layout_marginTop="29dp"
+        android:layout_marginLeft="18dp"
+        android:layout_toRightOf="@id/auth_change"
+        android:gravity="center"/>
+
+    <RelativeLayout android:id="@+id/auth_center_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginRight="21dp"
+        android:layout_marginLeft="21dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/auth_change"
+        android:layout_marginTop="74dp"
+        >
+        <TextView android:id="@+id/auth_center_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="授权后应用将获取以下权限"
+            android:textSize="@dimen/text_size_13"
+            android:textColor="@color/color535353"/>
+
+
+        <CheckBox
+            android:id="@+id/auth_center_public_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/auth_center_name"
+            android:layout_marginTop="13dp"
+            android:text="获取你的公开信息（用户名、头像等）"
+            android:textColor="@color/color333333"
+            android:textSize="11dp"/>
+
+        <CheckBox
+            android:id="@+id/auth_center_game_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/auth_center_public_info"
+            android:layout_marginTop="14dp"
+            android:text="查看你的游戏记录"
+            android:textColor="@color/color333333"
+            android:textSize="11dp"/>
+
+        <CheckBox
+            android:id="@+id/auth_center_trade_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/auth_center_game_info"
+            android:layout_marginTop="14dp"
+            android:text="获取你的交易记录"
+            android:textColor="@color/color333333"
+            android:textSize="11dp"/>
+
+        <CheckBox
+            android:id="@+id/auth_center_comment_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/auth_center_trade_info"
+            android:layout_marginTop="14dp"
+            android:text="查看你的评论"
+            android:textColor="@color/color333333"
+            android:textSize="11dp"/>
+
+    </RelativeLayout>
+
+
+    <Button android:id="@+id/auth_permit_button"
+        android:layout_height="44dp"
+        android:layout_width="320dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp"
+        android:text="授权"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_13"
+        android:background="@drawable/btn_selector_fingerprint"/>
+
+
+</RelativeLayout>

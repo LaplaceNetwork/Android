@@ -33,7 +33,9 @@
         <activity android:name=".base.BaseBottomNavigationActivity" />
         <activity android:name=".activity.identity.setting.SystemSettingActivity" />
         <activity android:name=".activity.identity.setting.LanguageSettingActivity" />
-        <activity android:name=".activity.identity.setting.PushSettingActivity"></activity>
+        <activity android:name=".activity.identity.setting.PushSettingActivity" />
+        <activity android:name=".activity.identity.setting.AuthenticationActivity" />
+        <activity android:name=".activity.identity.setting.AuthenticationProcessActivity"></activity>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
     <color name="colorWhiteTransparent">#80FFFFFF</color>
     <color name="colorGray">#B8BEC9</color>
 
@@ -16,6 +17,7 @@
     <color name="color00214E">#00214E</color>
     <color name="color979797">#979797</color>
     <color name="colorF3F3F3">#F3F3F3</color>
+    <color name="colorF2F2F2">#F2F2F2</color>
     <color name="color2C467B">#2C467B</color>
     <color name="colorC3CEE1">#C3CEE1</color>
     <color name="colorF7F7F7">#F7F7F7</color>
@@ -23,8 +25,11 @@
     <color name="colorE1E0E0">#E1E0E0</color>
     <color name="colorED6363">#ED6363</color>
     <color name="colorE1E4E9">#E1E4E9</color>
+    <color name="colorE4E4E4">#E4E4E4</color>
     <color name="color4A4A4A">#4A4A4A</color>
     <color name="color98A2B3">#98A2B3</color>
+    <color name="color4A90E2">#4A90E2</color>
+    <color name="color535353">#535353</color>
 
 
 
