@@ -38,6 +38,20 @@ public class IdentityFragment extends BaseFragment {
     @Override
     public void initWithView(View view) {
 
+
+        //获取身份信息界面
+        View topMainView = view.findViewById(R.id.idcard_simple_RelativeLayout);
+        topMainView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getActivity(),"hdu9asu9da",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
         ImageView protectImageView = view.findViewById(R.id.identity_usericon_imageview);
         //这边需要对图片做一个剪裁 圆角剪裁
         Glide.with(this).load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539608309718&di=b2379fa2bb33ffbc19a0507f54ea4f21&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201501%2F25%2F20150125094219_cWXuL.jpeg")

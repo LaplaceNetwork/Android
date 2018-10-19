@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <ImageView android:id="@+id/authentication_process_result_top_image"
+        android:layout_height="54dp"
+        android:layout_width="54dp"
+        android:layout_marginTop="14dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"/>
+
+    <TextView android:id="@+id/authentication_process_result_top_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E8game"
+        android:textColor="@color/color2C467B"
+        android:textSize="@dimen/text_size_17"
+        android:layout_below="@id/authentication_process_result_top_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"/>
+
+
+    <include layout="@layout/include_custom_authentication_process_result"
+        android:id="@+id/authentication_process_result_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/authentication_process_result_top_name"
+        android:layout_marginTop="47dp"/>
+
+    <include layout="@layout/include_custom_authentication_process_result"
+        android:id="@+id/authentication_process_result_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/authentication_process_result_username"
+        android:layout_marginTop="25dp"/>
+
+    <include layout="@layout/include_custom_authentication_process_result"
+        android:id="@+id/authentication_process_result_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/authentication_process_result_id"
+        android:layout_marginTop="25dp"/>
+
+    <include layout="@layout/include_custom_authentication_process_result"
+        android:id="@+id/authentication_process_result_homepage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/authentication_process_result_location"
+        android:layout_marginTop="25dp"/>
+
+    <include layout="@layout/include_custom_authentication_process_result"
+        android:id="@+id/authentication_process_result_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/authentication_process_result_homepage"
+        android:layout_marginTop="25dp"/>
+
+
+    <LinearLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dp">
+
+        <TextView android:id="@+id/authentication_process_result_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="生效中"
+            android:textColor="@color/color2087FF"
+            android:textSize="@dimen/text_size_11"/>
+
+        <TextView android:id="@+id/authentication_process_result_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="·2018.11.11 11:11:11"
+            android:textColor="@color/colorB8BEC9"
+            android:textSize="@dimen/text_size_11"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</RelativeLayout>

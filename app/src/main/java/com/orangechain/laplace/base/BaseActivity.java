@@ -289,6 +289,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
+     * 获取mainGroup
+     */
+    public ViewGroup getMainViewGroup() {
+        return viewGroup;
+    }
+
+    /**
      * ******************************此处管理活动之间跳转的动画***********************
      */
 

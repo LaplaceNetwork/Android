@@ -1,9 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.identity.setting.AuthenticationProcessActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout android:id="@+id/auth_process_middle_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp">
+
+
+
+        <ImageView android:id="@+id/auth_process_right_imageView"
+            android:layout_height="84dp"
+            android:layout_width="73dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="82dp"
+            android:background="@color/colorPrimary"
+            />
+
+        <ImageView android:id="@+id/auth_process_left_imageView"
+            android:layout_width="56dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="91dp"
+            android:layout_centerVertical="true"
+            android:background="@color/colorPrimary"/>
+
+    </RelativeLayout>
+
+
+    <TextView android:id="@+id/auth_process_status_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="授权成功"
+        android:textColor="@color/color4A4A4A"
+        android:textSize="@dimen/text_size_17"
+        android:layout_below="@id/auth_process_middle_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"/>
+
+    <Button android:id="@+id/auth_process_button"
+        android:layout_height="44dp"
+        android:layout_width="320dp"
+        android:text="查看我的Laplace Passport"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_13"
+        android:background="@drawable/btn_selector_fingerprint"
+        android:layout_below="@id/auth_process_status_textview"
+        android:layout_marginTop="71dp"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

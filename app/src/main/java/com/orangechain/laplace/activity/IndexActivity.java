@@ -183,7 +183,7 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 return;
             case R.id.nav_pay:
                 ((laplaceToolbar) toolbar).setMainTitle("");
-                ((laplaceToolbar) toolbar).setLeftTitleText("Laplace-ID");
+                ((laplaceToolbar) toolbar).setLeftTitleText("Laplace-Pay");
                 ((laplaceToolbar) toolbar).setLeftTitleColor(getResources().getColor(R.color.color022656));
                 ((laplaceToolbar) toolbar).setLeftTitleSize(getResources().getDimensionPixelSize(R.dimen.text_size_25));
                 ((laplaceToolbar) toolbar).setLeftTitleDrawableHidden();
