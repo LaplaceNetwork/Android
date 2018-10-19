@@ -76,6 +76,10 @@ public class laplaceToolbar extends Toolbar {
         mTxtMiddleTitle.setTextColor(color);
     }
 
+    //设置字号
+    public void setMainTitleSize(float size) {
+        mTxtMiddleTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX,size);
+    }
 
     /***********************左边*************************/
     //设置title左边文字

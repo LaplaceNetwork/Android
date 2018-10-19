@@ -23,7 +23,7 @@ public class SizeConvertUtil {
      * @param context  上下文
      * @param dipValue dp值
      * @return	 */
-    public int dip2px(Context context, float dipValue) 	{
+    public static int dip2px(Context context, float dipValue) 	{
         Resources r = context.getResources();
         return (int) TypedValue.applyDimension(	TypedValue.COMPLEX_UNIT_DIP, dipValue, r.getDisplayMetrics());
     }

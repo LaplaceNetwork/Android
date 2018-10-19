@@ -30,6 +30,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.ToolUtil.SizeConvertUtil;
 import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.base.basehelper.MyApplication;
 import com.orangechain.laplace.base.laplaceBaseView.laplaceToolbar;
@@ -218,6 +219,13 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public void setToolBarTextColor(int color) {
         toolbar.setMainTitleColor(getResources().getColor(color));
+    }
+
+    /**
+     * 设置ToolBar字号
+     */
+    public void setToolBarTextSize(int size) {
+        toolbar.setMainTitleSize(getResources().getDimensionPixelSize(size));
     }
 
     /**

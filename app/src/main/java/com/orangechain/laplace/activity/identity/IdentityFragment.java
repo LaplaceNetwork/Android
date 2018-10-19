@@ -19,6 +19,7 @@ import com.orangechain.laplace.activity.guideregistration.BackupsIdentityActionA
 import com.orangechain.laplace.activity.identity.adapter.IdetityFragmentAdapter;
 import com.orangechain.laplace.activity.identity.bean.IdentityFragmentBean;
 import com.orangechain.laplace.activity.identity.setting.AuthenticationActivity;
+import com.orangechain.laplace.activity.identity.setting.MessageIdActivity;
 import com.orangechain.laplace.base.BaseFragment;
 
 import java.util.ArrayList;
@@ -45,7 +46,8 @@ public class IdentityFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getActivity(),"hdu9asu9da",Toast.LENGTH_SHORT).show();
+                MessageIdActivity messageIdActivity = new MessageIdActivity();
+                messageIdActivity.pushActivity(getActivity());
 
             }
         });

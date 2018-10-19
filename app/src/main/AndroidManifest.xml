@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".luncher.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +35,8 @@
         <activity android:name=".activity.identity.setting.LanguageSettingActivity" />
         <activity android:name=".activity.identity.setting.PushSettingActivity" />
         <activity android:name=".activity.identity.setting.AuthenticationActivity" />
-        <activity android:name=".activity.identity.setting.AuthenticationProcessActivity"/>
+        <activity android:name=".activity.identity.setting.AuthenticationProcessActivity" />
+        <activity android:name=".activity.identity.setting.MessageIdActivity"></activity>
     </application>
 
 </manifest>
