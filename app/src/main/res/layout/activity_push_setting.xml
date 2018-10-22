@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.identity.setting.PushSettingActivity">
+    tools:context=".activity.identity.activity.PushSettingActivity">
 
     <include android:id="@+id/push_setting_message_include"
         layout="@layout/include_push_setting"/>

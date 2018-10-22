@@ -31,12 +31,14 @@
         <activity android:name=".activity.guideregistration.BackupsIdentityActionActivity" />
         <activity android:name=".activity.guideregistration.BackupsQRCodeActivity" />
         <activity android:name=".base.BaseBottomNavigationActivity" />
-        <activity android:name=".activity.identity.setting.SystemSettingActivity" />
-        <activity android:name=".activity.identity.setting.LanguageSettingActivity" />
-        <activity android:name=".activity.identity.setting.PushSettingActivity" />
-        <activity android:name=".activity.identity.setting.AuthenticationActivity" />
-        <activity android:name=".activity.identity.setting.AuthenticationProcessActivity" />
-        <activity android:name=".activity.identity.setting.MessageIdActivity"></activity>
+        <activity android:name=".activity.identity.activity.SystemSettingActivity" />
+        <activity android:name=".activity.identity.activity.LanguageSettingActivity" />
+        <activity android:name=".activity.identity.activity.PushSettingActivity" />
+        <activity android:name=".activity.identity.activity.AuthenticationActivity" />
+        <activity android:name=".activity.identity.activity.AuthenticationProcessActivity" />
+        <activity android:name=".activity.identity.activity.MessageIdActivity" />
+        <activity android:name=".activity.guideregistration.QRCodeActivity" />
+        <activity android:name=".activity.googleverify.activity.AuthPhoneActivity"></activity>
     </application>
 
 </manifest>

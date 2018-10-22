@@ -1,12 +1,12 @@
-package com.orangechain.laplace.activity.identity.setting;
+package com.orangechain.laplace.activity.identity.activity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.widget.ListView;
 
 import com.orangechain.laplace.R;
-import com.orangechain.laplace.activity.identity.setting.adapter.LanguageSettingAdapter;
-import com.orangechain.laplace.activity.identity.setting.bean.LanguageSettingBean;
+import com.orangechain.laplace.activity.identity.activity.adapter.LanguageSettingAdapter;
+import com.orangechain.laplace.activity.identity.activity.bean.LanguageSettingBean;
 import com.orangechain.laplace.base.BaseActivity;
 
 import java.util.ArrayList;

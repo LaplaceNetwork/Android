@@ -1,4 +1,4 @@
-package com.orangechain.laplace.activity.identity.setting.adapter;
+package com.orangechain.laplace.activity.identity.activity.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,8 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.orangechain.laplace.R;
-import com.orangechain.laplace.activity.identity.setting.bean.MessageIdBean;
-import com.orangechain.laplace.activity.identity.setting.bean.messageIdSonBean;
+import com.orangechain.laplace.activity.identity.activity.bean.MessageIdBean;
+import com.orangechain.laplace.activity.identity.activity.bean.messageIdSonBean;
 
 import java.util.List;
 

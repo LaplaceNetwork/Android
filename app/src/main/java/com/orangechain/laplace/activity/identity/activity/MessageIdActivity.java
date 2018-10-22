@@ -1,14 +1,13 @@
-package com.orangechain.laplace.activity.identity.setting;
+package com.orangechain.laplace.activity.identity.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.widget.ListView;
 
 import com.orangechain.laplace.R;
-import com.orangechain.laplace.activity.identity.setting.adapter.MessageIdAdapter;
-import com.orangechain.laplace.activity.identity.setting.bean.MessageIdBean;
-import com.orangechain.laplace.activity.identity.setting.bean.messageIdSonBean;
+import com.orangechain.laplace.activity.identity.activity.adapter.MessageIdAdapter;
+import com.orangechain.laplace.activity.identity.activity.bean.MessageIdBean;
+import com.orangechain.laplace.activity.identity.activity.bean.messageIdSonBean;
 import com.orangechain.laplace.base.BaseActivity;
 
 import java.util.ArrayList;

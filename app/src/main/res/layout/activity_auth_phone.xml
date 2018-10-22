@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.googleverify.activity.AuthPhoneActivity">
+
+
+    <TextView android:id="@+id/auth_toolbar_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size_common"
+        android:background="@color/colorE1E0E0"/>
+
+    <include layout="@layout/include_auth_phone"
+        android:id="@+id/auth_account_layout"
+        android:layout_below="@id/auth_toolbar_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <include layout="@layout/include_auth_phone"
+        android:id="@+id/auth_secretkey_layout"
+        android:layout_below="@id/auth_account_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <include layout="@layout/include_auth_phone_time"
+        android:id="@+id/auth_time_layout"
+        android:layout_below="@id/auth_secretkey_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <Button android:id="@+id/auth_confirm_button"
+        android:layout_height="44dp"
+        android:layout_width="320dp"
+        android:background="@drawable/btn_selector_fingerprint"
+        android:text="确认"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_13"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp"
+        />
+
+
+</RelativeLayout>

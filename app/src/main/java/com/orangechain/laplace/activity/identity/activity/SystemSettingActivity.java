@@ -1,4 +1,4 @@
-package com.orangechain.laplace.activity.identity.setting;
+package com.orangechain.laplace.activity.identity.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,8 +6,8 @@ import android.widget.ListView;
 
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.ToolUtil.ToolHelper;
-import com.orangechain.laplace.activity.identity.setting.adapter.SystemSettingAdapter;
-import com.orangechain.laplace.activity.identity.setting.bean.SystemSettingBean;
+import com.orangechain.laplace.activity.identity.activity.adapter.SystemSettingAdapter;
+import com.orangechain.laplace.activity.identity.activity.bean.SystemSettingBean;
 import com.orangechain.laplace.base.BaseActivity;
 import com.orangechain.laplace.interfac.SystemSettingInterface;
 

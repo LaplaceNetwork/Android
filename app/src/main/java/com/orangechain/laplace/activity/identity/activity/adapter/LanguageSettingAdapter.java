@@ -1,4 +1,4 @@
-package com.orangechain.laplace.activity.identity.setting.adapter;
+package com.orangechain.laplace.activity.identity.activity.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.orangechain.laplace.R;
-import com.orangechain.laplace.activity.identity.setting.bean.LanguageSettingBean;
+import com.orangechain.laplace.activity.identity.activity.bean.LanguageSettingBean;
 
 import java.util.List;
 

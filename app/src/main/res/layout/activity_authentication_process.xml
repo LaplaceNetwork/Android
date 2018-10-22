@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.identity.setting.AuthenticationProcessActivity">
+    tools:context=".activity.identity.activity.AuthenticationProcessActivity">
 
     <RelativeLayout android:id="@+id/auth_process_middle_layout"
         android:layout_width="match_parent"

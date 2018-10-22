@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <TextView android:id="@+id/auth_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="测试"
+        android:textColor="@color/color2C467B"
+        android:textSize="@dimen/text_size_13"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="17dp"/>
+
+    <TextView android:id="@+id/auth_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试0"
+        android:textColor="@color/colorB8BEC9"
+        android:textSize="@dimen/text_size_13"
+        android:layout_below="@id/auth_name"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="12dp"/>
+
+    <TextView android:id="@+id/auth_line"
+        android:layout_height="@dimen/line_size_common"
+        android:layout_width="match_parent"
+        android:background="@color/colorE1E0E0"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_below="@id/auth_des"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>

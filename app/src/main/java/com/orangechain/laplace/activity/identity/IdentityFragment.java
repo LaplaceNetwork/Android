@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
@@ -18,15 +17,14 @@ import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.activity.guideregistration.BackupsIdentityActionActivity;
 import com.orangechain.laplace.activity.identity.adapter.IdetityFragmentAdapter;
 import com.orangechain.laplace.activity.identity.bean.IdentityFragmentBean;
-import com.orangechain.laplace.activity.identity.setting.AuthenticationActivity;
-import com.orangechain.laplace.activity.identity.setting.MessageIdActivity;
+import com.orangechain.laplace.activity.identity.activity.AuthenticationActivity;
+import com.orangechain.laplace.activity.identity.activity.MessageIdActivity;
 import com.orangechain.laplace.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.bumptech.glide.request.RequestOptions.bitmapTransform;
-import static com.bumptech.glide.request.RequestOptions.timeoutOf;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,7 +49,6 @@ public class IdentityFragment extends BaseFragment {
 
             }
         });
-
 
 
         ImageView protectImageView = view.findViewById(R.id.identity_usericon_imageview);

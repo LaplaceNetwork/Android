@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.identity.setting.MessageIdActivity">
+    tools:context=".activity.identity.activity.MessageIdActivity">
 
     <TextView android:id="@+id/message_id_summary_textview"
         android:layout_width="match_parent"

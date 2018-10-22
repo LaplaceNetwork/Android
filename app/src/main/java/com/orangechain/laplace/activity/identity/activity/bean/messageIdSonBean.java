@@ -1,4 +1,4 @@
-package com.orangechain.laplace.activity.identity.setting.bean;
+package com.orangechain.laplace.activity.identity.activity.bean;
 
 public class messageIdSonBean {
 

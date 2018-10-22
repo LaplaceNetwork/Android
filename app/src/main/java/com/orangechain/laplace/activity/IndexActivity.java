@@ -7,14 +7,12 @@ import android.content.IntentFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.constraint.Group;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -22,17 +20,18 @@ import android.widget.Button;
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.activity.currenttime.CurrentTimeFragment;
 import com.orangechain.laplace.activity.googleverify.GoogleVerityFragment;
+import com.orangechain.laplace.activity.googleverify.activity.AuthPhoneActivity;
 import com.orangechain.laplace.activity.guideregistration.CreatIdentityActivity;
 import com.orangechain.laplace.activity.guideregistration.LeadInIdentityActivity;
+import com.orangechain.laplace.activity.guideregistration.QRCodeActivity;
 import com.orangechain.laplace.activity.identity.IdentityFragment;
-import com.orangechain.laplace.activity.identity.setting.SystemSettingActivity;
+import com.orangechain.laplace.activity.identity.activity.SystemSettingActivity;
 import com.orangechain.laplace.activity.monitoringcenter.MonitoringCenterFragment;
 import com.orangechain.laplace.activity.pay.PayFragment;
 import com.orangechain.laplace.base.BaseActivityCollector;
 import com.orangechain.laplace.base.BaseBottomNavigationActivity;
 import com.orangechain.laplace.base.laplaceBaseView.laplaceToolbar;
 import com.orangechain.laplace.interfac.BottomNavigationViewInterface;
-
 
 
 public class IndexActivity extends BaseBottomNavigationActivity implements BottomNavigationViewInterface {
@@ -69,7 +68,7 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
         intentFilter = new IntentFilter();
         intentFilter.addAction("com.orangechain.laplace.IndexActivity.LOCAL_BROADCAST");
         localReceiver = new LocalReceiver();
-        localBroadcastManager.registerReceiver(localReceiver,intentFilter);
+        localBroadcastManager.registerReceiver(localReceiver, intentFilter);
 
     }
 
@@ -82,7 +81,7 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
         if (isFirstInit) {
 
             //获取父view 其上加载引导界面
-            getLayoutInflater().inflate(R.layout.activity_index,getBaseViewGroup());
+            getLayoutInflater().inflate(R.layout.activity_index, getBaseViewGroup());
 
             //隐藏导航栏
             setToolbarVisible(View.GONE);
@@ -153,7 +152,7 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
     }
 
     //修改顶部导航栏样式
-    public void changeToolBarContent(int page){
+    public void changeToolBarContent(int page) {
 
         //记录当前的主功能界面
         currentPage = page;
@@ -166,13 +165,13 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 ((laplaceToolbar) toolbar).setLeftTitleColor(getResources().getColor(R.color.color022656));
                 ((laplaceToolbar) toolbar).setLeftTitleSize(getResources().getDimensionPixelSize(R.dimen.text_size_25));
                 ((laplaceToolbar) toolbar).setLeftTitleDrawableHidden();
-                ((laplaceToolbar) toolbar).setLeftTitlePadding(21,0,0,0);
+                ((laplaceToolbar) toolbar).setLeftTitlePadding(21, 0, 0, 0);
                 ((laplaceToolbar) toolbar).setRightTitleDrawable(R.drawable.baseline_settings_black_24dp);
-                ((laplaceToolbar) toolbar).setRightTitlePadding(0,0,21,0);
+                ((laplaceToolbar) toolbar).setRightTitlePadding(0, 0, 21, 0);
 
                 //修改toobar背景色
                 toolbar.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-                changePictureColor(R.drawable.baseline_settings_black_24dp,R.color.color2C467B);
+                changePictureColor(R.drawable.baseline_settings_black_24dp, R.color.color2C467B);
 
                 ((laplaceToolbar) toolbar).setRightVisible(View.VISIBLE);
                 ((laplaceToolbar) toolbar).setRightTitleText("");
@@ -187,12 +186,12 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 ((laplaceToolbar) toolbar).setLeftTitleColor(getResources().getColor(R.color.color022656));
                 ((laplaceToolbar) toolbar).setLeftTitleSize(getResources().getDimensionPixelSize(R.dimen.text_size_25));
                 ((laplaceToolbar) toolbar).setLeftTitleDrawableHidden();
-                ((laplaceToolbar) toolbar).setLeftTitlePadding(21,0,0,0);
+                ((laplaceToolbar) toolbar).setLeftTitlePadding(21, 0, 0, 0);
                 ((laplaceToolbar) toolbar).setRightTitleDrawable(R.drawable.baseline_add_black_24dp);
-                ((laplaceToolbar) toolbar).setRightTitlePadding(0,0,21,0);
+                ((laplaceToolbar) toolbar).setRightTitlePadding(0, 0, 21, 0);
 
                 toolbar.setBackgroundColor(getResources().getColor(R.color.colorWhite));
-                changePictureColor(R.drawable.baseline_add_black_24dp,R.color.color2C467B);
+                changePictureColor(R.drawable.baseline_add_black_24dp, R.color.color2C467B);
 
                 ((laplaceToolbar) toolbar).setRightVisible(View.VISIBLE);
                 ((laplaceToolbar) toolbar).setRightTitleText("");
@@ -207,12 +206,12 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 ((laplaceToolbar) toolbar).setLeftTitleColor(getResources().getColor(R.color.colorWhite));
                 ((laplaceToolbar) toolbar).setLeftTitleSize(getResources().getDimensionPixelSize(R.dimen.text_size_25));
                 ((laplaceToolbar) toolbar).setLeftTitleDrawableHidden();
-                ((laplaceToolbar) toolbar).setLeftTitlePadding(21,0,0,0);
+                ((laplaceToolbar) toolbar).setLeftTitlePadding(21, 0, 0, 0);
                 ((laplaceToolbar) toolbar).setRightTitleDrawable(R.drawable.baseline_add_black_24dp);
-                ((laplaceToolbar) toolbar).setRightTitlePadding(0,0,21,0);
+                ((laplaceToolbar) toolbar).setRightTitlePadding(0, 0, 21, 0);
 
                 toolbar.setBackgroundColor(getResources().getColor(R.color.color022656));
-                changePictureColor(R.drawable.baseline_add_black_24dp,R.color.colorWhite);
+                changePictureColor(R.drawable.baseline_add_black_24dp, R.color.colorWhite);
 
                 ((laplaceToolbar) toolbar).setRightVisible(View.VISIBLE);
                 ((laplaceToolbar) toolbar).setRightTitleText("");
@@ -227,7 +226,7 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 ((laplaceToolbar) toolbar).setLeftTitleColor(getResources().getColor(R.color.colorWhite));
                 ((laplaceToolbar) toolbar).setLeftTitleSize(getResources().getDimensionPixelSize(R.dimen.text_size_25));
                 ((laplaceToolbar) toolbar).setLeftTitleDrawableHidden();
-                ((laplaceToolbar) toolbar).setLeftTitlePadding(21,0,0,0);
+                ((laplaceToolbar) toolbar).setLeftTitlePadding(21, 0, 0, 0);
 
                 toolbar.setBackgroundColor(getResources().getColor(R.color.color022656));
 
@@ -248,7 +247,7 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 ((laplaceToolbar) toolbar).setLeftTitleColor(getResources().getColor(R.color.color022656));
                 ((laplaceToolbar) toolbar).setLeftTitleSize(getResources().getDimensionPixelSize(R.dimen.text_size_25));
                 ((laplaceToolbar) toolbar).setLeftTitleDrawableHidden();
-                ((laplaceToolbar) toolbar).setLeftTitlePadding(21,0,0,0);
+                ((laplaceToolbar) toolbar).setLeftTitlePadding(21, 0, 0, 0);
 
                 toolbar.setBackgroundColor(getResources().getColor(R.color.colorWhite));
 
@@ -277,9 +276,41 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 //进入设置界面
                 SystemSettingActivity systemSettingActivity = new SystemSettingActivity();
                 systemSettingActivity.pushActivity(IndexActivity.this);
+            case R.id.nav_google_verity:
+                //显示相关的内容在主界面上
+                final ViewGroup showViewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.input_google_verification_frame,getBaseViewGroup());
 
-                default:
-                    return;
+                final View baseView = showViewGroup.findViewById(R.id.input_google_verification_frame_layout);
+                baseView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showViewGroup.removeView(baseView);
+                    }
+                });
+
+                View QRCodeView = showViewGroup.findViewById(R.id.google_verification_qrcode_textview);
+                QRCodeView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //进入二维码界面
+                        QRCodeActivity qrCodeActivity = new QRCodeActivity();
+                        qrCodeActivity.pushActivity(IndexActivity.this);
+                    }
+                });
+
+                View authView = showViewGroup.findViewById(R.id.google_verification_auth_textview);
+                authView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //进入验证界面
+                        AuthPhoneActivity authPhoneActivity = new AuthPhoneActivity();
+                        authPhoneActivity.pushActivity(IndexActivity.this);
+                    }
+                });
+
+
+            default:
+                return;
 
 
         }
@@ -287,7 +318,7 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
     }
 
     //修改资源图片颜色
-    public void changePictureColor(int imageRes,int color) {
+    public void changePictureColor(int imageRes, int color) {
         Drawable imageViewDraw = ContextCompat.getDrawable(this, imageRes);
         imageViewDraw.setColorFilter(getResources().getColor(color), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(imageViewDraw);
