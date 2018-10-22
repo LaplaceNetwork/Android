@@ -23,15 +23,15 @@ public class MessageIdActivity extends BaseActivity {
     public void initWithView() {
 
         setToolBarText("ID信息");
-        setToolBarTextColor(R.color.colorPrimary);
+        setToolBarTextColor(R.color.color022656);
         setToolBarTextSize(R.dimen.text_size_17);
 
         //创建数据源
-        messageIdSonBean sonBean0 = new messageIdSonBean("测试0","ceshi0");
-        messageIdSonBean sonBean1 = new messageIdSonBean("测试0","ceshi0");
-        messageIdSonBean sonBean2 = new messageIdSonBean("测试0","ceshi0");
-        messageIdSonBean sonBean3 = new messageIdSonBean("测试0","ceshi0");
-        messageIdSonBean sonBean4 = new messageIdSonBean("测试0","ceshi0");
+        messageIdSonBean sonBean0 = new messageIdSonBean("Username","iyouus");
+        messageIdSonBean sonBean1 = new messageIdSonBean("ID","198374058797897379746");
+        messageIdSonBean sonBean2 = new messageIdSonBean("Location","China");
+        messageIdSonBean sonBean3 = new messageIdSonBean("Homepage","Http://e8game.net/friends-vision.siejt.html");
+        messageIdSonBean sonBean4 = new messageIdSonBean("Avatar","Http://e8game.net/friends-vision.siejt.html");
 
         List<messageIdSonBean> list0 = new ArrayList<>();
         list0.add(sonBean0);
@@ -40,13 +40,15 @@ public class MessageIdActivity extends BaseActivity {
         list0.add(sonBean3);
         list0.add(sonBean4);
 
-        MessageIdBean messageIdBean0 = new MessageIdBean(true,"测试0",list0);
-        MessageIdBean messageIdBean1 = new MessageIdBean(true,"测试1",list0);
-        MessageIdBean messageIdBean2 = new MessageIdBean(true,"测试2",list0);
+        MessageIdBean messageIdBean0 = new MessageIdBean(false,"E8game",list0);
+        MessageIdBean messageIdBean1 = new MessageIdBean(false,"Opensea",list0);
+        MessageIdBean messageIdBean2 = new MessageIdBean(false,"Telegram",list0);
+        MessageIdBean messageIdBean3 = new MessageIdBean(false,"Twitter",list0);
 
         listArr.add(messageIdBean0);
         listArr.add(messageIdBean1);
         listArr.add(messageIdBean2);
+        listArr.add(messageIdBean3);
 
         //创建响应的listview
         MessageIdAdapter adapter = new MessageIdAdapter(MessageIdActivity.this,R.layout.item_meaasge_id_activity,listArr);

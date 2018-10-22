@@ -140,6 +140,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         //设置键盘不挤压布局
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN|WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+
+        setToolBarLeftColor(R.color.color022656);
+
     }
 
     @Override

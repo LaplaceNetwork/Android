@@ -6,33 +6,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.activity.identity.setting.bean.MessageIdBean;
 import com.orangechain.laplace.activity.identity.setting.bean.messageIdSonBean;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 public class MessageIdAdapter extends ArrayAdapter {
 
-
     private int resourceId;
+    private Context mContext;
 
     public MessageIdAdapter(Context context, int resource, List<MessageIdBean> objects) {
         super(context, resource, objects);
 
         this.resourceId = resource;
+        this.mContext = context;
 
     }
 
     @Override
-    public View getView(int position,  View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
-        MessageIdBean bean = (MessageIdBean) getItem(position);
+        final MessageIdBean bean = (MessageIdBean) getItem(position);
 
         List<messageIdSonBean> array = bean.getListDesArray();
 
@@ -45,6 +44,9 @@ public class MessageIdAdapter extends ArrayAdapter {
 
             viewHolder.messsageIdHeaderNameTextView = view.findViewById(R.id.message_id_item_top_name);
             viewHolder.messageIdImageView = view.findViewById(R.id.message_id_item_top_arrow);
+
+            //获取message_id_item_bottom_layout
+            viewHolder.groupRelativeLayout = view.findViewById(R.id.message_id_item_bottom_layout);
 
             //获取以下小组的内容
             ViewGroup userView = view.findViewById(R.id.message_id_item_bottom_username);
@@ -77,7 +79,27 @@ public class MessageIdAdapter extends ArrayAdapter {
 
         }
 
+        //设置组头的信息
         viewHolder.messsageIdHeaderNameTextView.setText(bean.getItemName());
+
+        viewHolder.messageIdImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                bean.setShow(!bean.isShow());
+                notifyDataSetChanged();
+
+            }
+        });
+
+        //判断是否显示详细内容
+        if (bean.isShow()) {
+            viewHolder.groupRelativeLayout.setVisibility(View.VISIBLE);
+            viewHolder.messageIdImageView.getDrawable().setLevel(0);
+        } else {
+            viewHolder.groupRelativeLayout.setVisibility(View.GONE);
+            viewHolder.messageIdImageView.getDrawable().setLevel(10000);
+        }
 
         //分组取出数据
         messageIdSonBean bean1 = array.get(0);
@@ -96,7 +118,6 @@ public class MessageIdAdapter extends ArrayAdapter {
         viewHolder.homepageTextView.setText(bean1.getName());
         viewHolder.homepageDesTextView.setText(bean1.getDes());
 
-
         bean1 = array.get(4);
         viewHolder.avatarTextView.setText(bean1.getName());
         viewHolder.avatarDesTextView.setText(bean1.getDes());
@@ -111,16 +132,8 @@ public class MessageIdAdapter extends ArrayAdapter {
 
         ImageView messageIdImageView;
 
-//        LinearLayout userNameLayout;
-//
-//        LinearLayout idLayout;
-//
-//        LinearLayout locationLayout;
-//
-//        LinearLayout homepageLayout;
-//
-//        LinearLayout avatarLayout;
-
+        //可以隐藏的部分
+        RelativeLayout groupRelativeLayout;
 
         TextView userNameTextView;
 

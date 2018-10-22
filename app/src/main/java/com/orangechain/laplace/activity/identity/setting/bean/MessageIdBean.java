@@ -4,11 +4,11 @@ import java.util.List;
 
 public class MessageIdBean {
 
-    boolean isShow;
+    boolean isShow;//是否显示
 
-    String itemName;
+    String itemName;//组头的信息
 
-    List<messageIdSonBean> listDesArray;
+    List<messageIdSonBean> listDesArray;//隐藏部分的数据
 
 
     public MessageIdBean(boolean isShow, String itemName, List<messageIdSonBean> listDesArray) {
