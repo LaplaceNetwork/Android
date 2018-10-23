@@ -179,5 +179,12 @@ public class laplaceToolbar extends Toolbar {
 
     }
 
+    /**
+     * 点击switch按钮
+     */
+    public void setSwitchClickListener(OnClickListener onClickListener) {
+        mSwitchBUtton.setOnClickListener(onClickListener);
+    }
+
 
 }

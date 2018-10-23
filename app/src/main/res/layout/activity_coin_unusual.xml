@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".activity.monitoringcenter.activity.CoinUnusualActivity">
+
+    <TextView android:id="@+id/coin_unusual_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size_common"
+        android:background="@color/colorE1E0E0"/>
+
+    <EditText
+        android:id="@+id/coin_unusual_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="搜索币种"
+        android:textColor="@color/colorB8BEC9"
+        android:textSize="@dimen/text_size_13"
+        android:background="@drawable/coin_unusual_search"
+        android:layout_below="@id/coin_unusual_line"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        />
+
+    <LinearLayout android:id="@+id/coin_unusual_view_group"
+        android:layout_height="20dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="21dp"
+        android:layout_below="@id/coin_unusual_edittext">
+
+        <TextView android:id="@+id/coin_unusual_view_group_coinname"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1.2"
+            android:text="币种"
+            android:textColor="@color/colorB8BEC9"
+            android:textSize="@dimen/text_size_11"
+            android:paddingLeft="23dp"/>
+
+        <TextView android:id="@+id/coin_unusual_view_group_two_name"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="转账占比"
+            android:textColor="@color/colorB8BEC9"
+            android:textSize="@dimen/text_size_11"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView android:id="@+id/coin_unusual_view_group_three_name"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:text="交易所转入占比"
+            android:textColor="@color/colorB8BEC9"
+            android:textSize="@dimen/text_size_11"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView android:id="@+id/coin_unusual_view_group_four_name"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:text="交易所转出占比"
+            android:textColor="@color/colorB8BEC9"
+            android:textSize="@dimen/text_size_11"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView android:id="@+id/coin_unusual_view_group_space"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <ListView android:id="@+id/coin_unusual_list"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@id/coin_unusual_view_group"
+        android:layout_marginTop="4dp"
+        android:divider="#00000000"/>
+
+</RelativeLayout>

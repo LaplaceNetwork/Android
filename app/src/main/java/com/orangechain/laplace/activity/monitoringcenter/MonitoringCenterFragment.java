@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.monitoringcenter.activity.CoinUnusualActivity;
 import com.orangechain.laplace.base.BaseFragment;
 
 /**
@@ -17,6 +18,18 @@ public class MonitoringCenterFragment extends BaseFragment {
 
     @Override
     public void initWithView(View view) {
+
+        //币价异动
+        View coinUnusualView = view.findViewById(R.id.MonitoringCenter_coin_unusual_layout);
+        coinUnusualView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CoinUnusualActivity coinUnusualActivity = new CoinUnusualActivity();
+                coinUnusualActivity.pushActivity(getActivity());
+            }
+        });
+
+
 
     }
 

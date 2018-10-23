@@ -117,6 +117,13 @@ public abstract class BaseActivity extends AppCompatActivity {
                 rightFirstButtonAction();
             }
         });
+        toolbar.setSwitchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //执行toolbar的switch按钮
+                rightSwitchButtonAction();
+            }
+        });
 
         //设置主要的framelayput  useless
         mFrameLayout = findViewById(R.id.main_frame);
@@ -288,6 +295,14 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 右边按钮事件 firstbutton
      */
     public void rightFirstButtonAction() {
+
+        //子类去实现
+    }
+
+    /**
+     * 右边switch按钮
+     */
+    public void rightSwitchButtonAction() {
 
         //子类去实现
     }

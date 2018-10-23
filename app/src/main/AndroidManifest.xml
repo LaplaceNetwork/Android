@@ -38,7 +38,8 @@
         <activity android:name=".activity.identity.activity.AuthenticationProcessActivity" />
         <activity android:name=".activity.identity.activity.MessageIdActivity" />
         <activity android:name=".activity.guideregistration.QRCodeActivity" />
-        <activity android:name=".activity.googleverify.activity.AuthPhoneActivity"></activity>
+        <activity android:name=".activity.googleverify.activity.AuthPhoneActivity" />
+        <activity android:name=".activity.monitoringcenter.activity.CoinUnusualActivity"></activity>
     </application>
 
 </manifest>

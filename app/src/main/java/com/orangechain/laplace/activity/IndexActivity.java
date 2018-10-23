@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +52,6 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
     private IntentFilter intentFilter;
     private LocalBroadcastManager localBroadcastManager;
     private LocalReceiver localReceiver;
-
 
     @Override
     public void pushActivity(Context context) {
@@ -276,9 +276,10 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                 //进入设置界面
                 SystemSettingActivity systemSettingActivity = new SystemSettingActivity();
                 systemSettingActivity.pushActivity(IndexActivity.this);
+                return;
             case R.id.nav_google_verity:
                 //显示相关的内容在主界面上
-                final ViewGroup showViewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.input_google_verification_frame,getBaseViewGroup());
+                final ViewGroup showViewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.input_google_verification_frame, getBaseViewGroup());
 
                 final View baseView = showViewGroup.findViewById(R.id.input_google_verification_frame_layout);
                 baseView.setOnClickListener(new View.OnClickListener() {
@@ -307,13 +308,32 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                         authPhoneActivity.pushActivity(IndexActivity.this);
                     }
                 });
+                return;
+            case R.id.nav_current_time:
 
-
+                ViewGroup view = (ViewGroup) findViewById(R.id.fragment_current_time_layout);
+                View oldListView = findViewById(R.id.input_current_time_list_frame_layout);
+                if (oldListView != null) {
+                    view.removeView(oldListView);
+                } else {
+                    //显示列表
+                    getLayoutInflater().inflate(R.layout.input_current_time_list_frame, view);
+                    currentTimeFragment.showTimeListView();
+                }
+                return;
             default:
                 return;
 
 
         }
+
+    }
+
+    @Override
+    public void rightSwitchButtonAction() {
+        super.rightSwitchButtonAction();
+
+        //显示弹幕
 
     }
 

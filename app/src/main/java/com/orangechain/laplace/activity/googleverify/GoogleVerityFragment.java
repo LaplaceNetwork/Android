@@ -2,9 +2,11 @@ package com.orangechain.laplace.activity.googleverify;
 
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.activity.googleverify.adapter.GoogleVerityFragmentAdapter;
 import com.orangechain.laplace.activity.googleverify.bean.GoogleVerityFragmentBean;
 import com.orangechain.laplace.base.BaseFragment;
@@ -17,22 +19,26 @@ import java.util.List;
  */
 public class GoogleVerityFragment extends BaseFragment {
 
+    private View mView;
+
     //创建 数据源
     private List<GoogleVerityFragmentBean> list = new ArrayList<>();
 
     @Override
     public void initWithView(View view) {
 
+        this.mView = view;
+
 
         list.clear();
 
-        GoogleVerityFragmentBean bean0 = new GoogleVerityFragmentBean("889 556","E8game：yoyo","0");
-        GoogleVerityFragmentBean bean1 = new GoogleVerityFragmentBean("220 252","E8game：yoyo","1");
+        GoogleVerityFragmentBean bean0 = new GoogleVerityFragmentBean("889 556", "E8game：yoyo", "0");
+        GoogleVerityFragmentBean bean1 = new GoogleVerityFragmentBean("220 252", "E8game：yoyo", "1");
 
         list.add(bean0);
         list.add(bean1);
 
-        GoogleVerityFragmentAdapter adapter = new GoogleVerityFragmentAdapter(getActivity(),R.layout.item_google_verification_fragment,list);
+        GoogleVerityFragmentAdapter adapter = new GoogleVerityFragmentAdapter(getActivity(), R.layout.item_google_verification_fragment, list);
         ListView listView = view.findViewById(R.id.Google_verification_listview);
         listView.setAdapter(adapter);
 
@@ -41,5 +47,15 @@ public class GoogleVerityFragment extends BaseFragment {
     @Override
     public int getFragmentLayoutId() {
         return R.layout.fragment_google_verity;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        IndexActivity indexActivity = (IndexActivity) getActivity();
+        ViewGroup layoutViewGroup = indexActivity.findViewById(R.id.input_google_verification_frame_layout);
+        if (layoutViewGroup != null) {
+            indexActivity.getBaseViewGroup().removeView(layoutViewGroup);
+        }
     }
 }
