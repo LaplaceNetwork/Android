@@ -26,13 +26,13 @@ public class CoinUnusualActivity extends BaseActivity {
 
         //创建数据源
         CoinUnusualBean bean0 = new CoinUnusualBean("ETH","Ethereum","5000个",
-        "5000个","5000个",true);
+        "5000个","5000个",false,"number");
         CoinUnusualBean bean1 = new CoinUnusualBean("ETH","Ethereum","5000个",
-                "5000个","5000个",true);
+                "5000个","5000个",false,"number");
         CoinUnusualBean bean2 = new CoinUnusualBean("ETH","Ethereum","5000个",
-                "5000个","5000个",true);
-        CoinUnusualBean bean3 = new CoinUnusualBean("ETH","Ethereum","5000个",
-                "5000个","5000个",true);
+                "5000个","5000个",false,"number");
+        CoinUnusualBean bean3 = new CoinUnusualBean("MFT","Mainframe","0.1%",
+                "0.1%","0.1%",false,"proportion");
 
         list.add(bean0);
         list.add(bean1);
@@ -42,6 +42,8 @@ public class CoinUnusualActivity extends BaseActivity {
         ListView listView = findViewById(R.id.coin_unusual_list);
         CoinUnusualAdapter adapter = new CoinUnusualAdapter(this,R.layout.item_coin_unusual_list_activity,list);
         listView.setAdapter(adapter);
+
+
 
     }
 

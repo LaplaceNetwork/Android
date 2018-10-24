@@ -14,16 +14,25 @@ public class CoinUnusualBean {
 
     boolean switchStatus;
 
+    String type;
 
-    public CoinUnusualBean(String coinName, String baseCoinName, String proportion, String inputProportion, String outputProportion, boolean switchStatus) {
+    public CoinUnusualBean(String coinName, String baseCoinName, String proportion, String inputProportion, String outputProportion, boolean switchStatus, String type) {
         this.coinName = coinName;
         this.baseCoinName = baseCoinName;
         this.proportion = proportion;
         this.inputProportion = inputProportion;
         this.outputProportion = outputProportion;
         this.switchStatus = switchStatus;
+        this.type = type;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getCoinName() {
         return coinName;

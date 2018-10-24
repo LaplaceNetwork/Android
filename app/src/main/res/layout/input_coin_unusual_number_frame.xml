@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/input_coin_unusual_number_frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"
+    android:clickable="true">
+
+    <RelativeLayout
+        android:id="@+id/frame_coin_unusual_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="174dp"
+        android:layout_marginRight="36dp"
+        android:background="@color/colorWhite"
+        android:clickable="true">
+
+
+        <TextView android:id="@+id/coin_unusual_number_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="数值设定"
+            android:textColor="@color/color2C467B"
+            android:textSize="@dimen/text_size_16"
+            android:gravity="center"
+            android:layout_marginTop="11dp"
+            />
+
+        <TextView android:id="@+id/coin_unusual_number_des"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="当超过任意设定的数值，将会收到系统提醒"
+            android:textColor="@color/colorB8BEC9"
+            android:textSize="@dimen/text_size_11"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/coin_unusual_number_title"
+            android:layout_centerHorizontal="true"/>
+
+        <include layout="@layout/include_coin_unusual_number"
+            android:id="@+id/coin_unusual_number_proportion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coin_unusual_number_des"
+            android:layout_marginTop="22dp"
+            android:layout_centerHorizontal="true"/>
+
+        <include layout="@layout/include_coin_unusual_number"
+            android:id="@+id/coin_unusual_number_proportion_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coin_unusual_number_proportion"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+        <include layout="@layout/include_coin_unusual_number"
+            android:id="@+id/coin_unusual_number_proportion_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coin_unusual_number_proportion_output"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+
+        <Button android:id="@+id/coin_unusual_number_save_button"
+            android:layout_height="32dp"
+            android:layout_width="162dp"
+            android:text="保存设置"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_13"
+            android:background="@drawable/btn_selector_fingerprint"
+            android:layout_below="@id/coin_unusual_number_proportion_input"
+            android:layout_marginTop="27dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="19dp"/>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

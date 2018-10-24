@@ -29,8 +29,6 @@ public class MonitoringCenterFragment extends BaseFragment {
             }
         });
 
-
-
     }
 
     @Override
