@@ -8,7 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.IndexActivity;
+import com.orangechain.laplace.activity.monitoringcenter.activity.CoinExchangeKnockdownActivity;
+import com.orangechain.laplace.activity.monitoringcenter.activity.CoinRemindActivity;
 import com.orangechain.laplace.activity.monitoringcenter.activity.CoinUnusualActivity;
+import com.orangechain.laplace.activity.monitoringcenter.activity.CoinUpAndDownActivity;
 import com.orangechain.laplace.base.BaseFragment;
 
 /**
@@ -29,6 +33,36 @@ public class MonitoringCenterFragment extends BaseFragment {
             }
         });
 
+        View upAndDownView = view.findViewById(R.id.MonitoringCenter_coin_highsandlows_layout);
+        upAndDownView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CoinUpAndDownActivity coinUpAndDownActivity = new CoinUpAndDownActivity();
+                coinUpAndDownActivity.pushActivity(getActivity());
+            }
+        });
+
+
+        View exchangeKnockdownView = view.findViewById(R.id.MonitoringCenter_coin_deal_layout);
+        exchangeKnockdownView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CoinExchangeKnockdownActivity coinExchangeKnockdownActivity = new CoinExchangeKnockdownActivity();
+                coinExchangeKnockdownActivity.pushActivity(getActivity());
+            }
+        });
+
+        View remindView = view.findViewById(R.id.MonitoringCenter_coin_warn_layout);
+        remindView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CoinRemindActivity coinRemindActivity = new CoinRemindActivity();
+                coinRemindActivity.pushActivity(getActivity());
+            }
+        });
+
+
+       
     }
 
     @Override

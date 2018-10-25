@@ -8,7 +8,7 @@
         layout="@layout/include_coin_unusual_list"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1.2"
+        android:layout_weight="1.5"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:gravity="center"

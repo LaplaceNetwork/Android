@@ -151,14 +151,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="14dp"
-            android:text="交易所成交"
+            android:text="币价提醒"
             android:textColor="@color/color022656"
             android:textSize="@dimen/text_size_15"/>
 
         <TextView android:id="@+id/MonitoringCenter_coin_warn_des"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="对关注币种的交易所成交情况进行监控跟踪"
+            android:text="对关注交易所的某个币价达到设定价格进行提醒"
             android:textColor="@color/color022656"
             android:textSize="@dimen/text_size_11"
             android:layout_below="@id/MonitoringCenter_coin_warn"

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".activity.monitoringcenter.activity.CoinUpAndDownActivity">
+
+
+    <TextView android:id="@+id/coin_up_down_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size_common"
+        android:background="@color/colorE1E0E0"/>
+
+    <EditText
+        android:id="@+id/coin_up_down_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="搜索币种"
+        android:textColor="@color/colorB8BEC9"
+        android:textSize="@dimen/text_size_13"
+        android:background="@drawable/coin_unusual_search"
+        android:layout_below="@id/coin_unusual_line"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        />
+
+    <TextView android:id="@+id/coin_up_down_headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="币种"
+        android:textColor="@color/colorB8BEC9"
+        android:textSize="@dimen/text_size_11"
+        android:layout_below="@id/coin_up_down_edittext"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="23dp"/>
+
+    <ListView android:id="@+id/coin_up_down_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/coin_up_down_headline"
+        android:layout_marginTop="2dp"
+        android:divider="#00000000"
+        />
+
+
+
+</RelativeLayout>

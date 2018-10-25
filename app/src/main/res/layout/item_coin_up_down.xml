@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <TextView android:id="@+id/coin_up_and_down_name_textview"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="测试"
+        android:textColor="@color/color2C467B"
+        android:textSize="@dimen/text_size_13"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="21dp"/>
+
+    <TextView android:id="@+id/coin_up_and_down_fullname_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试测试"
+        android:textColor="@color/color2C467B"
+        android:textSize="@dimen/text_size_13"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/coin_up_and_down_name_textview"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <Switch android:id="@+id/coin_up_and_down_switch"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"/>
+
+</RelativeLayout>

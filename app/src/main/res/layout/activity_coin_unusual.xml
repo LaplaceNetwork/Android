@@ -40,7 +40,7 @@
         <TextView android:id="@+id/coin_unusual_view_group_coinname"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
-            android:layout_weight="1.2"
+            android:layout_weight="1.5"
             android:text="币种"
             android:textColor="@color/colorB8BEC9"
             android:textSize="@dimen/text_size_11"

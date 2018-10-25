@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.activity.monitoringcenter.adapter.CoinUnusualAdapter;
@@ -22,7 +24,6 @@ public class CoinUnusualActivity extends BaseActivity {
     public void initWithView() {
 
         setToolBarText("币价异动");
-
 
         //创建数据源
         CoinUnusualBean bean0 = new CoinUnusualBean("ETH","Ethereum","5000个",
@@ -42,7 +43,6 @@ public class CoinUnusualActivity extends BaseActivity {
         ListView listView = findViewById(R.id.coin_unusual_list);
         CoinUnusualAdapter adapter = new CoinUnusualAdapter(this,R.layout.item_coin_unusual_list_activity,list);
         listView.setAdapter(adapter);
-
 
 
     }
