@@ -32,30 +32,28 @@ public class CoinRemindActivity extends BaseActivity {
 
         setToolBarText("币价提醒");
 
-        //在toolbar上面加一个view 获取toolbar布局
-        RelativeLayout toolBarRelativeLayout = findViewById(R.id.laplace_toolbar_layout);
+//        //在toolbar上面加一个view 获取toolbar布局
+//        RelativeLayout toolBarRelativeLayout = findViewById(R.id.laplace_toolbar_layout);
+//
+//        TextView mainTextView = findViewById(R.id.txt_main_title);
+//        mainTextView.setId(viewIDIndex);
+//
+//        //创建一个
+//        TextView myMindTextView = new TextView(this);
+//        myMindTextView.setText("我的提醒");
+//        myMindTextView.setTextColor(getResources().getColor(R.color.colorC9C9C9));
+//        myMindTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,11);
+//        myMindTextView.setGravity(Gravity.CENTER);
+//
+//        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+//                RelativeLayout.LayoutParams.MATCH_PARENT);
+////        layoutParams.addRule(RelativeLayout.RIGHT_OF,viewIDIndex);
+//        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+//        layoutParams.setMargins(0,0,150,0); //这边比例的问题 需要考虑
+//
+//        myMindTextView.setLayoutParams(layoutParams);
+//        toolBarRelativeLayout.addView(myMindTextView);
 
-        TextView mainTextView = findViewById(R.id.txt_main_title);
-        mainTextView.setId(viewIDIndex);
-
-        //创建一个
-        TextView myMindTextView = new TextView(this);
-        myMindTextView.setText("我的提醒");
-        myMindTextView.setTextColor(getResources().getColor(R.color.colorC9C9C9));
-        myMindTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP,11);
-        myMindTextView.setGravity(Gravity.CENTER);
-
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.MATCH_PARENT);
-//        layoutParams.addRule(RelativeLayout.RIGHT_OF,viewIDIndex);
-        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-        layoutParams.setMargins(0,0,150,0); //这边比例的问题 需要考虑
-
-        myMindTextView.setLayoutParams(layoutParams);
-        toolBarRelativeLayout.addView(myMindTextView);
-
-
-        //设置点击事件
 
 
 
@@ -70,6 +68,7 @@ public class CoinRemindActivity extends BaseActivity {
         CoinRemindAdapter adapter = new CoinRemindAdapter(this,R.layout.item_coin_remind,list);
         ListView listView = findViewById(R.id.coin_remind_listview);
         listView.setAdapter(adapter);
+
 
     }
 

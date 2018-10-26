@@ -246,6 +246,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         return toolbar;
     }
 
+    /*************左边按钮相关事件*************/
+
     /**
      * 设置返回键图片
      */
@@ -291,6 +293,27 @@ public abstract class BaseActivity extends AppCompatActivity {
         BaseActivityCollector.removeActivity(this);
     }
 
+    /*************右边按钮相关事件*************/
+
+    /**
+     * 右边按钮的文字
+     */
+    public void setToolBarRightFirstButtonText(String content) {
+
+        toolbar.setRightTitleText(content);
+
+    }
+
+    /**
+     * 隐藏右边按钮右边图片
+     */
+
+    public void setToolBarRightFirstButtonImageHidden() {
+
+        toolbar.setRightTitleDrawableHidden();
+
+    }
+
     /**
      * 右边按钮事件 firstbutton
      */
@@ -306,6 +329,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         //子类去实现
     }
+
+    /**
+     * ******************************获取基础布局***********************
+     */
 
     /**
      * 获取 viewGroup

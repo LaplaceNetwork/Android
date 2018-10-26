@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.monitoringcenter.activity.CoinRemindActivity;
+import com.orangechain.laplace.activity.monitoringcenter.activity.CoinRemindSettingActivity;
 import com.orangechain.laplace.activity.monitoringcenter.bean.CoinRemindBean;
 
 import java.util.List;
@@ -15,11 +17,13 @@ import java.util.List;
 public class CoinRemindAdapter extends ArrayAdapter {
 
     private int mResource;
+    private CoinRemindActivity coinRemindActivity;
 
     public CoinRemindAdapter(Context context, int resource, List<CoinRemindBean> objects) {
         super(context, resource, objects);
 
         this.mResource = resource;
+        this.coinRemindActivity = (CoinRemindActivity) context;
 
     }
 
@@ -54,9 +58,9 @@ public class CoinRemindAdapter extends ArrayAdapter {
         viewHolder.settingView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //进入设置界面
-
+                CoinRemindSettingActivity coinRemindSettingActivity = new CoinRemindSettingActivity();
+                coinRemindSettingActivity.pushActivity(coinRemindActivity);
             }
         });
 

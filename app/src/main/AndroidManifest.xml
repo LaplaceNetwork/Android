@@ -42,7 +42,8 @@
         <activity android:name=".activity.monitoringcenter.activity.CoinUnusualActivity" />
         <activity android:name=".activity.monitoringcenter.activity.CoinUpAndDownActivity" />
         <activity android:name=".activity.monitoringcenter.activity.CoinExchangeKnockdownActivity" />
-        <activity android:name=".activity.monitoringcenter.activity.CoinRemindActivity"></activity>
+        <activity android:name=".activity.monitoringcenter.activity.CoinRemindActivity" />
+        <activity android:name=".activity.monitoringcenter.activity.CoinRemindSettingActivity"></activity>
     </application>
 
 </manifest>
