@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:clickable="false"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <RelativeLayout
+            android:id="@+id/pay_cardStackView_card_layout"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/pay_cardStackView_card_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="LPT Creditcard"
+                android:textColor="@color/colorABB4C4"
+                android:textSize="@dimen/text_size_30" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/pay_cardStackView_card_content_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/pay_cardStackView_card_layout">
+
+
+        <TextView
+            android:id="@+id/pay_cardStackView_card_content_trade_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:text="最近交易记录"
+            android:textColor="@color/colorB8BEC9"
+            android:textSize="@dimen/text_size_11" />
+
+        <TextView
+            android:id="@+id/pay_cardStackView_card_content_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_size_common"
+            android:layout_below="@id/pay_cardStackView_card_content_trade_history"
+            android:layout_marginTop="9dp"
+            android:background="@color/colorE1E0E0" />
+
+        <ListView
+            android:id="@+id/pay_cardStackView_card_content_trade_history_list"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/pay_cardStackView_card_content_line" />
+
+        <Button
+            android:id="@+id/pay_cardStackView_card_content_trade_online"
+            android:layout_width="134dp"
+            android:layout_height="44dp"
+            android:layout_below="@id/pay_cardStackView_card_content_trade_history_list"
+            android:layout_marginTop="34dp"
+            android:background="@drawable/btn_bg_normal_backups_watch_action"
+            android:text="线上交易"
+            android:textColor="@color/color2C467B"
+            android:textSize="@dimen/text_size_13" />
+
+        <Button
+            android:id="@+id/pay_cardStackView_card_content_trade_laplacepay"
+            android:layout_width="134dp"
+            android:layout_height="44dp"
+            android:layout_alignTop="@id/pay_cardStackView_card_content_trade_online"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_bg_normal_backups_watch_action"
+            android:text="Laplace Pay"
+            android:textColor="@color/color2C467B"
+            android:textSize="@dimen/text_size_13" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

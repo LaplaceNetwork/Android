@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView android:id="@+id/item_pay_detail_cardstackview_address"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="00000000.......00000"
+        android:textColor="@color/color333333"
+        android:textSize="@dimen/text_size_13"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView android:id="@+id/item_pay_detail_cardstackview_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0000:00:00 00:00:00"
+        android:textSize="@dimen/text_size_11"
+        android:textColor="@color/color333333"
+        android:layout_below="@id/item_pay_detail_cardstackview_address"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="9dp"/>
+
+    <TextView android:id="@+id/item_pay_detail_cardstackview_money"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="测试"
+        android:textSize="@dimen/text_size_13"
+        android:textColor="@color/color333333"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/item_pay_detail_cardstackview_address"
+        />
+
+    <TextView android:id="@+id/item_pay_detail_cardstackview_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size_common"
+        android:background="@color/colorE1E0E0"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

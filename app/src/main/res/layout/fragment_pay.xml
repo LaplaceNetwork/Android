@@ -5,10 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".activity.pay.PayFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.loopeer.cardstack.CardStackView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="pay" />
+        android:id="@+id/pay_cardStackView"
+        >
+    </com.loopeer.cardstack.CardStackView>
+
+
+
+    <!--<TextView android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:text="cece"-->
+        <!--android:gravity="bottom"/>-->
 
 </FrameLayout>
