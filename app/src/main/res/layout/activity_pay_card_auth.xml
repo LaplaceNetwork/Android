@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.pay.activity.PayCardAuthActivity">
+
+    <TextView android:id="@+id/pay_card_auth_address_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="钱包地址"
+        android:textSize="@dimen/text_size_13"
+        android:textColor="@color/color2C467B"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp"/>
+
+    <TextView android:id="@+id/pay_card_auth_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1111111111111111111111111111"
+        android:textSize="@dimen/text_size_13"
+        android:textColor="@color/color2C467B"
+        android:layout_below="@id/pay_card_auth_address_name"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp"
+        />
+
+    <TextView android:id="@+id/pay_card_auth_money_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="授权金额"
+        android:textSize="@dimen/text_size_13"
+        android:textColor="@color/color2C467B"
+        android:layout_marginTop="38dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_below="@id/pay_card_auth_address"/>
+
+    <TextView android:id="@+id/pay_card_auth_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="000000000000 XXX"
+        android:textSize="@dimen/text_size_13"
+        android:textColor="@color/color2C467B"
+        android:layout_below="@id/pay_card_auth_money_name"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp"
+        />
+
+    <TextView android:id="@+id/pay_card_auth_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="（已包含矿工费用：0000000 XXX）"
+        android:textSize="@dimen/text_size_11"
+        android:textColor="@color/colorB8BEC9"
+        android:layout_below="@id/pay_card_auth_money"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp"
+        />
+
+    <Button android:id="@+id/pay_card_auth_detail_button"
+        android:layout_height="44dp"
+        android:layout_width="320dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_selector_fingerprint"
+        android:layout_marginBottom="78dp"
+        android:text="确认授权"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_13"/>
+
+    <LinearLayout android:id="@+id/pay_card_auth_detail_warn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/pay_card_auth_detail_button"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+
+        <ImageView android:id="@+id/pay_card_auth_detail_warn_image"
+            android:layout_height="11dp"
+            android:layout_width="11dp"
+            android:src="@drawable/baseline_report_black_24dp"
+            android:layout_gravity="center"/>
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="只需支付一笔小额的授权款即可完成运营商服务的授权"
+            android:textSize="@dimen/text_size_11"
+            android:textColor="@color/colorB8BEC9"
+            android:layout_marginLeft="6dp"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

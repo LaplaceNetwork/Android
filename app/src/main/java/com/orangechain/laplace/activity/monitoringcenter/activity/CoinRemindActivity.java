@@ -44,7 +44,7 @@ public class CoinRemindActivity extends BaseActivity {
         //获取基础界面
         final ViewGroup baseView = findViewById(R.id.coin_remind_activity_layout);
 
-        //在toolbar上面加一个view 获取toolbar布局  color333333  colorC9C9C9
+        //在toolbar上面加一个view 获取toolbar布局
         RelativeLayout toolBarRelativeLayout = findViewById(R.id.laplace_toolbar_layout);
 
         //讲viewpager 添加到界面上

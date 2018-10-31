@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.pay.activity.PayOperatarSelectActivity">
+
+    <Button android:id="@+id/operatar_select_button"
+        android:layout_width="320dp"
+        android:layout_height="44dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="78dp"
+        android:text="下一步"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_13"
+        android:background="@drawable/btn_selector_fingerprint"/>
+
+    <ListView android:id="@+id/operatar_select_list"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_above="@id/operatar_select_button"
+        android:layout_marginBottom="20dp"
+        android:divider="#00000000"/>
+
+</RelativeLayout>

@@ -31,7 +31,7 @@ public class PayFragment extends BaseFragment implements CardStackView.ItemExpen
 
         CardStackView cardStackView = view.findViewById(R.id.pay_cardStackView);
         cardStackView.setItemExpendListener(this);
-        cardStackView.setAnimatorAdapter(new UpDownStackAnimatorAdapter(cardStackView));
+        cardStackView.setAnimatorAdapter(new UpDownAnimatorAdapter(cardStackView));
         PayCardStackAdapter adapter = new PayCardStackAdapter(getActivity());
         cardStackView.setAdapter(adapter);
 

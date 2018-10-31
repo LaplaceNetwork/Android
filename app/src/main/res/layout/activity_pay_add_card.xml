@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.pay.activity.PayAddCardActivity">
+
+    <ImageView android:id="@+id/pay_add_card_logo"
+        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="71dp"/>
+
+    <TextView android:id="@+id/pay_add_card_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="将BTC/ETH/EOS 系钱包快捷添加至 Laplace Pay中， 可进行闪电支付"
+        android:textColor="@color/color3F4D68"
+        android:textSize="@dimen/text_size_13"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginTop="38dp"
+        android:layout_below="@id/pay_add_card_logo"/>
+
+
+    <Button android:id="@+id/pay_add_card_button"
+        android:layout_height="44dp"
+        android:layout_width="320dp"
+        android:text="下一步"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_13"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="78dp"
+        android:background="@drawable/btn_selector_fingerprint"/>
+
+    <TextView android:id="@+id/pay_add_card_remind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="28dp"
+        android:layout_marginLeft="28dp"
+        android:text="钱包的相关信息将会发送并授权给Laplace，以上信息与账户信息可能会与主网数据共享以设置pay"
+        android:textSize="@dimen/text_size_11"
+        android:textColor="@color/colorB8BEC9"
+        android:layout_above="@id/pay_add_card_button"
+        android:layout_marginBottom="15dp"/>
+
+
+</RelativeLayout>

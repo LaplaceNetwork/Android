@@ -29,6 +29,7 @@ import com.orangechain.laplace.activity.identity.IdentityFragment;
 import com.orangechain.laplace.activity.identity.activity.SystemSettingActivity;
 import com.orangechain.laplace.activity.monitoringcenter.MonitoringCenterFragment;
 import com.orangechain.laplace.activity.pay.PayFragment;
+import com.orangechain.laplace.activity.pay.activity.PayAddCardActivity;
 import com.orangechain.laplace.base.BaseActivityCollector;
 import com.orangechain.laplace.base.BaseBottomNavigationActivity;
 import com.orangechain.laplace.base.laplaceBaseView.laplaceToolbar;
@@ -320,6 +321,13 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                     getLayoutInflater().inflate(R.layout.input_current_time_list_frame, view);
                     currentTimeFragment.showTimeListView();
                 }
+                return;
+
+            case R.id.nav_pay:
+
+                PayAddCardActivity payAddCardActivity = new PayAddCardActivity();
+                payAddCardActivity.pushActivity(IndexActivity.this);
+
                 return;
             default:
                 return;

@@ -9,14 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/pay_cardStackView"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp"
         >
     </com.loopeer.cardstack.CardStackView>
-
-
-
-    <!--<TextView android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:text="cece"-->
-        <!--android:gravity="bottom"/>-->
 
 </FrameLayout>
