@@ -7,13 +7,24 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.base.BaseActivity;
+import com.orangechain.laplace.base.BaseActivityCollector;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.OnClickListener;
+import com.orhanobut.dialogplus.ViewHolder;
 
 public class PayCardAuthActivity extends BaseActivity {
+
+    private boolean isSueccess;
 
     @Override
     public void initWithView() {
@@ -31,8 +42,51 @@ public class PayCardAuthActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
+                //显示提示内容
+                DialogPlus dialog = DialogPlus.newDialog(PayCardAuthActivity.this)
+                        .setContentHolder(new ViewHolder(R.layout.input_pay_card_auth_fingerprint))
+                        .setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
+                        .setContentWidth(ViewGroup.LayoutParams.MATCH_PARENT)
+                        .setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void onClick(DialogPlus dialog, View view) {
 
+                                //回到首页 显示相关的内容
+                                if (isSueccess) {
+                                    BaseActivityCollector.finishAndGoBackHistoryActivity(IndexActivity.class);
+                                }
 
+                            }
+                        })
+                        .create();
+                dialog.show();
+
+                final View dialogContentView = dialog.getHolderView();
+
+                ImageView imageView = dialogContentView.findViewById(R.id.pay_card_auth_fingerprint_image);
+
+                if (imageView != null) {
+
+                    imageView.setOnClickListener(new View.OnClickListener() {
+
+                        View successView = dialogContentView.findViewById(R.id.pay_card_auth_fingerprint_success);
+                        View contentView = dialogContentView.findViewById(R.id.pay_card_auth_fingerprint_content);
+
+                        @Override
+                        public void onClick(View v) {
+//                            Toast.makeText(PayCardAuthActivity.this,"bububu",Toast.LENGTH_SHORT).show();
+
+                            contentView.setVisibility(View.GONE);
+                            successView.setVisibility(View.VISIBLE);
+
+                            isSueccess = true;
+
+                            Drawable imageViewDraw = ContextCompat.getDrawable(PayCardAuthActivity.this, R.drawable.baseline_check_circle_black_24dp);
+                            imageViewDraw.setColorFilter(getResources().getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_ATOP);
+                            getSupportActionBar().setHomeAsUpIndicator(imageViewDraw);
+                        }
+                    });
+                }
             }
         });
 
