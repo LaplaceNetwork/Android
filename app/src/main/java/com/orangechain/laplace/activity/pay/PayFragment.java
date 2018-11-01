@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.loopeer.cardstack.AllMoveDownAnimatorAdapter;
 import com.loopeer.cardstack.CardStackView;
@@ -26,8 +28,12 @@ import java.util.List;
  */
 public class PayFragment extends BaseFragment implements CardStackView.ItemExpendListener {
 
+    private View superView;
+
     @Override
     public void initWithView(View view) {
+
+        superView = view;
 
         CardStackView cardStackView = view.findViewById(R.id.pay_cardStackView);
         cardStackView.setItemExpendListener(this);
@@ -35,8 +41,7 @@ public class PayFragment extends BaseFragment implements CardStackView.ItemExpen
         PayCardStackAdapter adapter = new PayCardStackAdapter(getActivity());
         cardStackView.setAdapter(adapter);
 
-
-        //创建数据 String address, String date, String money
+        //创建数据
         PayCardDetailBean payCardDetailBean0 = new PayCardDetailBean("1111111111...111111","1111:11:11 11:11:11","xxxxxxxxxx LPT");
         PayCardDetailBean payCardDetailBean1 = new PayCardDetailBean("1111111111...111111","1111:11:11 11:11:11","xxxxxxxxxx LPT");
         PayCardDetailBean payCardDetailBean2 = new PayCardDetailBean("1111111111...111111","1111:11:11 11:11:11","xxxxxxxxxx LPT");
@@ -66,12 +71,29 @@ public class PayFragment extends BaseFragment implements CardStackView.ItemExpen
         payCardBeanList.add(payCardBean2);
         payCardBeanList.add(payCardBean3);
 
+        //更新数据
         adapter.updateData(payCardBeanList);
+
+
+//        cardStackView.performItemClick();
+
+
 
     }
 
     @Override
     public void onItemExpend(boolean expend) {
+
+        Button laplacePayButton = superView.findViewById(R.id.pay_cardStackView_card_content_trade_laplacepay);
+        laplacePayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(getActivity(),"ssssssss",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
 
     }
 
