@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="36dp"
+    android:layout_marginRight="36dp"
+    >
+
+    <TextView android:id="@+id/input_card_message_remind_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="解除绑定"
+        android:textColor="@color/color333333"
+        android:textSize="@dimen/text_size_14"
+        android:layout_marginTop="12dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView android:id="@+id/input_card_message_remind_content"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginRight="21dp"
+        android:layout_marginLeft="21dp"
+        android:text="请问是否解绑该卡，解绑所有服务以及相关记录也将删除，余额（XXX.00000000）将退回钱包处"
+        android:textSize="@dimen/text_size_14"
+        android:textColor="@color/color333333"
+        android:layout_below="@id/input_card_message_remind_title"
+        android:layout_marginTop="8dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/input_card_message_remind_action"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_below="@id/input_card_message_remind_content"
+        android:layout_marginTop="11dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/input_card_message_remind_cancel"
+            android:layout_width="0dp"
+            android:layout_height="41dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector_input_password_cancel"
+            android:text="取消"
+            android:textColor="@color/color2087FF"
+            android:textSize="@dimen/text_size_12"/>
+
+        <Button
+            android:id="@+id/input_card_message_remind_confirm"
+            android:layout_width="0dp"
+            android:layout_height="41dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_selector_input_password_confirm"
+            android:text="确定"
+            android:textColor="@color/colorED6363"
+            android:textSize="@dimen/text_size_12"/>
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

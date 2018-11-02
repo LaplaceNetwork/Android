@@ -48,7 +48,8 @@
         <activity android:name=".activity.pay.activity.PayOperatarSelectActivity" />
         <activity android:name=".activity.pay.activity.PayCardTypeActivity" />
         <activity android:name=".activity.pay.activity.PayCardAuthActivity" />
-        <activity android:name=".activity.pay.activity.CardMessageActivity"></activity>
+        <activity android:name=".activity.pay.activity.CardMessageActivity" />
+        <activity android:name=".activity.pay.activity.UnboundActivity"></activity>
     </application>
 
 </manifest>
