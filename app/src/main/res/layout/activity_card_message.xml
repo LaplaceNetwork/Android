@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.pay.activity.CardMessageActivity">
+
+
+    <RelativeLayout android:id="@+id/card_message_summary_layout"
+        android:layout_height="159dp"
+        android:layout_width="match_parent"
+        android:layout_marginRight="29dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="33sp"
+        android:background="@drawable/layout_bg_raduis_bg_color">
+
+        <TextView android:id="@+id/card_message_summary_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LPT Creditcard"
+            android:textColor="@color/colorABB4C4"
+            android:textSize="@dimen/text_size_30"
+            android:layout_centerInParent="true"
+            />
+
+
+    </RelativeLayout>
+
+    <include layout="@layout/include_card_message"
+        android:id="@+id/card_message_summary_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/card_message_summary_layout"/>
+
+    <include layout="@layout/include_card_message"
+        android:id="@+id/card_message_summary_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_message_summary_address"/>
+
+    <include layout="@layout/include_card_message"
+        android:id="@+id/card_message_summary_operatar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_message_summary_time"/>
+
+
+    <Button android:id="@+id/card_message_summary_open_button"
+        android:layout_height="44dp"
+        android:layout_width="320dp"
+        android:text="接触绑定"
+        android:textSize="@dimen/text_size_13"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="39dp"
+        android:background="@drawable/btn_selector_fingerprint" />
+
+    <Button android:id="@+id/card_message_summary_watch_button"
+        android:layout_height="44dp"
+        android:layout_width="320dp"
+        android:text="查看交易记录"
+        android:textSize="@dimen/text_size_13"
+        android:textColor="@color/color2C467B"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/card_message_summary_open_button"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_bg_normal_backups_watch_action" />
+
+
+</RelativeLayout>

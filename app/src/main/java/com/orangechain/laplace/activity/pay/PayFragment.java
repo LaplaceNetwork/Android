@@ -84,15 +84,20 @@ public class PayFragment extends BaseFragment implements CardStackView.ItemExpen
     @Override
     public void onItemExpend(boolean expend) {
 
-        Button laplacePayButton = superView.findViewById(R.id.pay_cardStackView_card_content_trade_laplacepay);
-        laplacePayButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(),"ssssssss",Toast.LENGTH_SHORT).show();
-
-            }
-        });
+//        Button laplacePayButton = superView.findViewById(R.id.pay_cardStackView_card_content_trade_laplacepay);
+//        laplacePayButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Toast.makeText(getActivity(),"ssssssss",Toast.LENGTH_SHORT).show();
+//
+//                //进入相应的界面
+//
+//
+//
+//
+//            }
+//        });
 
 
     }

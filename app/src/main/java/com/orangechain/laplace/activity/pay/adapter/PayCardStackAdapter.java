@@ -9,10 +9,12 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopeer.cardstack.CardStackView;
 import com.loopeer.cardstack.StackAdapter;
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.pay.activity.CardMessageActivity;
 import com.orangechain.laplace.activity.pay.bean.PayCardBean;
 
 public class PayCardStackAdapter extends StackAdapter<PayCardBean> {
@@ -82,6 +84,18 @@ public class PayCardStackAdapter extends StackAdapter<PayCardBean> {
         public void onItemExpand(boolean b) {
 
             contentLayout.setVisibility(b ? View.VISIBLE : View.GONE);
+
+            if (b) {
+                headerLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //进入卡片信息界面
+                        CardMessageActivity cardMessageActivity = new CardMessageActivity();
+                        cardMessageActivity.pushActivity(mContext);
+                    }
+                });
+            }
+
 
         }
 
