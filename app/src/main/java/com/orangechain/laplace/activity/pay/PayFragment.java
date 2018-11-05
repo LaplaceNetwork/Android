@@ -29,13 +29,14 @@ import java.util.List;
 public class PayFragment extends BaseFragment implements CardStackView.ItemExpendListener {
 
     private View superView;
+    CardStackView cardStackView;
 
     @Override
     public void initWithView(View view) {
 
         superView = view;
 
-        CardStackView cardStackView = view.findViewById(R.id.pay_cardStackView);
+        cardStackView = view.findViewById(R.id.pay_cardStackView);
         cardStackView.setItemExpendListener(this);
         cardStackView.setAnimatorAdapter(new UpDownAnimatorAdapter(cardStackView));
         PayCardStackAdapter adapter = new PayCardStackAdapter(getActivity());
@@ -78,6 +79,20 @@ public class PayFragment extends BaseFragment implements CardStackView.ItemExpen
 //        cardStackView.performItemClick();
 
 
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+//        if (cardStackView.isExpending()){
+//
+//            Toast.makeText(getActivity(),"ssssssss",Toast.LENGTH_SHORT).show();
+//        } else {
+//
+//            Toast.makeText(getActivity(),"hhhhh",Toast.LENGTH_SHORT).show();
+//        }
 
     }
 

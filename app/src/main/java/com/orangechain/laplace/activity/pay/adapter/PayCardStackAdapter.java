@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,7 +15,9 @@ import android.widget.Toast;
 import com.loopeer.cardstack.CardStackView;
 import com.loopeer.cardstack.StackAdapter;
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.activity.pay.activity.CardMessageActivity;
+import com.orangechain.laplace.activity.pay.activity.PayActionActivity;
 import com.orangechain.laplace.activity.pay.bean.PayCardBean;
 
 public class PayCardStackAdapter extends StackAdapter<PayCardBean> {
@@ -29,7 +32,7 @@ public class PayCardStackAdapter extends StackAdapter<PayCardBean> {
     @Override
     protected CardStackView.ViewHolder onCreateView(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pay_cardstackview,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pay_cardstackview, parent, false);
         CardViewHolder cardViewHolder = new CardViewHolder(view);
 
         return cardViewHolder;
@@ -41,7 +44,7 @@ public class PayCardStackAdapter extends StackAdapter<PayCardBean> {
         if (holder instanceof CardViewHolder) {
 
             CardViewHolder cardViewHolder = (CardViewHolder) holder;
-            cardViewHolder.onBind(bean,position);
+            cardViewHolder.onBind(bean, position);
 
         }
 
@@ -57,6 +60,8 @@ public class PayCardStackAdapter extends StackAdapter<PayCardBean> {
         ListView contentList;
         Button onlineButton;
         Button laplacePayButton;
+        ImageView desImageView;
+
 
         public CardViewHolder(View view) {
             super(view);
@@ -68,15 +73,26 @@ public class PayCardStackAdapter extends StackAdapter<PayCardBean> {
             contentList = view.findViewById(R.id.pay_cardStackView_card_content_trade_history_list);
             onlineButton = view.findViewById(R.id.pay_cardStackView_card_content_trade_online);
             laplacePayButton = view.findViewById(R.id.pay_cardStackView_card_content_trade_laplacepay);
+            desImageView = view.findViewById(R.id.pay_cardStackView_card_des);
 
         }
 
-        public void onBind(PayCardBean bean,int position) {
+        public void onBind(PayCardBean bean, int position) {
 
             headerLayout.setBackgroundColor(mContext.getResources().getColor(bean.getColor()));
             //创建内容list
-            PayCardDetailAdapter adapter = new PayCardDetailAdapter(mContext,R.layout.item_pay_detail_cardstackview,bean.getDetailBeans());
+            PayCardDetailAdapter adapter = new PayCardDetailAdapter(mContext, R.layout.item_pay_detail_cardstackview, bean.getDetailBeans());
             contentList.setAdapter(adapter);
+
+            desImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //进入卡片信息界面
+                    CardMessageActivity cardMessageActivity = new CardMessageActivity();
+                    cardMessageActivity.pushActivity(mContext);
+
+                }
+            });
 
         }
 
@@ -86,17 +102,25 @@ public class PayCardStackAdapter extends StackAdapter<PayCardBean> {
             contentLayout.setVisibility(b ? View.VISIBLE : View.GONE);
 
             if (b) {
-                headerLayout.setOnClickListener(new View.OnClickListener() {
+                laplacePayButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //进入卡片信息界面
-                        CardMessageActivity cardMessageActivity = new CardMessageActivity();
-                        cardMessageActivity.pushActivity(mContext);
+                        //进入相应的界面
+                        PayActionActivity payActionActivity = new PayActionActivity();
+                        payActionActivity.pushActivity(mContext);
                     }
                 });
+
+                onlineButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //进入相应的界面
+                        PayActionActivity payActionActivity = new PayActionActivity();
+                        payActionActivity.pushActivity(mContext);
+                    }
+                });
+
             }
-
-
         }
 
     }

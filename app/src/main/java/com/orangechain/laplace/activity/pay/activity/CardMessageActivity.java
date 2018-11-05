@@ -87,6 +87,9 @@ public class CardMessageActivity extends BaseActivity {
         watch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //查看交易信息
+                tradeMessageActivity tradeMessageActivity = new tradeMessageActivity();
+                tradeMessageActivity.pushActivity(CardMessageActivity.this);
 
             }
         });

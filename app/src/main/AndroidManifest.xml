@@ -49,7 +49,9 @@
         <activity android:name=".activity.pay.activity.PayCardTypeActivity" />
         <activity android:name=".activity.pay.activity.PayCardAuthActivity" />
         <activity android:name=".activity.pay.activity.CardMessageActivity" />
-        <activity android:name=".activity.pay.activity.UnboundActivity"></activity>
+        <activity android:name=".activity.pay.activity.UnboundActivity" />
+        <activity android:name=".activity.pay.activity.tradeMessageActivity" />
+        <activity android:name=".activity.pay.activity.PayActionActivity"></activity>
     </application>
 
 </manifest>

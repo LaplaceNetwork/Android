@@ -1,9 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.pay.activity.UnboundActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView android:id="@+id/unbound_logo"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="47dp"
+                android:background="@color/colorPrimary"/>
+
+            <TextView android:id="@+id/unbound_logo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/unbound_logo"
+                android:layout_marginTop="27dp"
+                android:text="退回卡内余额"
+                android:textColor="@color/color2C467B"
+                android:textSize="@dimen/text_size_17"/>
+
+
+            <TextView android:id="@+id/unbound_back_address_name"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="退回地址"
+                android:textSize="@dimen/text_size_13"
+                android:textColor="@color/color2C467B"
+                android:layout_below="@id/unbound_logo_name"
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="29dp"/>
+
+            <TextView android:id="@+id/unbound_back_address_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000000000000000000000000"
+                android:textColor="@color/colorB8BEC9"
+                android:textSize="@dimen/text_size_13"
+                android:layout_below="@id/unbound_back_address_name"
+                android:layout_alignLeft="@id/unbound_back_address_name"
+                android:layout_marginTop="8dp"/>
+
+            <TextView android:id="@+id/unbound_back_money_name"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="退回金额"
+                android:textSize="@dimen/text_size_13"
+                android:textColor="@color/color2C467B"
+                android:layout_below="@id/unbound_back_address_des"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="29dp"/>
+
+            <TextView android:id="@+id/unbound_back_money_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000 XXX"
+                android:textColor="@color/colorB8BEC9"
+                android:textSize="@dimen/text_size_13"
+                android:layout_below="@id/unbound_back_money_name"
+                android:layout_alignLeft="@id/unbound_back_address_name"
+                android:layout_marginTop="8dp"/>
+
+            <TextView android:id="@+id/unbound_absenteeism"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="旷工费"
+                android:textSize="@dimen/text_size_13"
+                android:textColor="@color/color2C467B"
+                android:layout_below="@id/unbound_back_money_des"
+                android:layout_marginTop="29dp"
+                android:layout_marginLeft="29dp"/>
+
+            <TextView android:id="@+id/unbound_absenteeism_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00000 XXX"
+                android:textColor="@color/colorB8BEC9"
+                android:textSize="@dimen/text_size_13"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@id/unbound_absenteeism"
+                android:layout_marginRight="29dp"
+                />
+
+            <SeekBar
+                android:id="@+id/unbound_seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/unbound_absenteeism"
+                android:background="@color/colorPrimary"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="8dp"
+                />
+
+            <Button android:id="@+id/unbound_confirm"
+                android:layout_height="44dp"
+                android:layout_width="320dp"
+                android:background="@drawable/btn_selector_fingerprint"
+                android:text="确定"
+                android:textSize="@dimen/text_size_13"
+                android:textColor="@color/colorWhite"
+                android:layout_below="@id/unbound_seekBar"
+                android:layout_marginTop="124dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="29dp"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
