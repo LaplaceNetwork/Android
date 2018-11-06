@@ -9,6 +9,183 @@
     android:background="@color/colorWhite">
 
 
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout android:id="@+id/pay_action_summary_layout"
+                android:layout_height="159dp"
+                android:layout_width="match_parent"
+                android:layout_marginRight="29dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="31sp"
+                android:background="@drawable/layout_bg_raduis_bg_color">
+
+                <TextView android:id="@+id/pay_action_summary_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LPT Creditcard"
+                    android:textColor="@color/colorABB4C4"
+                    android:textSize="@dimen/text_size_30"
+                    android:layout_centerInParent="true"
+                    />
+
+
+            </RelativeLayout>
+
+            <TextView android:id="@+id/pay_action_my_address"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="我的地址"
+                android:textColor="@color/colorB8BEC9"
+                android:textSize="@dimen/text_size_11"
+                android:layout_below="@id/pay_action_summary_layout"
+                android:layout_alignLeft="@id/pay_action_summary_layout"
+                android:layout_marginTop="18dp"/>
+
+            <TextView android:id="@+id/pay_action_my_address_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000000000000000000"
+                android:textSize="@dimen/text_size_11"
+                android:textColor="@color/colorB8BEC9"
+                android:layout_below="@id/pay_action_my_address"
+                android:layout_alignLeft="@id/pay_action_my_address"
+                android:layout_marginTop="4dp"/>
+
+            <TextView android:id="@+id/pay_action_trade_address"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="交易地址"
+                android:textColor="@color/color2C467B"
+                android:textSize="@dimen/text_size_13"
+                android:layout_below="@id/pay_action_my_address_content"
+                android:layout_alignLeft="@id/pay_action_my_address_content"
+                android:layout_marginTop="27dp"/>
+
+            <ImageView android:id="@+id/pay_action_trade_address_action"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:padding="0dp"
+                android:layout_below="@id/pay_action_trade_address"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/baseline_crop_free_black_24dp"/>
+
+            <EditText
+                android:id="@+id/pay_action_trade_address_content"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_below="@id/pay_action_trade_address"
+                android:layout_alignLeft="@id/pay_action_trade_address"
+                android:layout_toLeftOf="@id/pay_action_trade_address_action"
+                android:layout_alignTop="@id/pay_action_trade_address_action"
+                android:background="@color/colorWhite"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <View android:id="@+id/pay_action_trade_address_line"
+                android:layout_height="@dimen/line_size_common"
+                android:layout_width="match_parent"
+                android:background="@color/colorE1E0E0"
+                android:layout_below="@id/pay_action_trade_address_content"
+                android:layout_marginTop="6dp"
+                android:layout_alignLeft="@id/pay_action_trade_address"
+                android:layout_alignRight="@id/pay_action_trade_address_action"/>
+
+            <TextView android:id="@+id/pay_action_trade_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="交易金额"
+                android:textSize="@dimen/text_size_13"
+                android:textColor="@color/color2C467B"
+                android:layout_below="@id/pay_action_trade_address_line"
+                android:layout_marginTop="27dp"
+                android:layout_alignLeft="@id/pay_action_trade_address"/>
+
+            <TextView android:id="@+id/pay_action_trade_money_explain"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="(当前可用 00.0000 XXX)"
+                android:textColor="@color/colorB8BEC9"
+                android:textSize="@dimen/text_size_11"
+                android:layout_alignTop="@id/pay_action_trade_money"
+                android:layout_toRightOf="@id/pay_action_trade_money"
+                android:layout_marginLeft="5dp"/>
+
+            <EditText
+                android:id="@+id/pay_action_trade_money_content"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_below="@id/pay_action_trade_money"
+                android:layout_alignLeft="@id/pay_action_trade_address_line"
+                android:layout_alignRight="@id/pay_action_trade_address_line"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorWhite"
+                android:ems="10"
+                android:inputType="textPassword"/>
+
+            <View android:id="@+id/pay_action_trade_money_line"
+                android:layout_height="@dimen/line_size_common"
+                android:layout_width="match_parent"
+                android:background="@color/colorE1E0E0"
+                android:layout_below="@id/pay_action_trade_money_content"
+                android:layout_marginTop="6dp"
+                android:layout_alignLeft="@id/pay_action_trade_address"
+                android:layout_alignRight="@id/pay_action_trade_address_action"/>
+
+            <TextView android:id="@+id/pay_action_trade_absenteeism"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="旷工费"
+                android:textSize="@dimen/text_size_13"
+                android:textColor="@color/color2C467B"
+                android:layout_below="@id/pay_action_trade_money_line"
+                android:layout_marginTop="17dp"
+                android:layout_alignLeft="@id/pay_action_trade_money"/>
+
+            <TextView android:id="@+id/pay_action_trade_absenteeism_content"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="0.000 XXX"
+                android:textColor="@color/colorB8BEC9"
+                android:textSize="@dimen/text_size_13"
+                android:layout_alignTop="@id/pay_action_trade_absenteeism"
+                android:layout_alignRight="@id/pay_action_trade_money_line"
+                />
+
+            <SeekBar
+                android:id="@+id/pay_action_trade_absenteeism_seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pay_action_trade_absenteeism"
+                android:background="@color/colorPrimary"
+                android:layout_alignLeft="@id/pay_action_trade_absenteeism"
+                android:layout_alignRight="@id/pay_action_trade_money_line"
+                android:layout_marginTop="8dp"/>
+
+            <Button android:id="@+id/pay_action_trade_button"
+                android:layout_width="320dp"
+                android:layout_height="44dp"
+                android:layout_below="@id/pay_action_trade_absenteeism_seekBar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="89dp"
+                android:background="@drawable/btn_selector_fingerprint"
+                android:text="支付"
+                android:textSize="@dimen/text_size_13"
+                android:textColor="@color/colorWhite"
+                android:layout_marginBottom="29dp"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 
 
 </RelativeLayout>
