@@ -147,7 +147,7 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
         payFragment = new PayFragment();
 
         //设置主界面内容
-        setMainFragment(identityFragment);
+        setMainFragment(identityFragment,"id");
         changeToolBarContent(R.id.nav_home_id);
 
     }
@@ -356,23 +356,23 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
     public void clickNavigationItemListener(int itemId) {
         switch (itemId) {
             case R.id.nav_home_id:
-                setMainFragment(identityFragment);
+                setMainFragment(identityFragment,"id");
                 changeToolBarContent(R.id.nav_home_id);
                 return;
             case R.id.nav_pay:
-                setMainFragment(payFragment);
+                setMainFragment(payFragment,"pay");
                 changeToolBarContent(R.id.nav_pay);
                 return;
             case R.id.nav_google_verity:
-                setMainFragment(googleVerityFragment);
+                setMainFragment(googleVerityFragment,"googleVerity");
                 changeToolBarContent(R.id.nav_google_verity);
                 return;
             case R.id.nav_current_time:
-                setMainFragment(currentTimeFragment);
+                setMainFragment(currentTimeFragment,"currentTime");
                 changeToolBarContent(R.id.nav_current_time);
                 return;
             case R.id.nav_monitoring_center:
-                setMainFragment(monitoringCenterFragment);
+                setMainFragment(monitoringCenterFragment,"monitoringCenter");
                 changeToolBarContent(R.id.nav_monitoring_center);
                 return;
             default:
@@ -384,10 +384,10 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
      * 设置主fragment
      * 切换当前的布局
      */
-    private void setMainFragment(Fragment fragment) {
+    private void setMainFragment(Fragment fragment,String tag) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.main_frame, fragment);
+        fragmentTransaction.replace(R.id.main_frame, fragment,tag);
         fragmentTransaction.commitAllowingStateLoss();
     }
 

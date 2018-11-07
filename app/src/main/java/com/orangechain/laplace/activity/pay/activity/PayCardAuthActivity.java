@@ -16,10 +16,12 @@ import android.widget.Toast;
 
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.activity.IndexActivity;
+import com.orangechain.laplace.activity.pay.PayFragment;
 import com.orangechain.laplace.base.BaseActivity;
 import com.orangechain.laplace.base.BaseActivityCollector;
 import com.orhanobut.dialogplus.DialogPlus;
 import com.orhanobut.dialogplus.OnClickListener;
+import com.orhanobut.dialogplus.OnDismissListener;
 import com.orhanobut.dialogplus.ViewHolder;
 
 public class PayCardAuthActivity extends BaseActivity {
@@ -43,19 +45,33 @@ public class PayCardAuthActivity extends BaseActivity {
             public void onClick(View v) {
 
                 //显示提示内容
-                DialogPlus dialog = DialogPlus.newDialog(PayCardAuthActivity.this)
+                final DialogPlus dialog = DialogPlus.newDialog(PayCardAuthActivity.this)
                         .setContentHolder(new ViewHolder(R.layout.input_pay_card_auth_fingerprint))
                         .setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
                         .setContentWidth(ViewGroup.LayoutParams.MATCH_PARENT)
                         .setOnClickListener(new OnClickListener() {
                             @Override
                             public void onClick(DialogPlus dialog, View view) {
-
                                 //回到首页 显示相关的内容
                                 if (isSueccess) {
-                                    BaseActivityCollector.finishAndGoBackHistoryActivity(IndexActivity.class);
-                                }
+                                    IndexActivity indexActivity = (IndexActivity) BaseActivityCollector.finishAndGoBackHistoryActivity(IndexActivity.class);
+                                    PayFragment payFragment = (PayFragment) indexActivity.getSupportFragmentManager().findFragmentByTag("pay");
+                                    payFragment.finishViewTag("addCard");
 
+
+
+                                }
+                            }
+                        })
+                        .setOnDismissListener(new OnDismissListener() {
+                            @Override
+                            public void onDismiss(DialogPlus dialog) {
+                                if (isSueccess) {
+                                    IndexActivity indexActivity = (IndexActivity) BaseActivityCollector.finishAndGoBackHistoryActivity(IndexActivity.class);
+                                    PayFragment payFragment = (PayFragment) indexActivity.getSupportFragmentManager().findFragmentByTag("pay");
+                                    payFragment.finishViewTag("addCard");
+
+                                }
                             }
                         })
                         .create();
@@ -74,7 +90,6 @@ public class PayCardAuthActivity extends BaseActivity {
 
                         @Override
                         public void onClick(View v) {
-//                            Toast.makeText(PayCardAuthActivity.this,"bububu",Toast.LENGTH_SHORT).show();
 
                             contentView.setVisibility(View.GONE);
                             successView.setVisibility(View.VISIBLE);

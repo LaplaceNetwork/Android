@@ -43,7 +43,7 @@ public class BaseActivityCollector {
     /**
      * 返回到指定历史活动
      */
-    public static void finishAndGoBackHistoryActivity(Class historyActivity) {
+    public static Activity finishAndGoBackHistoryActivity(Class historyActivity) {
         //倒叙
         for (int i = activities.size()-1;i>=0;i--) {
             Activity activity = activities.get(i);
@@ -52,10 +52,12 @@ public class BaseActivityCollector {
                 if (activity.getClass() != historyActivity) {
                     activity.finish();
                 } else {
-                    return;
+                    return activity;
                 }
             }
         }
+
+        return null;
     }
 
 }
