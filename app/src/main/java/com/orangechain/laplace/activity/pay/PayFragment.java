@@ -227,8 +227,10 @@ public class PayFragment extends BaseFragment implements CardStackView.ItemExpen
         if (!expend) {
             RelativeLayout cardLayout = superView.findViewById(R.id.pay_cardStackView_card_layout);
             RelativeLayout cardContract = superView.findViewById(R.id.pay_cardStackView_card_contract);
+            RelativeLayout cardContent = superView.findViewById(R.id.pay_cardStackView_card_content_layout);
             cardLayout.setVisibility(View.VISIBLE);
             cardContract.setVisibility(View.INVISIBLE);
+            cardContent.setVisibility(View.VISIBLE);
         }
 
 

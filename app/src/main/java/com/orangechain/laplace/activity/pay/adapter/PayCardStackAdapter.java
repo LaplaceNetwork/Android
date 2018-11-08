@@ -97,6 +97,20 @@ public class PayCardStackAdapter extends StackAdapter<PayCardBean> {
             //设置头部的颜色
             headerLayout.setBackgroundColor(mContext.getResources().getColor(bean.getColor()));
 
+            //创建内容list
+            PayCardDetailAdapter adapter = new PayCardDetailAdapter(mContext, R.layout.item_pay_detail_cardstackview, bean.getDetailBeans());
+            contentList.setAdapter(adapter);
+
+            desImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //进入卡片信息界面
+                    CardMessageActivity cardMessageActivity = new CardMessageActivity();
+                    cardMessageActivity.pushActivity(mContext);
+
+                }
+            });
+
             if (bean.getStatus() == PayCardEnum.cac) {
                 //解约
 
@@ -114,19 +128,7 @@ public class PayCardStackAdapter extends StackAdapter<PayCardBean> {
             } else if (bean.getStatus() == PayCardEnum.nor) {
                 //正常
 
-                //创建内容list
-                PayCardDetailAdapter adapter = new PayCardDetailAdapter(mContext, R.layout.item_pay_detail_cardstackview, bean.getDetailBeans());
-                contentList.setAdapter(adapter);
 
-                desImageView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //进入卡片信息界面
-                        CardMessageActivity cardMessageActivity = new CardMessageActivity();
-                        cardMessageActivity.pushActivity(mContext);
-
-                    }
-                });
 
             }
 
