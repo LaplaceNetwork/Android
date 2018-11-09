@@ -113,28 +113,26 @@ public class PayCardStackAdapter extends StackAdapter<PayCardBean> {
 
             if (bean.getStatus() == PayCardEnum.cac) {
                 //解约
-
-            } else if (bean.getStatus() == PayCardEnum.con) {
-                //签约
-                contractLayout.setVisibility(View.VISIBLE);
-                qrcodeLayout.setVisibility(View.VISIBLE);
-
                 headerLayout.setVisibility(View.INVISIBLE);
                 contentLayout.setVisibility(View.INVISIBLE);
 
+                contractLayout.setVisibility(View.VISIBLE);
+                qrcodeLayout.setVisibility(View.GONE);
+            } else if (bean.getStatus() == PayCardEnum.con) {
+                //签约
+                headerLayout.setVisibility(View.INVISIBLE);
+                contentLayout.setVisibility(View.INVISIBLE);
 
-
-
-            } else if (bean.getStatus() == PayCardEnum.nor) {
+                contractLayout.setVisibility(View.VISIBLE);
+                qrcodeLayout.setVisibility(View.VISIBLE);
+            } else {
                 //正常
+                headerLayout.setVisibility(View.VISIBLE);
+                contentLayout.setVisibility(View.VISIBLE);
 
-
-
+                contractLayout.setVisibility(View.GONE);
+                qrcodeLayout.setVisibility(View.GONE);
             }
-
-
-
-
 
         }
 

@@ -2,8 +2,6 @@ package com.orangechain.laplace.activity.pay.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.orangechain.laplace.R;
-import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.base.BaseActivity;
-import com.orangechain.laplace.base.BaseActivityCollector;
 import com.orhanobut.dialogplus.DialogPlus;
-import com.orhanobut.dialogplus.OnClickListener;
 import com.orhanobut.dialogplus.ViewHolder;
 
 public class CardMessageActivity extends BaseActivity {
@@ -88,7 +83,7 @@ public class CardMessageActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //查看交易信息
-                tradeMessageActivity tradeMessageActivity = new tradeMessageActivity();
+                TradeMessageActivity tradeMessageActivity = new TradeMessageActivity();
                 tradeMessageActivity.pushActivity(CardMessageActivity.this);
 
             }

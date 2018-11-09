@@ -2,19 +2,22 @@ package com.orangechain.laplace.activity.pay.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.ListView;
 
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.activity.pay.adapter.TradeMessageAdaptar;
 import com.orangechain.laplace.activity.pay.bean.TradeMessageBean;
 import com.orangechain.laplace.base.BaseActivity;
+import com.orangechain.laplace.base.BaseActivityCollector;
+import com.orangechain.laplace.enumutil.BackStatusEnum;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class tradeMessageActivity extends BaseActivity {
+public class TradeMessageActivity extends BaseActivity {
+
+    private static BackStatusEnum backEnum;//记录返回动作
 
     private List<TradeMessageBean> beanList = new ArrayList<>();
 
@@ -45,8 +48,33 @@ public class tradeMessageActivity extends BaseActivity {
     @Override
     public void pushActivity(Context context) {
 
-        Intent intent = getLaunchIntent(context,tradeMessageActivity.class);
+        Intent intent = getLaunchIntent(context,TradeMessageActivity.class);
         startWithNewAnimation(context,intent);
 
+    }
+
+    /**
+     * 类别跳转 根据跳转来的类做相应的回应
+     * @param context
+     * @param tagClass
+     */
+    public void pushActivity(Context context,Class tagClass) {
+
+        if (tagClass == PayActionActivity.class) {
+            //返回的时候直接返回到首页
+            backEnum = BackStatusEnum.gohome;
+        }
+        Intent intent = getLaunchIntent(context,TradeMessageActivity.class);
+        startWithNewAnimation(context,intent);
+
+    }
+
+    @Override
+    public void leftAction() {
+        if (backEnum == BackStatusEnum.gohome) {
+            BaseActivityCollector.finishAndGoBackHistoryActivity(IndexActivity.class);
+        } else {
+            super.leftAction();
+        }
     }
 }

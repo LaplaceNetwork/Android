@@ -50,7 +50,7 @@
         <activity android:name=".activity.pay.activity.PayCardAuthActivity" />
         <activity android:name=".activity.pay.activity.CardMessageActivity" />
         <activity android:name=".activity.pay.activity.UnboundActivity" />
-        <activity android:name=".activity.pay.activity.tradeMessageActivity" />
+        <activity android:name=".activity.pay.activity.TradeMessageActivity" />
         <activity android:name=".activity.pay.activity.PayActionActivity" />
     </application>
 

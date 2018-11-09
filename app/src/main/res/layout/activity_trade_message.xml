@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.pay.activity.tradeMessageActivity">
+    tools:context=".activity.pay.activity.TradeMessageActivity">
 
     <ListView android:id="@+id/trade_message_listview"
         android:layout_height="match_parent"
