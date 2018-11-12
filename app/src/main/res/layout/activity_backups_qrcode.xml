@@ -30,17 +30,27 @@
     </LinearLayout>
 
 
-    <TextView android:id="@+id/QRCode_textvieww"
+    <!--<TextView android:id="@+id/QRCode_textview"-->
+        <!--android:layout_height="315dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--android:layout_below="@id/QRCode_linearLayout"-->
+        <!--android:layout_marginTop="25dp"-->
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:text="这里将会显示二维码"-->
+        <!--android:gravity="center"-->
+        <!--android:textColor="@color/colorWhite"/>-->
+
+    <ImageView android:id="@+id/QRCode_imageview"
         android:layout_height="315dp"
         android:layout_width="match_parent"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_below="@id/QRCode_linearLayout"
         android:layout_marginTop="25dp"
-        android:background="@color/colorPrimary"
-        android:text="这里将会显示二维码"
         android:gravity="center"
-        android:textColor="@color/colorWhite"/>
+        android:background="@color/colorF3F3F3"/>
 
     <Button android:id="@+id/QRCode_save_button"
         android:layout_width="320dp"

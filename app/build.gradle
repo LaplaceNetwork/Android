@@ -32,4 +32,5 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:3.3.0'
     implementation 'com.loopeer.library:cardstack:1.0.2'
     implementation 'com.orhanobut:dialogplus:1.11@aar'
+    implementation 'com.google.zxing:core:3.3.3'
 }

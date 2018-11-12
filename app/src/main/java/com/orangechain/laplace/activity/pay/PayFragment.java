@@ -4,6 +4,7 @@ package com.orangechain.laplace.activity.pay;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,6 +26,7 @@ import com.loopeer.cardstack.CardStackView;
 import com.loopeer.cardstack.UpDownAnimatorAdapter;
 import com.loopeer.cardstack.UpDownStackAnimatorAdapter;
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.ToolUtil.QRCodeUtil;
 import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.activity.pay.adapter.PayCardStackAdapter;
 import com.orangechain.laplace.activity.pay.bean.PayCardBean;
@@ -297,6 +300,12 @@ public class PayFragment extends BaseFragment implements CardStackView.ItemExpen
 
 
             if (cardActionType == PayCardEnum.con) {
+
+                // 生成二维码
+                ImageView qr_imageView = selectViewHolder.itemView.findViewById(R.id.pay_cardStackView_card_content_qrcode_content_imageview);
+                Bitmap mBitmap = QRCodeUtil.createQRCodeBitmap("https://www.baidu.com", 100, 100);//之后根据具体的数据生成图片
+                qr_imageView.setImageBitmap(mBitmap);
+
                 progressText.setText("正在签约");
                 if (processNum >= 2) {
                     progressBar.setProgress(processNum - 1);
