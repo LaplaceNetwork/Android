@@ -52,6 +52,7 @@
         <activity android:name=".activity.pay.activity.UnboundActivity" />
         <activity android:name=".activity.pay.activity.TradeMessageActivity" />
         <activity android:name=".activity.pay.activity.PayActionActivity" />
+        <activity android:name=".activity.guideregistration.CaptureActivity"></activity>
     </application>
 
 </manifest>

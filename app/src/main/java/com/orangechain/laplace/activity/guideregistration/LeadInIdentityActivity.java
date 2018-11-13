@@ -35,7 +35,8 @@ public class LeadInIdentityActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //进入扫描界面
-
+                CaptureActivity captureActivity = new CaptureActivity();
+                captureActivity.pushActivity(LeadInIdentityActivity.this);
 
             }
         });
@@ -59,6 +60,7 @@ public class LeadInIdentityActivity extends BaseActivity {
 
             }
         });
+
 
 
 
