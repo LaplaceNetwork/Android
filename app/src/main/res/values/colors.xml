@@ -8,6 +8,7 @@
     <color name="colorBlack">#000000</color>
     <color name="colorWhiteTransparent">#80FFFFFF</color>
     <color name="colorGray">#B8BEC9</color>
+    <color name="transparent">#00000000</color>
 
     <!--UI颜色-->
     <color name="color022656">#022656</color>
@@ -37,7 +38,12 @@
     <color name="colorEAD00F">#EAD00F</color>
     <color name="colorF8E71C">#F8E71C</color>
     <color name="colorABB4C4">#ABB4C4</color>
-    <color name="colorD6D6D6">#D6D6D6</color>#
+    <color name="colorD6D6D6">#D6D6D6</color>
+
+    <!--扫描颜色-->
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="possible_result_points">#c0ffbd21</color> <!-- Android standard ICS color -->
 
 
 

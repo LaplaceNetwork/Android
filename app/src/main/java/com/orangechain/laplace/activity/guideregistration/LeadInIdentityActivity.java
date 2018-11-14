@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.base.BaseActivity;
+import com.orangechain.laplace.qrcamera.CaptureActivity;
 
 public class LeadInIdentityActivity extends BaseActivity {
 

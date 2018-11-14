@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.guideregistration.CaptureActivity">
+    tools:context=".qrcamera.CaptureActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <SurfaceView android:id="@+id/preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <com.orangechain.laplace.qrcamera.ViewfinderView
+        android:id="@+id/viewfinder_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <TextView android:id="@+id/status_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@color/transparent"
+        android:text="请将条码置于取景框内扫描"
+        android:textColor="@color/colorWhite"/>
+
+</merge>

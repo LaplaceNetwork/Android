@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.orangechain.laplace">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
 
     <application
         android:name=".base.basehelper.MyApplication"
@@ -52,7 +56,7 @@
         <activity android:name=".activity.pay.activity.UnboundActivity" />
         <activity android:name=".activity.pay.activity.TradeMessageActivity" />
         <activity android:name=".activity.pay.activity.PayActionActivity" />
-        <activity android:name=".activity.guideregistration.CaptureActivity"></activity>
+        <activity android:name=".qrcamera.CaptureActivity"></activity>
     </application>
 
 </manifest>
