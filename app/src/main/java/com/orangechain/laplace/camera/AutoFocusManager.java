@@ -23,7 +23,7 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.orangechain.laplace.qrcamera.PreferencesActivity;
+import com.orangechain.laplace.cameraqrcode.PreferencesActivity;
 
 import java.util.ArrayList;
 import java.util.Collection;

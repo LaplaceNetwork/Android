@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.orangechain.laplace.qrcamera;
+package com.orangechain.laplace.cameraqrcode;
 
 import com.google.zxing.ResultPoint;
 import com.google.zxing.ResultPointCallback;

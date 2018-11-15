@@ -1,4 +1,4 @@
-package com.orangechain.laplace.qrcamera;
+package com.orangechain.laplace.cameraqrcode;
 
 import android.Manifest;
 import android.app.Activity;
@@ -28,6 +28,7 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultMetadataType;
 import com.google.zxing.client.result.ResultParser;
 import com.orangechain.laplace.R;
+import com.orangechain.laplace.activity.guideregistration.LeadInIdentityActivity;
 import com.orangechain.laplace.base.BaseActivity;
 import com.orangechain.laplace.camera.CameraManager;
 
@@ -45,7 +46,7 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
 
     private static final long DEFAULT_INTENT_RESULT_DURATION_MS = 1500L;
     private static final long BULK_MODE_SCAN_DELAY_MS = 1000L;
-    public static String KEY_DATA = "key_data";
+    public static String KEY_DATA = "key_data"; //作为最后返回数据的标志位
 
     private static final Collection<ResultMetadataType> DISPLAYABLE_METADATA_TYPES =
             EnumSet.of(ResultMetadataType.ISSUE_NUMBER,
@@ -60,7 +61,7 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
     private TextView statusView;
     //  private View resultView;
     private Result lastResult;
-    private boolean hasSurface;
+    private boolean hasSurface; //判断是否含有SurfaceView
     private IntentSource source;
     private Collection<BarcodeFormat> decodeFormats;
     private Map<DecodeHintType, ?> decodeHints;
@@ -83,28 +84,19 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
 
         setToolBarText("二维码扫描");
 
-        Window window = getWindow();
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        inactivityTimer = new InactivityTimer(this);
-        beepManager = new BeepManager(this);
-        ambientLightManager = new AmbientLightManager(this);
-
-        hasSurface = false;
         //检查权限
         for (int i = 0; i < permissions.length; i++) {
-
             if (ContextCompat.checkSelfPermission(this, permissions[i]) != PackageManager.PERMISSION_GRANTED) {
-
+                //有权限尚未打开
                 mPermissionList.add(permissions[i]);
-
                 if (!mPermissionList.isEmpty()) {
                     String[] permissions = mPermissionList.toArray(new String[mPermissionList.size()]);//将List转为数组
                     ActivityCompat.requestPermissions(this, permissions, 10000);
                 }
-
             }
-
         }
+
+        /******************/
 
 //        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
 //        {
@@ -124,26 +116,54 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
 //
 //        }
 
+        Window window = getWindow();
+        //保持屏幕常亮
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        inactivityTimer = new InactivityTimer(this);//计时器
+        beepManager = new BeepManager(this);//震动
+        ambientLightManager = new AmbientLightManager(this);//闪光
+
+        hasSurface = false;
 
     }
 
+
+    /**
+     * 检查权限是否开启
+     * @param requestCode
+     * @param permissions
+     * @param grantResults
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
 
             case 10000:
 
+                int Mark = 0;//标记权限是否全部开启
+
                 for (int i = 0; i < grantResults.length; i++) {
                     if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
-                        //判断是否勾选禁止后不再询问
+                        //判断是否勾选禁止后不再询问  如果返回false 则不再询问
                         boolean showRequestPermission = ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[i]);
                         if (showRequestPermission) {
                             Toast.makeText(this, "请开启权限", Toast.LENGTH_SHORT).show();
-
-
+                        } else {
+                            Toast.makeText(this, "权限尚未开启", Toast.LENGTH_SHORT).show();
                         }
+                    } else {
+                        Mark++;
                     }
                 }
+
+                if (Mark != 0 & Mark == grantResults.length) {
+
+                    //重现打开预览
+
+                }
+
+                /******************/
 
 //                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 //
@@ -173,12 +193,11 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
 
     @Override
     public void pushActivity(Context context) {
-
         Intent intent = getLaunchIntent(context, CaptureActivity.class);
         startWithNewAnimation(context, intent);
-
     }
 
+    //获取自定义界面
     ViewfinderView getViewfinderView() {
         return viewfinderView;
     }
@@ -200,7 +219,6 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
 //        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 //        setContentView(R.layout.capture);
 //
-//
 //        hasSurface = false;
 //        inactivityTimer = new InactivityTimer(this);
 //        beepManager = new BeepManager(this);
@@ -218,13 +236,12 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
         viewfinderView.setCameraManager(cameraManager);
 
         //    resultView = findViewById(R.id.result_view);
-        statusView = (TextView) findViewById(R.id.status_view);
+        statusView = (TextView) findViewById(R.id.status_view); //提示语
 
         handler = null;
         lastResult = null;
 
         resetStatusView();
-
 
         beepManager.updatePrefs();
         ambientLightManager.start(cameraManager);
@@ -301,7 +318,7 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
         return super.onKeyDown(keyCode, event);
     }
 
-
+    //处理图片数据
     private void decodeOrStoreSavedBitmap(Bitmap bitmap, Result result) {
         // Bitmap isn't used yet -- will be used soon
         if (handler == null) {
@@ -318,6 +335,10 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
         }
     }
 
+    /**
+     * surface 对应的三个回调
+     * @param holder
+     */
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         if (holder == null) {
@@ -373,22 +394,32 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
 
     }
 
+    /**
+     * 处理最终的结果 返回到调用界面
+     * @param result
+     */
     private void handleResult(String result) {
+
+        Toast.makeText(this,"读取内容:" + result,Toast.LENGTH_LONG).show();
+
+        //这边回调方式修改一下
         Intent intent = new Intent();
         intent.putExtra(KEY_DATA, result);
         setResult(Activity.RESULT_OK, intent);
         finish();
     }
 
-
     private void initCamera(SurfaceHolder surfaceHolder) {
+
         if (surfaceHolder == null) {
             throw new IllegalStateException("No SurfaceHolder provided");
         }
+
         if (cameraManager.isOpen()) {
             Log.w(TAG, "initCamera() while already open -- late SurfaceView callback?");
             return;
         }
+
         try {
             cameraManager.openDriver(surfaceHolder);
             // Creating the handler starts the preview, which can also throw a RuntimeException.
@@ -396,6 +427,7 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
                 handler = new CaptureActivityHandler(this, decodeFormats, decodeHints, characterSet, cameraManager);
             }
             decodeOrStoreSavedBitmap(null, null);
+
         } catch (IOException ioe) {
             Log.w(TAG, ioe);
             displayFrameworkBugMessageAndExit();
@@ -409,11 +441,11 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
 
     private void displayFrameworkBugMessageAndExit() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //    builder.setTitle(getString(R.string.app_name));
-        builder.setMessage("很遗憾，Android 相机出现问题。你可能需要重启设备");
+        builder.setTitle("提示");
+        builder.setMessage("很遗憾，Android 相机出现问题。你可能需要开启权限");
         builder.setPositiveButton("确定", new FinishListener(this));
-        builder.setOnCancelListener(new FinishListener(this));
-        builder.show();
+//        builder.setOnCancelListener(new FinishListener(this));
+        builder.create().show();
     }
 
     public void restartPreviewAfterDelay(long delayMS) {
@@ -423,6 +455,9 @@ public class CaptureActivity extends BaseActivity implements SurfaceHolder.Callb
         resetStatusView();
     }
 
+    /**
+     * 重置界面各个view的状态
+     */
     private void resetStatusView() {
         //    resultView.setVisibility(View.GONE);
         statusView.setText("请将条码置于取景框内扫描");

@@ -28,7 +28,7 @@ import android.view.WindowManager;
 
 import com.orangechain.laplace.camera.open.CameraFacing;
 import com.orangechain.laplace.camera.open.OpenCamera;
-import com.orangechain.laplace.qrcamera.PreferencesActivity;
+import com.orangechain.laplace.cameraqrcode.PreferencesActivity;
 
 /**
  * A class which deals with reading, parsing, and setting the camera parameters which are used to

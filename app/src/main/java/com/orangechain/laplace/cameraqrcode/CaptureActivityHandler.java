@@ -1,4 +1,4 @@
-package com.orangechain.laplace.qrcamera;
+package com.orangechain.laplace.cameraqrcode;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.orangechain.laplace.qrcamera;
+package com.orangechain.laplace.cameraqrcode;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -127,6 +127,9 @@ public final class ViewfinderView extends View
       return; // not ready yet, early draw before done configuring
     }
     Rect frame = cameraManager.getFramingRect();//获取二维码扫描识别区域，区域外遮罩层
+
+//    frame = new Rect(100,100,600,600);
+
     if (frame == null) {
       return;
     }

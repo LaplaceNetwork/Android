@@ -15,13 +15,13 @@
         android:layout_marginLeft="31dp"
         android:src="@drawable/baseline_crop_free_black_24dp"/>
 
-    <ImageView android:id="@+id/lead_in_back_imageview"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/baseline_clear_black_24dp"/>
+    <!--<ImageView android:id="@+id/lead_in_back_imageview"-->
+        <!--android:layout_width="20dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:src="@drawable/baseline_clear_black_24dp"/>-->
 
     <TextView
         android:id="@+id/lead_in_name_textview"

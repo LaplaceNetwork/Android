@@ -18,7 +18,7 @@ package com.orangechain.laplace.camera;
 
 import android.content.SharedPreferences;
 
-import com.orangechain.laplace.qrcamera.PreferencesActivity;
+import com.orangechain.laplace.cameraqrcode.PreferencesActivity;
 
 
 /**

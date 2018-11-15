@@ -56,7 +56,7 @@
         <activity android:name=".activity.pay.activity.UnboundActivity" />
         <activity android:name=".activity.pay.activity.TradeMessageActivity" />
         <activity android:name=".activity.pay.activity.PayActionActivity" />
-        <activity android:name=".qrcamera.CaptureActivity"></activity>
+        <activity android:name=".cameraqrcode.CaptureActivity"></activity>
     </application>
 
 </manifest>

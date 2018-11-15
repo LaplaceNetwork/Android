@@ -1,4 +1,4 @@
-package com.orangechain.laplace.qrcamera;
+package com.orangechain.laplace.cameraqrcode;
 
 import android.content.Intent;
 import android.net.Uri;
