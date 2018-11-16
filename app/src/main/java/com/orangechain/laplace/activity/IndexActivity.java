@@ -33,6 +33,7 @@ import com.orangechain.laplace.activity.pay.activity.PayAddCardActivity;
 import com.orangechain.laplace.base.BaseActivityCollector;
 import com.orangechain.laplace.base.BaseBottomNavigationActivity;
 import com.orangechain.laplace.base.laplaceBaseView.laplaceToolbar;
+import com.orangechain.laplace.cameraqrcode.CaptureActivity;
 import com.orangechain.laplace.interfac.BottomNavigationViewInterface;
 
 
@@ -295,8 +296,15 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
                     @Override
                     public void onClick(View v) {
                         //进入二维码界面
-                        QRCodeActivity qrCodeActivity = new QRCodeActivity();
-                        qrCodeActivity.pushActivity(IndexActivity.this);
+//                        QRCodeActivity qrCodeActivity = new QRCodeActivity();
+//                        qrCodeActivity.pushActivity(IndexActivity.this);
+
+                        //进入扫描界面
+                        CaptureActivity captureActivity = new CaptureActivity();
+                        captureActivity.pushActivity(IndexActivity.this);
+
+
+
                     }
                 });
 
