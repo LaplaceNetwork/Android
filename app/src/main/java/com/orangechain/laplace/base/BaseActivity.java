@@ -16,25 +16,17 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 import com.orangechain.laplace.R;
-import com.orangechain.laplace.ToolUtil.SizeConvertUtil;
 import com.orangechain.laplace.ToolUtil.statusBarUtil.StatusBarSetting;
 import com.orangechain.laplace.activity.IndexActivity;
-import com.orangechain.laplace.base.basehelper.MyApplication;
 import com.orangechain.laplace.base.laplaceBaseView.laplaceToolbar;
 import com.orangechain.laplace.ToolUtil.logUtil;
 
@@ -509,10 +501,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         StatusBarSetting.setStatusBarColor(activity,statusColor);
 
-////                setStatusBarColor
-//
+
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//
 //            Window window = activity.getWindow();
 //            //取消状态栏透明
 //            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -531,9 +521,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 //            }
 //
 //        } else {
-//
-//
-//
 //
 //        }
     }

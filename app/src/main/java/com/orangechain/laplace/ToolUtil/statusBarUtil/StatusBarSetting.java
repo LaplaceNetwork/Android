@@ -15,11 +15,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-public class StatusBarSetting {
 
+public class StatusBarSetting {
 
     public static void setStatusBarColor(Activity activity, int statusColor) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

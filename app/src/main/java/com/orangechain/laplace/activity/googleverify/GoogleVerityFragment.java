@@ -1,15 +1,25 @@
 package com.orangechain.laplace.activity.googleverify;
 
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.orangechain.laplace.R;
 import com.orangechain.laplace.activity.IndexActivity;
 import com.orangechain.laplace.activity.googleverify.adapter.GoogleVerityFragmentAdapter;
 import com.orangechain.laplace.activity.googleverify.bean.GoogleVerityFragmentBean;
+import com.orangechain.laplace.activity.pay.PayFragment;
+import com.orangechain.laplace.activity.pay.activity.PayCardAuthActivity;
+import com.orangechain.laplace.base.BaseActivityCollector;
 import com.orangechain.laplace.base.BaseFragment;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.OnClickListener;
+import com.orhanobut.dialogplus.OnDismissListener;
+import com.orhanobut.dialogplus.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +48,37 @@ public class GoogleVerityFragment extends BaseFragment {
         list.add(bean0);
         list.add(bean1);
 
-        GoogleVerityFragmentAdapter adapter = new GoogleVerityFragmentAdapter(getActivity(), R.layout.item_google_verification_fragment, list);
-        ListView listView = view.findViewById(R.id.Google_verification_listview);
+        final GoogleVerityFragmentAdapter adapter = new GoogleVerityFragmentAdapter(getActivity(), R.layout.item_google_verification_fragment, list);
+        final ListView listView = view.findViewById(R.id.Google_verification_listview);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+
+                //显示提示内容
+                final DialogPlus dialog = DialogPlus.newDialog(mView.getContext())
+                        .setContentHolder(new ViewHolder(R.layout.input_google_verity_delete))
+                        .setContentHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
+                        .setContentWidth(ViewGroup.LayoutParams.MATCH_PARENT)
+                        .setGravity(Gravity.CENTER)
+                        .setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void onClick(DialogPlus dialog, View view) {
+                                //删除对应的内容
+                                list.remove(position);
+                                adapter.notifyDataSetChanged();
+                                dialog.dismiss();
+                            }
+                        })
+                        .create();
+                dialog.show();
+
+            }
+        });
+
+
+
 
     }
 

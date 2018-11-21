@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    >
+
+    <Button android:id="@+id/input_google_verity_delete_view"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="删除"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_13"
+        android:background="@drawable/btn_selector_input_password_confirm"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

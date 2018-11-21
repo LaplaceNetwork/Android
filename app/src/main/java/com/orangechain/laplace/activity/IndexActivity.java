@@ -40,7 +40,7 @@ import com.orangechain.laplace.interfac.BottomNavigationViewInterface;
 public class IndexActivity extends BaseBottomNavigationActivity implements BottomNavigationViewInterface {
 
     //初次初始化
-    private boolean isFirstInit = true;
+    private boolean isFirstInit = false;
     private int currentPage; //记录当前的主功能界面
 
     //几个主要的home界面
@@ -71,6 +71,7 @@ public class IndexActivity extends BaseBottomNavigationActivity implements Botto
         intentFilter.addAction("com.orangechain.laplace.IndexActivity.LOCAL_BROADCAST");
         localReceiver = new LocalReceiver();
         localBroadcastManager.registerReceiver(localReceiver, intentFilter);
+
 
     }
 
