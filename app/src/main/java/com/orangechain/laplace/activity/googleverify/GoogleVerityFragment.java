@@ -77,9 +77,6 @@ public class GoogleVerityFragment extends BaseFragment {
             }
         });
 
-
-
-
     }
 
     @Override
